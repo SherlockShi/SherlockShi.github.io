@@ -407,6 +407,8 @@
 <h1 id="5-问题5："><a href="#5-问题5：" class="headerlink" title="5. 问题5："></a>5. 问题5：</h1><p>Q: 首页的文章目录，怎么设置显示部分摘要和read more?</p>
 <p>A:在文章中加一行如下的标记，在这个标记之前的就是摘要</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="6-问题6："><a href="#6-问题6：" class="headerlink" title="6. 问题6："></a>6. 问题6：</h1><p>Q：运行<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>命令后报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure></p>
+<p>A：执行以下命令，安装hexo-deployer-git自动部署发布工具：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     </entry>
     
@@ -677,6 +679,12 @@ ld  | dk  | dk
     </entry>
     
     <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://yoursite.com/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[tags]]></title>
       <url>http://yoursite.com/tags/index%E5%89%AF%E6%9C%AC.html</url>
       <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
@@ -686,12 +694,6 @@ ld  | dk  | dk
     <entry>
       <title></title>
       <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://yoursite.com/reading/index.html</url>
       <content type="html"></content>
     </entry>
     
