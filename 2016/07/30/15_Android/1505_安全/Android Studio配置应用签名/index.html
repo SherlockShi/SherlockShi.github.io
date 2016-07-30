@@ -7,13 +7,17 @@
 
     
 
-    <title>Hexo | SherlockShi的个人博客</title>
+    <title>Android Studio配置应用签名 | SherlockShi的个人博客</title>
     <meta name="author" content="SherlockShi">
+    
+    <meta name="description" content="本文主要参考：在gradle中为release版本配置签名
+
+任何一个Android APK 发布之前都会进行签名，没有签名的APK是无法在Android device上进行安装和使用的，而且对于发布到Google Play上的同一个应用，自始至终必须使用同一个签名文件，所以必须保存好签名文件。本文介绍如何在build.gradle中为release版本配置签名文件，这样在打包release版本时可以自动进行签名。">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="Android Studio配置应用签名"/>
     <meta property="og:site_name" content="SherlockShi&#39;s home"/>
 
     
@@ -303,36 +307,108 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/安全/">安全</a>
+
 
         
-            <a class="breadcrumb" href="/categories/博客/Hexo/">Hexo</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Android Studio配置应用签名</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2016-07-30T00:17:34.000Z"><a href="/2016/07/30/15_Android/1505_安全/Android Studio配置应用签名/">2016-07-30</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="/2016/06/23/30_博客/3005_Hexo/使用Hexo搭建个人博客过程的各种问题/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-06-23T13:47:09.000Z">2016-06-23</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                使用Hexo搭建个人博客过程的各种问题
-            </a>
+            <a href="/tags/Android/" class="chip pink lighten-1">Android</a>
         
-            <a href="/2016/04/19/30_博客/3005_Hexo/Hexo入门/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-04-19T14:05:38.000Z">2016-04-19</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                Hexo入门
-            </a>
+            <a href="/tags/签名/" class="chip pink lighten-1">签名</a>
+        
+            <a href="/tags/Android-Studio/" class="chip pink lighten-1">Android Studio</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#明文配置"><span class="section table-of-contents-text">明文配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#隐藏密码配置"><span class="section table-of-contents-text">隐藏密码配置</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <blockquote>
+<p>本文主要参考：<br><a href="http://dxjia.cn/2016/03/04/config-signature-in-gradle-for-release-version/" target="_blank" rel="external">在gradle中为release版本配置签名</a></p>
+</blockquote>
+<p>任何一个Android APK 发布之前都会进行签名，没有签名的APK是无法在Android device上进行安装和使用的，而且对于发布到Google Play上的同一个应用，自始至终必须使用同一个签名文件，所以必须保存好签名文件。本文介绍如何在<code>build.gradle</code>中为release版本配置签名文件，这样在打包release版本时可以自动进行签名。</p>
+<a id="more"></a>
+<h1 id="明文配置"><a href="#明文配置" class="headerlink" title="明文配置"></a>明文配置</h1><p>一般来说，我们直接在Android Studio中配置签名文件，是使用明文配置的，如：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">    signingConfigs &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            storeFile file(<span class="string">"/Users/xxx/release_key.jks"</span>)</span><br><span class="line">            storePassword <span class="string">"123456789"</span></span><br><span class="line">            keyAlias <span class="string">"release_key_alias"</span></span><br><span class="line">            keyPassword <span class="string">"987654321"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            signingConfig signingConfigs.release</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：此处的<code>storeFile</code>，如果是在Windows系统下，会是以下格式<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">storeFile file(<span class="string">"C\:\\Users\\xxx\\release_key.jks"</span>)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这样在打包release版本时就会自动签名了。</p>
+<h1 id="隐藏密码配置"><a href="#隐藏密码配置" class="headerlink" title="隐藏密码配置"></a>隐藏密码配置</h1><p>如果你的代码不会开源，或者是公司项目，公司会保护的很好，那么直接用上面的方式就可以了。但如果是开源项目，那么上面的写法就不太可取了 ，因为这样直接配置会暴露密码啊。接下来介绍如果隐藏密码进行配置：</p>
+<blockquote>
+<p>利用<code>property</code>，将密码和签名文件路径信息保存在项目根目录的<code>local.properties</code>文件里，因为这个文件一般都在<code>.gitignore</code>里自动配置了，所以不会上传出去。  </p>
+</blockquote>
+<p>在根目录的<code>local.properties</code>文件中配置以下内容：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keystore.path=<span class="regexp">/Users/</span>xxx/release_key.jks</span><br><span class="line">keystore.password=<span class="number">123456789</span></span><br><span class="line">keystore.alias=release_key_alias</span><br><span class="line">keystore.alias_password=<span class="number">987654321</span></span><br></pre></td></tr></table></figure></p>
+<p>然后在你的app目录的<code>build.gradle</code>文件中增加以下代码：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// =====配置keystore start=====</span></span><br><span class="line"><span class="keyword">def</span> keystoreFilePath = <span class="string">''</span></span><br><span class="line"><span class="keyword">def</span> keystorePSW = <span class="string">''</span></span><br><span class="line"><span class="keyword">def</span> keystoreAlias = <span class="string">''</span></span><br><span class="line"><span class="keyword">def</span> keystoreAliasPSW = <span class="string">''</span></span><br><span class="line"><span class="comment">// default keystore file, PLZ config file path in local.properties</span></span><br><span class="line"><span class="keyword">def</span> keyfile = file(<span class="string">'s.keystore.temp'</span>)</span><br><span class="line"></span><br><span class="line">Properties properties = <span class="keyword">new</span> Properties()</span><br><span class="line"><span class="comment">// local.properties file in the root director</span></span><br><span class="line">properties.load(project.rootProject.file(<span class="string">'local.properties'</span>).newDataInputStream())</span><br><span class="line">keystoreFilePath = properties.getProperty(<span class="string">"keystore.path"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (keystoreFilePath) &#123;</span><br><span class="line">    keystorePSW = properties.getProperty(<span class="string">"keystore.password"</span>)</span><br><span class="line">    keystoreAlias = properties.getProperty(<span class="string">"keystore.alias"</span>)</span><br><span class="line">    keystoreAliasPSW = properties.getProperty(<span class="string">"keystore.alias_password"</span>)</span><br><span class="line">    keyfile = file(keystoreFilePath)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// =====配置keystore end=====</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    signingConfigs &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            storeFile keyfile</span><br><span class="line">            storePassword keystorePSW</span><br><span class="line">            keyAlias keystoreAlias</span><br><span class="line">            keyPassword keystoreAliasPSW</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="keyword">if</span> (keyfile.exists()) &#123;</span><br><span class="line">                signingConfig signingConfigs.release</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样就达到了隐藏的目的。</p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/07/30/15_Android/1505_安全/Android Studio配置应用签名/" data-title="Android Studio配置应用签名" data-url="http://yoursite.com/2016/07/30/15_Android/1505_安全/Android Studio配置应用签名/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'sherlockshi'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>

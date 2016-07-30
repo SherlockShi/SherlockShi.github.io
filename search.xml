@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[Android Studio配置应用签名]]></title>
+      <url>http://yoursite.com/2016/07/30/15_Android/1505_%E5%AE%89%E5%85%A8/Android%20Studio%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本文主要参考：<br><a href="http://dxjia.cn/2016/03/04/config-signature-in-gradle-for-release-version/" target="_blank" rel="external">在gradle中为release版本配置签名</a></p>
+</blockquote>
+<p>任何一个Android APK 发布之前都会进行签名，没有签名的APK是无法在Android device上进行安装和使用的，而且对于发布到Google Play上的同一个应用，自始至终必须使用同一个签名文件，所以必须保存好签名文件。本文介绍如何在<code>build.gradle</code>中为release版本配置签名文件，这样在打包release版本时可以自动进行签名。</p>
+<a id="more"></a>
+<h1 id="明文配置"><a href="#明文配置" class="headerlink" title="明文配置"></a>明文配置</h1><p>一般来说，我们直接在Android Studio中配置签名文件，是使用明文配置的，如：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">    signingConfigs &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            storeFile file(<span class="string">"/Users/xxx/release_key.jks"</span>)</span><br><span class="line">            storePassword <span class="string">"123456789"</span></span><br><span class="line">            keyAlias <span class="string">"release_key_alias"</span></span><br><span class="line">            keyPassword <span class="string">"987654321"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            signingConfig signingConfigs.release</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：此处的<code>storeFile</code>，如果是在Windows系统下，会是以下格式<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">storeFile file(<span class="string">"C\:\\Users\\xxx\\release_key.jks"</span>)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这样在打包release版本时就会自动签名了。</p>
+<h1 id="隐藏密码配置"><a href="#隐藏密码配置" class="headerlink" title="隐藏密码配置"></a>隐藏密码配置</h1><p>如果你的代码不会开源，或者是公司项目，公司会保护的很好，那么直接用上面的方式就可以了。但如果是开源项目，那么上面的写法就不太可取了 ，因为这样直接配置会暴露密码啊。接下来介绍如果隐藏密码进行配置：</p>
+<blockquote>
+<p>利用<code>property</code>，将密码和签名文件路径信息保存在项目根目录的<code>local.properties</code>文件里，因为这个文件一般都在<code>.gitignore</code>里自动配置了，所以不会上传出去。  </p>
+</blockquote>
+<p>在根目录的<code>local.properties</code>文件中配置以下内容：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">keystore.path=<span class="regexp">/Users/</span>xxx/release_key.jks</span><br><span class="line">keystore.password=<span class="number">123456789</span></span><br><span class="line">keystore.alias=release_key_alias</span><br><span class="line">keystore.alias_password=<span class="number">987654321</span></span><br></pre></td></tr></table></figure></p>
+<p>然后在你的app目录的<code>build.gradle</code>文件中增加以下代码：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// =====配置keystore start=====</span></span><br><span class="line"><span class="keyword">def</span> keystoreFilePath = <span class="string">''</span></span><br><span class="line"><span class="keyword">def</span> keystorePSW = <span class="string">''</span></span><br><span class="line"><span class="keyword">def</span> keystoreAlias = <span class="string">''</span></span><br><span class="line"><span class="keyword">def</span> keystoreAliasPSW = <span class="string">''</span></span><br><span class="line"><span class="comment">// default keystore file, PLZ config file path in local.properties</span></span><br><span class="line"><span class="keyword">def</span> keyfile = file(<span class="string">'s.keystore.temp'</span>)</span><br><span class="line"></span><br><span class="line">Properties properties = <span class="keyword">new</span> Properties()</span><br><span class="line"><span class="comment">// local.properties file in the root director</span></span><br><span class="line">properties.load(project.rootProject.file(<span class="string">'local.properties'</span>).newDataInputStream())</span><br><span class="line">keystoreFilePath = properties.getProperty(<span class="string">"keystore.path"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (keystoreFilePath) &#123;</span><br><span class="line">    keystorePSW = properties.getProperty(<span class="string">"keystore.password"</span>)</span><br><span class="line">    keystoreAlias = properties.getProperty(<span class="string">"keystore.alias"</span>)</span><br><span class="line">    keystoreAliasPSW = properties.getProperty(<span class="string">"keystore.alias_password"</span>)</span><br><span class="line">    keyfile = file(keystoreFilePath)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// =====配置keystore end=====</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    signingConfigs &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            storeFile keyfile</span><br><span class="line">            storePassword keystorePSW</span><br><span class="line">            keyAlias keystoreAlias</span><br><span class="line">            keyPassword keystoreAliasPSW</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="keyword">if</span> (keyfile.exists()) &#123;</span><br><span class="line">                signingConfig signingConfigs.release</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样就达到了隐藏的目的。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android ScrollView无法match_parent的问题]]></title>
+      <url>http://yoursite.com/2016/07/28/15_Android/1590_Others/Android%20ScrollView%E6%97%A0%E6%B3%95match_parent%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p>Android ScrollView无法match_parent的问题</p>
+<a id="more"></a>
+<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>在ScrollView的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android Studio常见问题]]></title>
       <url>http://yoursite.com/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -229,6 +261,21 @@
 <td>Ctrl + Y</td>
 </tr>
 <tr>
+<td>复制行</td>
+<td>Cmd + D</td>
+<td>Ctrl + D</td>
+</tr>
+<tr>
+<td>重命名</td>
+<td>Shift+F6</td>
+<td>Shift+F6</td>
+</tr>
+<tr>
+<td>重构</td>
+<td>Cmd + Option + M</td>
+<td>Shift+F6</td>
+</tr>
+<tr>
 <td>扩大缩小选中范围</td>
 <td>Option + Up/Down</td>
 <td>Ctrl + W/Ctrl + Shift + W</td>
@@ -408,7 +455,7 @@
 <p>A:在文章中加一行如下的标记，在这个标记之前的就是摘要</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="6-问题6："><a href="#6-问题6：" class="headerlink" title="6. 问题6："></a>6. 问题6：</h1><p>Q：运行<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>命令后报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure></p>
-<p>A：执行以下命令，安装hexo-deployer-git自动部署发布工具：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
+<p>A：执行以下命令，安装hexo-deployer-git自动部署发布工具：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     </entry>
     
@@ -679,16 +726,16 @@ ld  | dk  | dk
     </entry>
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://yoursite.com/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[tags]]></title>
       <url>http://yoursite.com/tags/index%E5%89%AF%E6%9C%AC.html</url>
       <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
 <h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://yoursite.com/reading/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>

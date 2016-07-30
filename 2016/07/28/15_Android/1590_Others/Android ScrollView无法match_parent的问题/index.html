@@ -7,13 +7,15 @@
 
     
 
-    <title>Hexo | SherlockShi的个人博客</title>
+    <title>Android ScrollView无法match_parent的问题 | SherlockShi的个人博客</title>
     <meta name="author" content="SherlockShi">
+    
+    <meta name="description" content="问题：Android ScrollView无法match_parent的问题">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="Android ScrollView无法match_parent的问题"/>
     <meta property="og:site_name" content="SherlockShi&#39;s home"/>
 
     
@@ -303,36 +305,94 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Others/">Others</a>
+
 
         
-            <a class="breadcrumb" href="/categories/博客/Hexo/">Hexo</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Android ScrollView无法match_parent的问题</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2016-07-28T08:22:06.000Z"><a href="/2016/07/28/15_Android/1590_Others/Android ScrollView无法match_parent的问题/">2016-07-28</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="/2016/06/23/30_博客/3005_Hexo/使用Hexo搭建个人博客过程的各种问题/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-06-23T13:47:09.000Z">2016-06-23</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                使用Hexo搭建个人博客过程的各种问题
-            </a>
+            <a href="/tags/Android/" class="chip pink lighten-1">Android</a>
         
-            <a href="/2016/04/19/30_博客/3005_Hexo/Hexo入门/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-04-19T14:05:38.000Z">2016-04-19</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                Hexo入门
-            </a>
+            <a href="/tags/ScrollView/" class="chip pink lighten-1">ScrollView</a>
+        
+            <a href="/tags/match-parent/" class="chip pink lighten-1">match_parent</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#问题："><span class="section table-of-contents-text">问题：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#解决办法："><span class="section table-of-contents-text">解决办法：</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p>Android ScrollView无法match_parent的问题</p>
+<a id="more"></a>
+<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>在ScrollView的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/07/28/15_Android/1590_Others/Android ScrollView无法match_parent的问题/" data-title="Android ScrollView无法match_parent的问题" data-url="http://yoursite.com/2016/07/28/15_Android/1590_Others/Android ScrollView无法match_parent的问题/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'sherlockshi'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>
