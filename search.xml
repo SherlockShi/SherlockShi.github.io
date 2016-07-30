@@ -725,12 +725,6 @@ ld  | dk  | dk
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://yoursite.com/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是SherlockShi，欢迎来到我的个人技术博客。</p>
@@ -742,6 +736,12 @@ ld  | dk  | dk
       <url>http://yoursite.com/tags/index%E5%89%AF%E6%9C%AC.html</url>
       <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
 <h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
   
