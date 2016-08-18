@@ -4,6 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[使用natapp进行微信本地开发调试]]></title>
+      <url>http://yoursite.com/2016/08/18/40_%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8natapp%E8%BF%9B%E8%A1%8C%E5%BE%AE%E4%BF%A1%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95/</url>
+      <content type="html"><![CDATA[<h1 id="一-在本地部署微信公众平台服务器"><a href="#一-在本地部署微信公众平台服务器" class="headerlink" title="一. 在本地部署微信公众平台服务器"></a>一. 在本地部署微信公众平台服务器</h1><p>在eclipse中使用tomcat部署微信公众平台程序</p>
+<a id="more"></a>
+<h1 id="二-注册natapp"><a href="#二-注册natapp" class="headerlink" title="二. 注册natapp"></a>二. 注册natapp</h1><blockquote>
+<p>参考<a href="https://natapp.cn/article/minecraft" target="_blank" rel="external">使用natapp超简单minecraft (我的世界) 映射开服,公网联机</a>  </p>
+</blockquote>
+<h3 id="1-购买一条tcp型隧道-免费-付费均可"><a href="#1-购买一条tcp型隧道-免费-付费均可" class="headerlink" title="1. 购买一条tcp型隧道,免费 付费均可."></a>1. 购买一条tcp型隧道,免费 付费均可.</h3><p><img src="https://cdn.natapp.cn/uploads/ueditor/php/upload/image/20160629/1467178441435956.jpeg" alt=""></p>
+<h3 id="2-在后台-gt-我的隧道-找到刚才那条购买的隧道-点击配置-输入如下配置"><a href="#2-在后台-gt-我的隧道-找到刚才那条购买的隧道-点击配置-输入如下配置" class="headerlink" title="2. 在后台-&gt;我的隧道 找到刚才那条购买的隧道,点击配置,输入如下配置"></a>2. 在后台-&gt;我的隧道 找到刚才那条购买的隧道,点击配置,输入如下配置</h3><blockquote>
+<p>因tomcat默认使用的端口号是8080，所以此处的本地端口可用<code>8080</code>  </p>
+</blockquote>
+<p><img src="https://cdn.natapp.cn/uploads/ueditor/php/upload/image/20160629/1467178723987028.jpeg" alt=""><br>配置好后,点击修改.</p>
+<h3 id="3-下载natapp"><a href="#3-下载natapp" class="headerlink" title="3. 下载natapp"></a>3. 下载natapp</h3><p>在<a href="natapp.cn">natapp.cn</a>下载相应版本的natapp.cn，并解压<br><img src="https://cdn.natapp.cn/uploads/ueditor/php/upload/image/20160529/1464510369724565.jpeg" alt=""></p>
+<h3 id="4-运行natapp"><a href="#4-运行natapp" class="headerlink" title="4. 运行natapp"></a>4. 运行natapp</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">natapp -authtoken=ee3e7xxxxx</span><br></pre></td></tr></table></figure>
+<p>在Linux/Mac 下 需要先给执行权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x natapp</span><br></pre></td></tr></table></figure></p>
+<p>然后再运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./natapp -authtoken=ee3e7xxxxx</span><br></pre></td></tr></table></figure></p>
+<p>运行成功,界面如下:<br><img src="https://cdn.natapp.cn/uploads/ueditor/php/upload/image/20160629/1467178873238844.jpeg" alt=""></p>
+<h1 id="三、配置微信公众平台"><a href="#三、配置微信公众平台" class="headerlink" title="三、配置微信公众平台"></a>三、配置微信公众平台</h1><p>在微信公众平台注册公众号后，在基本配置界面，填写URL：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp://ngrok.natapp.cn:33460/wechatsino/CoreServlet</span><br></pre></td></tr></table></figure></p>
+<p>点击保存即可（其余配置请参考微信公众平台进行配置）</p>
+<h1 id="四、调试"><a href="#四、调试" class="headerlink" title="四、调试"></a>四、调试</h1><p>此时，只要关注公众号后，发送消息或进行其它操作，微信公众平台就会把消息转发到上一步配置的URL对应的服务器，此处即为本地的工程，即可进行本地调试。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android Studio配置应用签名]]></title>
       <url>http://yoursite.com/2016/07/30/15_Android/1505_%E5%AE%89%E5%85%A8/Android%20Studio%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -715,14 +739,880 @@ ld  | dk  | dk
 ]]></content>
     </entry>
     
-  
-  
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/2002/10/14/25_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Java%E4%B8%8E%E6%A8%A1%E5%BC%8F(%E6%B8%85%E6%99%B0%E4%B9%A6%E7%AD%BE%E7%89%88)/src/readme2/</url>
+      <content type="html"><![CDATA[<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>��¼����Դ�����嵥�����տ����У�</title>
+</head>
+
+<body>
+
+<p>��</p>
+<p align="center"> <font size="7">��¼����Դ�����嵥�����տ����У�</font></p>
+<p align="center">&nbsp;</p>
+
+<table border="1" cellspacing="0" cellpadding="0" width="100%">
+  <tr>
+    <td>com.javapatterns.abstractfactory</td>
+    <td>���󹤳�ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.adapter</td>
+    <td>������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.bridge</td>
+    <td>����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.builder</td>
+    <td>������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.carp</td>
+    <td>����/�ۺϸ���ԭ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.chainofresp</td>
+    <td>������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.chainofresp.scheduler</td>
+    <td>ר�⣺��ʱ�������Ĵ���</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.command</td>
+    <td>����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.command.swingundo</td>
+    <td>ר�⣺Swing���е�������ͻָ�</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.composite</td>
+    <td>�ϳ�ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.decorator</td>
+    <td>װ��ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.dip</td>
+    <td>������תԭ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.doubledispatch</td>
+    <td>ר�⣺��������������</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.facade</td>
+    <td>����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.factorymethod</td>
+    <td>��������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.flyweight</td>
+    <td>��Ԫģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.immutable</td>
+    <td>����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.interfaces</td>
+    <td class="xl24">Java�ӿ�</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.interpreter</td>
+    <td>������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.isp</td>
+    <td>�ӿڸ���ԭ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.iterator</td>
+    <td>������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.javaio</td>
+    <td>ר�⣺����ģʽ��Java I/O�е�Ӧ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.keygen</td>
+    <td>ר�⣺���м��������뵥��������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.liskov</td>
+    <td>���ϴ���ԭ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.lod</td>
+    <td>�����ط���</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.mediator</td>
+    <td>��ͣ��ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.memento</td>
+    <td>����¼ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.multilingual</td>
+    <td>ר��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.observer</td>
+    <td>�۲���ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.observerawt</td>
+    <td>ר�⣺�۲���ģʽ��AWT�е��¼�����</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.observersax</td>
+    <td>ר�⣺�۲���ģʽ��SAX2������</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.observertimer</td>
+    <td>ר�⣺�۲���ģʽ��Swing��ʱ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.openclose</td>
+    <td>����-�ա�ԭ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.prototype</td>
+    <td>ԭʼģ��ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.proxy</td>
+    <td>����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.proxy.smartproxy</td>
+    <td>ר�⣺�������ô���</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.proxy.imageloader</td>
+    <td>ר�⣺��������������</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.serializable</td>
+    <td>ר�⣺JavaBean�ġ����ء��͡��ⶳ��</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.servlet</td>
+    <td>ר�⣺Servlet�����е�ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.simplefactory</td>
+    <td>�򵥹���ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.singleton</td>
+    <td>��̬ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.singleton.mxrecord</td>
+    <td>ר�⣺����ģʽ��MX��¼</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.state</td>
+    <td>״̬ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.strategy</td>
+    <td>����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.templatemethod</td>
+    <td>ģ�巽��ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.uml</td>
+    <td> ͳһ��ģ����UML����</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.visitor</td>
+    <td>������ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.windowadapter</td>
+    <td>ȱʡ����ģʽ</td>
+  </tr>
+  <tr>
+    <td>com.javapatterns.xmlproperties</td>
+    <td>ר�⣺������ģʽ��XMLProperties</td>
+  </tr>
+</table>
+
+<p><a href="http://www.phei.com.cn" target="_new">����֧����վ��http://www.phei.com.cn</a></p>
+<p><a href="http://WebEndsHere.com" target="_new">����֧����վ��http://WebEndsHere.com</a></p>
+<p><a href="mailto:JavaPatterns@yahoo.com" target="_blank" rel="external">������һ�����⣺JavaPatterns@yahoo.com</a></p>
+<p><a href="mailto:shejimoshi-subscribe@yahoogroups.com" target="_blank" rel="external">�μ�������,�����ߺ���������һͬ��������</a></p>
+<p><a href="readme1.htm">��¼һ��Դ�����嵥�����½����У�</a></p>
+<p>&nbsp;</p>
+</body>
+
+</html>
+]]></content>
+    </entry>
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://yoursite.com/reading/index.html</url>
-      <content type="html"></content>
+      <title></title>
+      <url>http://yoursite.com/2002/10/14/25_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Java%E4%B8%8E%E6%A8%A1%E5%BC%8F(%E6%B8%85%E6%99%B0%E4%B9%A6%E7%AD%BE%E7%89%88)/src/readme1/</url>
+      <content type="html"><![CDATA[<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>��¼һ��Դ�����嵥�����½����У� </title>
+</head>
+
+<body>
+
+<p align="center" style="text-align:center">&nbsp;
+</p><p align="center" style="text-align:center"><font size="7">��¼һ��Դ�����嵥�����½����У� </font>
+</p><p align="center" style="text-align:center">&nbsp; 
+<table border="1" cellspacing="0" cellpadding="0" width="100%">
+  <tr>
+    <td nowrap="" valign="bottom" width="50%"> 
+      <p>&nbsp;</p>
+      <p><b>��һ���ݡ�UML��ģʽ���� </b> </p>
+    </td>
+    <td nowrap="" width="50%">&nbsp;
+      
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.uml
+      
+      
+    </td>
+    <td nowrap="">
+      ͳһ��ģ����UML����
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      <p>&nbsp;</p>
+      <p><b>�ڶ����ݡ���������������ԭ�� </b> </p>
+    </td>
+    <td nowrap="">&nbsp;
+      
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.openclose
+      
+      
+    </td>
+    <td nowrap="">
+      ����-�ա�ԭ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.interfaces
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺Java�ӿ�
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.liskov
+      
+      
+    </td>
+    <td nowrap="">
+      ���ϴ���ԭ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.dip
+      
+      
+    </td>
+    <td nowrap="">
+      ������תԭ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.isp
+      
+      
+    </td>
+    <td nowrap="">
+      �ӿڸ���ԭ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.carp
+      
+      
+    </td>
+    <td nowrap="">
+      ����/�ۺϸ���ԭ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.lod
+      
+      
+    </td>
+    <td nowrap="">
+      �����ط���
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      <p>&nbsp;</p>
+      <p><b>�������ݡ�����ģʽ </b> </p>
+    </td>
+    <td nowrap="">&nbsp;
+      
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.simplefactory
+      
+      
+    </td>
+    <td nowrap="">
+      �򵥹���ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.factorymethod
+      
+      
+    </td>
+    <td nowrap="">
+      ��������ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td width="313" nowrap="" valign="bottom" style="width:206.0pt;padding:.75pt .75pt 0cm .75pt;
+  height:15.75pt"> 
+      com.javapatterns.abstractfactory
+      
+      
+    </td>
+    <td nowrap="" style="width:227.2pt;padding:
+  .75pt .75pt 0cm .75pt;height:15.75pt"> 
+      ���󹤳�ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.singleton
+      
+      
+    </td>
+    <td nowrap=""> ����ģʽ </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.singleton.mxrecord
+      
+      
+    </td>
+    <td nowrap=""> ר�⣺����ģʽ��MX��¼ </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.multilingual
+      
+      
+    </td>
+    <td nowrap=""> ר�⣺����ģʽ��������֧�� </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.keygen
+      
+      
+    </td>
+    <td nowrap=""> ר�⣺���м��������뵥��������ģʽ </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.builder
+      
+      
+    </td>
+    <td nowrap="">
+      ������ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.prototype
+      
+      
+    </td>
+    <td nowrap="">
+      ԭʼģ��ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.serializable
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺JavaBean�ġ����ء��͡��ⶳ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      <p>&nbsp;</p>
+      <p><b>���Ĳ��ݡ��ṹģʽ </b> </p>
+    </td>
+    <td nowrap="">&nbsp;
+      
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.adapter
+      
+      
+    </td>
+    <td nowrap=""> ������ģʽ </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.windowadapter
+      
+      
+    </td>
+    <td nowrap="">
+      ȱʡ����ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.xmlproperties
+      
+      
+    </td>
+    <td nowrap=""> ר�⣺������ģʽ��XMLProperties </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.composite
+      
+      
+    </td>
+    <td nowrap="">
+      �ϳ�ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.decorator
+      
+      
+    </td>
+    <td nowrap="">
+      װ��ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.javaio
+      
+      
+    </td>
+    <td nowrap=""> ר�⣺����ģʽ��Java I/O�е�Ӧ��</td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.proxy
+      
+      
+    </td>
+    <td nowrap="">
+      ����ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.proxy.smartproxy
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺�������ô���
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.proxy.imageloader
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺��������������
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.flyweight
+      
+      
+    </td>
+    <td nowrap="">
+      ��Ԫģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.facade
+      
+      
+    </td>
+    <td nowrap="">
+      ����ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.bridge
+      
+      
+    </td>
+    <td nowrap="">
+      ����ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      <p>&nbsp;</p>
+      <p><b>���岿�ݡ���Ϊģʽ </b> </p>
+    </td>
+    <td nowrap="">&nbsp;
+      
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.command.swingundo
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺Swing���е�������ͻָ�
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.immutable
+      
+      
+    </td>
+    <td nowrap="">
+      ����ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap=""> com.javapatterns.strategy </td>
+    <td nowrap="">      ����ģʽ  </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.templatemethod
+      
+      
+    </td>
+    <td nowrap="">
+      ģ�巽��ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.servlet
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺Servlet�����е�ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.observer
+      
+      
+    </td>
+    <td nowrap="">
+      �۲���ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.observerawt
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺�۲���ģʽ��AWT�е��¼�����
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.observersax
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺�۲���ģʽ��SAX2������
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.observertimer
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺�۲���ģʽ��Swing��ʱ��
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.iterator
+      
+      
+    </td>
+    <td nowrap="">
+      ������ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.chainofresp
+      
+      
+    </td>
+    <td nowrap="">
+      ������ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.chainofresp.scheduler
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺��ʱ�������Ĵ���
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.command
+      
+      
+    </td>
+    <td nowrap="">
+      ����ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.memento
+      
+      
+    </td>
+    <td nowrap="">
+      ����¼ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.state
+      
+      
+    </td>
+    <td nowrap="">
+      ״̬ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.doubledispatch
+      
+      
+    </td>
+    <td nowrap="">
+      ר�⣺��������������
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="" valign="bottom"> 
+      com.javapatterns.visitor
+      
+      
+    </td>
+    <td nowrap="">
+      ������ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.interpreter
+      
+      
+    </td>
+    <td nowrap="" valign="bottom"> 
+      ������ģʽ
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="">
+      com.javapatterns.mediator
+      
+      
+    </td>
+    <td nowrap="" valign="bottom"> 
+      ��ͣ��ģʽ
+      
+      
+    </td>
+  </tr>
+</table>
+&nbsp;
+
+
+
+</p><p>&nbsp;</p>
+<p><a href="http://www.phei.com.cn" target="_new">����֧����վ��http://www.phei.com.cn</a></p>
+<p><a href="http://WebEndsHere.com" target="_new">����֧����վ��http://WebEndsHere.com</a></p>
+<p><a href="mailto:JavaPatterns@yahoo.com" target="_blank" rel="external">������һ�����⣺JavaPatterns@yahoo.com</a></p>
+<p><a href="mailto:shejimoshi-subscribe@yahoogroups.com" target="_blank" rel="external">�μ�������,�����ߺ���������һͬ��������</a></p>
+<p><a href="readme2.htm">��¼����Դ�����嵥�����տ����У�</a></p>
+<p>&nbsp;</p>
+</body>
+
+</html>
+]]></content>
     </entry>
+    
+  
+  
     
     <entry>
       <title><![CDATA[关于]]></title>
@@ -732,16 +1622,22 @@ ld  | dk  | dk
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index%E5%89%AF%E6%9C%AC.html</url>
-      <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
-<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
+      <title><![CDATA[读书]]></title>
+      <url>http://yoursite.com/reading/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
       <url>http://yoursite.com/tags/index.html</url>
       <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index%E5%89%AF%E6%9C%AC.html</url>
+      <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
+<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
     </entry>
     
   
