@@ -1,370 +1,205 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-
-    <title>Android Studio入门教程 | SherlockShi的个人博客</title>
-    <meta name="author" content="SherlockShi">
-    
-    <meta name="description" content="1. 前言在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。">
-    
-    
+  <meta charset="utf-8">
+  
+  <title>Android Studio入门教程 | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <meta property="og:title" content="Android Studio入门教程"/>
-    <meta property="og:site_name" content="SherlockShi&#39;s home"/>
-
-    
-    <meta property="og:image" content="undefined"/>
-    
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="alternate" href="/atom.xml" title="SherlockShi&#39;s home" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/materialize.min.css">
-    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-
-    
-        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
-    
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="Android,Android Studio,开发工具,教程">
+  <meta name="description" content="1. 前言在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio入门教程">
+<meta property="og:url" content="http://sherlockshi.github.io/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/index.html">
+<meta property="og:site_name" content="SherlockShi's Home">
+<meta property="og:description" content="1. 前言在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/Snip20160724_1.png">
+<meta property="og:updated_time" content="2016-10-02T03:30:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio入门教程">
+<meta name="twitter:description" content="1. 前言在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。">
+<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/Snip20160724_1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;h1 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h1&gt;&lt;p&gt;在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。&lt;/p&gt;">
+  <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-
 <body>
-    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+  <div id="loading" class="active"></div>
 
-    <nav class="indigo">
-    <div class="nav-wrapper">
-        <a href="#" data-activates="main-menu" class="button-collapse">
-            <i class="fa fa-navicon"></i>
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">SherlockShi</h5>
+        <a href="mailto:sherlock_shi@163.com" title="sherlock_shi@163.com" class="mail">sherlock_shi@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              Home
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              Tags
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/sherlockshi" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://weibo.com/2283093752" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>SherlockShi&#39;s Home &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">SherlockShi&#39;s home</a>
-            <ul class="right hide-on-med-and-down">
-                
-                    <li>
-                        <a class="menu-home " href="/" >
-                            <i class="fa fa-home "></i>
-                            
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-archive " href="/archives" >
-                            <i class="fa fa-archive "></i>
-                            
-                            归档
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                            <i class="fa fa-bookmark "></i>
-                            
-                            分类
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-reading " href="/reading" >
-                            <i class="fa fa-book "></i>
-                            
-                            读书
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-about " href="/about" >
-                            <i class="fa fa-user "></i>
-                            
-                            关于
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-search modal-trigger " href="#search" >
-                            <i class="fa fa-search "></i>
-                            
-                            搜索
-                        </a>
-                    </li>
-                
-            </ul>
-            <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
+        <div class="flex-col header-title ellipsis">Android Studio入门教程</div>
         
-        <li class="side-user">
-            <div class="row">
-                <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://7xlpfl.com1.z0.glb.clouddn.com/SherlockShiAvatar.png" alt="User Avatar">
-                </div>
-                <div class="info col s8 valign-wrapper no-padding">
-                    <div class="valign">
-                        <p class="name">SherlockShi</p>
-                        <p class="desc">Android/动漫</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        
-
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-home " href="/" >
-                    <i class="fa fa-home "></i>
-                    
-                    首页
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-archive " href="/archives" >
-                    <i class="fa fa-archive "></i>
-                    
-                    归档
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                    <i class="fa fa-bookmark "></i>
-                    
-                    分类
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-reading " href="/reading" >
-                    <i class="fa fa-book "></i>
-                    
-                    读书
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-about " href="/about" >
-                    <i class="fa fa-user "></i>
-                    
-                    关于
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-search modal-trigger " href="#search" >
-                    <i class="fa fa-search "></i>
-                    
-                    搜索
-                </a>
-            </li>
-        
-    </ul>
-
-    <ul class="side-nav indigo darken-1" id="category-menu">
-    
-
-            
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Markdown/">
-                    Markdown <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/微信公众平台/">
-                    微信公众平台 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Android/">
-                    Android <span class="right">11 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/网络/">
-                    网络 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/Android/网络/HttpURLConnection/">
-                    HttpURLConnection <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/安全/">
-                    安全 <span class="right">3 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/Android/安全/代码混淆/">
-                    代码混淆 <span class="right">2 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/相机/">
-                    相机 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/Others/">
-                    Others <span class="right">2 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/View/">
-                    View <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/Android/View/RecyclerView/">
-                    RecyclerView <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/开发工具/">
-                    开发工具 <span class="right">3 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/Android/开发工具/Android-Studio/">
-                    Android-Studio <span class="right">3 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/博客/">
-                    博客 <span class="right">2 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/博客/Hexo/">
-                    Hexo <span class="right">2 篇</span></a>
-                </a>
-            </li>
-
-        
-
-    </ul>
-</div>
-
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
-    </div>
-</nav>
-
-<div id="search" class="modal search-modal">
-    <div class="row">
-        <div class="input-field col s12">
-              <input id="search-input" type="text">
-              <label for="search-input">搜索</label>
-        </div>
-
-    </div>
-    <div id="search-result" class="search-result col s12">
-
-    </div>
-</div>
-
-
-    <main>
-        <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（分类目录）</span>
         
-            
-    
-    
-    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/开发工具/">开发工具</a><a class="breadcrumb" href="/categories/Android/开发工具/Android-Studio/">Android Studio</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Android Studio入门教程</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-07-13T07:53:01.000Z" itemprop="datePublished" class="page-time">
+  2016-07-13
+</time>
 
 
         
+    </h5>
+  </div>
+</header>
 
+    <div class="container body-wrap">
+      <article id="post-15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
         
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Studio/">Android Studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发工具/">开发工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+
     </div>
-</nav>
-
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>Android Studio入门教程</h1>
-    
-
-
-            </div>
-            <time class="pink-link-context" datetime="2016-07-13T07:53:01.000Z"><a href="/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/">2016-07-13</a></time>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
 
             
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip pink lighten-1">Android</a>
-        
-            <a href="/tags/Android-Studio/" class="chip pink lighten-1">Android Studio</a>
-        
-            <a href="/tags/开发工具/" class="chip pink lighten-1">开发工具</a>
-        
-            <a href="/tags/教程/" class="chip pink lighten-1">教程</a>
-        
-    </div>
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
 
+            
 
-            <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#1-前言"><span class="section table-of-contents-text">1. 前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#2-下载、安装"><span class="section table-of-contents-text">2. 下载、安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#3-配置"><span class="section table-of-contents-text">3. 配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#4-项目介绍"><span class="section table-of-contents-text">4. 项目介绍</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-1-新建项目"><span class="section table-of-contents-text">4.1 新建项目</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-2-模拟器"><span class="section table-of-contents-text">4.2 模拟器</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#自带的"><span class="section table-of-contents-text">自带的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#Genymotion"><span class="section table-of-contents-text">Genymotion</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-3-目录结构"><span class="section table-of-contents-text">4.3 目录结构</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#5-Gradle介绍"><span class="section table-of-contents-text">5. Gradle介绍</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#6-插件"><span class="section table-of-contents-text">6. 插件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#7-常用快捷键"><span class="section table-of-contents-text">7. 常用快捷键</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#常用"><span class="section table-of-contents-text">常用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#自动导包"><span class="section table-of-contents-text">自动导包</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#8-常见问题"><span class="section table-of-contents-text">8. 常见问题</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#9-学习资料"><span class="section table-of-contents-text">9. 学习资料</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#10-翻墙软件"><span class="section table-of-contents-text">10. 翻墙软件</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#免费："><span class="section table-of-contents-text">免费：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#付费："><span class="section table-of-contents-text">付费：</span></a></li></ol></li></ol></li></ol>
-</div>
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-前言"><span class="post-toc-text">1. 前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-下载、安装"><span class="post-toc-text">2. 下载、安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-配置"><span class="post-toc-text">3. 配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-项目介绍"><span class="post-toc-text">4. 项目介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-新建项目"><span class="post-toc-text">4.1 新建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-模拟器"><span class="post-toc-text">4.2 模拟器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自带的"><span class="post-toc-text">自带的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Genymotion"><span class="post-toc-text">Genymotion</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-目录结构"><span class="post-toc-text">4.3 目录结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-Gradle介绍"><span class="post-toc-text">5. Gradle介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-插件"><span class="post-toc-text">6. 插件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-常用快捷键"><span class="post-toc-text">7. 常用快捷键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用"><span class="post-toc-text">常用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动导包"><span class="post-toc-text">自动导包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-常见问题"><span class="post-toc-text">8. 常见问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-学习资料"><span class="post-toc-text">9. 学习资料</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10-翻墙软件"><span class="post-toc-text">10. 翻墙软件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#免费"><span class="post-toc-text">免费</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#付费"><span class="post-toc-text">付费</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
 
+        <div class="post-main">
 
-            <div class="entry pink-link-context">
-                <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。</p>
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。</p>
 <a id="more"></a>
 <p>2013年5月发布早期预览版本，版本号为0.1。2014年6月发布0.8版本，至此进入beta阶段。第一个稳定版本1.0于2014年12月8日发布，之后还有好多版本，比较稳定有的1.5正式版，2.0正式版，以及现在最新的2.1版本。</p>
 <p>早期版本的Android Studio非常的难用，内存消耗非常严重，各种Bug，只有后面的1.5版本以后的版本才比较好，现在的2.0版本已经很好了。</p>
@@ -410,15 +245,15 @@
 </tbody>
 </table>
 <p>简单的来说，Android Stduio把一个项目比喻成一个工程的一个个模块，外部的依赖也是一个个模块，这样一个项目的结构就很清晰明了。<br>当然也有一个缺点，就是一个窗口只能打开一个project，不能像eclipse那样一次一个窗口打开多个项目。</p>
-<h3 id="4-1-新建项目"><a href="#4-1-新建项目" class="headerlink" title="4.1 新建项目"></a>4.1 新建项目</h3><p><strong>两个方式：</strong>  </p>
+<h2 id="4-1-新建项目"><a href="#4-1-新建项目" class="headerlink" title="4.1 新建项目"></a>4.1 新建项目</h2><p><strong>两个方式：</strong>  </p>
 <ul>
 <li><p>Android Studio欢迎界面时：<br>  <code>start a new Android Studio project</code></p>
 </li>
 <li><p>Android Studio已有打开的项目时：<br>  <code>File</code> -&gt; <code>New</code> -&gt; <code>New Project...</code></p>
 </li>
 </ul>
-<h3 id="4-2-模拟器"><a href="#4-2-模拟器" class="headerlink" title="4.2 模拟器"></a>4.2 模拟器</h3><p><strong>＝＝＝＝＝＝＝＝建议使用真机＝＝＝＝＝＝＝＝</strong></p>
-<h5 id="自带的"><a href="#自带的" class="headerlink" title="自带的"></a>自带的</h5><h5 id="Genymotion"><a href="#Genymotion" class="headerlink" title="Genymotion"></a><a href="https://www.genymotion.com/" target="_blank" rel="external">Genymotion</a></h5><h3 id="4-3-目录结构"><a href="#4-3-目录结构" class="headerlink" title="4.3 目录结构"></a>4.3 目录结构</h3><p>目录展现模式：Project、Android  </p>
+<h2 id="4-2-模拟器"><a href="#4-2-模拟器" class="headerlink" title="4.2 模拟器"></a>4.2 模拟器</h2><p><strong>＝＝＝＝＝＝＝＝建议使用真机＝＝＝＝＝＝＝＝</strong></p>
+<h3 id="自带的"><a href="#自带的" class="headerlink" title="自带的"></a>自带的</h3><h3 id="Genymotion"><a href="#Genymotion" class="headerlink" title="Genymotion"></a><a href="https://www.genymotion.com/" target="_blank" rel="external">Genymotion</a></h3><h2 id="4-3-目录结构"><a href="#4-3-目录结构" class="headerlink" title="4.3 目录结构"></a>4.3 目录结构</h2><p>目录展现模式：Project、Android  </p>
 <ul>
 <li>app/  <ul>
 <li>libs/： 右击jar包，Add as library</li>
@@ -435,7 +270,7 @@
 <blockquote>
 <p>这里还有一些关于Gradle的配置文件还没有介绍，统一在下一节进行介绍。</p>
 </blockquote>
-<h1 id="5-Gradle介绍"><a href="#5-Gradle介绍" class="headerlink" title="5. Gradle介绍"></a>5. Gradle介绍</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Gradle%E5%9F%BA%E7%A1%80/" target="_blank" rel="external">Gradle基础</a></p>
+<h1 id="5-Gradle介绍"><a href="#5-Gradle介绍" class="headerlink" title="5. Gradle介绍"></a>5. Gradle介绍</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Gradle%E5%9F%BA%E7%A1%80/">Gradle基础</a></p>
 <h1 id="6-插件"><a href="#6-插件" class="headerlink" title="6. 插件"></a>6. 插件</h1><ul>
 <li>gson format</li>
 <li>android-butterknife-zelezny</li>
@@ -445,7 +280,7 @@
 </ul>
 <p><a href="http://mobdevgroup.com/tools/android" target="_blank" rel="external">Android开发工具</a></p>
 <h1 id="7-常用快捷键"><a href="#7-常用快捷键" class="headerlink" title="7. 常用快捷键"></a>7. 常用快捷键</h1><p><code>Preferences</code> -&gt; <code>Keymap</code><br><code>Help</code> -&gt; <code>Default Keymap Reference</code></p>
-<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><table>
+<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><table>
 <thead>
 <tr>
 <th>Action</th>
@@ -561,319 +396,197 @@
 </tr>
 </tbody>
 </table>
-<h3 id="自动导包"><a href="#自动导包" class="headerlink" title="自动导包"></a>自动导包</h3><p>我们只有每次引用一些类的时候必须要导包，而Android Studio可以通过设置自动导包，简直太实用了.</p>
+<h2 id="自动导包"><a href="#自动导包" class="headerlink" title="自动导包"></a>自动导包</h2><p>我们只有每次引用一些类的时候必须要导包，而Android Studio可以通过设置自动导包，简直太实用了.</p>
 <p>到 <code>Preferences</code> -&gt; <code>Editor</code> -&gt; <code>General</code> -&gt; <code>Auto Import</code> -&gt; <code>Java</code> 把以下选项勾上就OK了<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/Snip20160724_1.png" alt=""></p>
-<h1 id="8-常见问题"><a href="#8-常见问题" class="headerlink" title="8. 常见问题"></a>8. 常见问题</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" target="_blank" rel="external">Android Studio常见问题</a></p>
+<h1 id="8-常见问题"><a href="#8-常见问题" class="headerlink" title="8. 常见问题"></a>8. 常见问题</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">Android Studio常见问题</a></p>
 <h1 id="9-学习资料"><a href="#9-学习资料" class="headerlink" title="9. 学习资料"></a>9. 学习资料</h1><p>stormzhang的<a href="http://stormzhang.com/devtools/2015/06/17/android-studio-all/" target="_blank" rel="external">Android Studio详细教程汇总</a><br><a href="https://dongchuan.gitbooks.io/gradle-user-guide-/content/tutorials/" target="_blank" rel="external">Gradle中文教程</a><br><a href="http://ask.android-studio.org/?/explore/category-video" target="_blank" rel="external">Android Studio视频教程</a><br><a href="http://ask.android-studio.org/?/explore/category-gradle" target="_blank" rel="external">Gradle教程</a></p>
-<h1 id="10-翻墙软件"><a href="#10-翻墙软件" class="headerlink" title="10. 翻墙软件"></a>10. 翻墙软件</h1><h3 id="免费："><a href="#免费：" class="headerlink" title="免费："></a>免费：</h3><p><a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XX-Net</a><br><a href="https://github.com/getlantern/forum" target="_blank" rel="external">蓝灯</a></p>
-<h3 id="付费："><a href="#付费：" class="headerlink" title="付费："></a>付费：</h3><p><a href="https://shadowsocks.com/" target="_blank" rel="external">Shadowsocks</a><br><a href="https://www.ytpub.com/" target="_blank" rel="external">云梯VPN</a><br>…</p>
+<h1 id="10-翻墙软件"><a href="#10-翻墙软件" class="headerlink" title="10. 翻墙软件"></a>10. 翻墙软件</h1><h2 id="免费"><a href="#免费" class="headerlink" title="免费"></a>免费</h2><p><a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XX-Net</a><br><a href="https://github.com/getlantern/forum" target="_blank" rel="external">蓝灯</a></p>
+<h2 id="付费"><a href="#付费" class="headerlink" title="付费"></a>付费</h2><p><a href="https://shadowsocks.com/" target="_blank" rel="external">Shadowsocks</a><br><a href="https://www.ytpub.com/" target="_blank" rel="external">云梯VPN</a>  </p>
 
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
             </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://sherlockshi.github.io/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/" target="_blank" rel="external">http://sherlockshi.github.io/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/</a>
+                </p>
+                <footer><cite><a href="http://sherlockshi.github.io">@SherlockShi's Home</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/07/19/15_Android/1525_网络/HttpURLConnection用法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HttpURLConnection用法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/07/01/15_Android/1505_安全/Andrdoid代码混淆/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Andrdoid代码混淆</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程" data-title="Android Studio入门教程" data-url="http://sherlockshi.github.io/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"sherlockshi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
         </div>
     </div>
 </article>
-
-
-
-
-    <section id="comment">
-        <div class="card">
-            <div class="card-content">
-                <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/" data-title="Android Studio入门教程" data-url="http://yoursite.com/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/"></div>
-
-                <script type="text/javascript">
-                    console.log(document.querySelector('.ds-thread'));
-                    var duoshuoQuery = {
-                        short_name: 'sherlockshi'
-                    };
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';
-                        ds.async = true;
-                        ds.src = (document.location.protocol == 'https:'
-                            ? 'https:'
-                            : 'http:') + '//static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
-                <!-- Duoshuo Comment END -->
-            </div>
-        </div>
-    </section>
-
-
-
-</div>
-
-        <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
-      <i class="fa fa-caret-square-o-up"></i>
-    </a>
-    <ul>
-      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
-    </ul>
-  </div>
-
-    </main>
-    <footer class="page-footer indigo darken-1">
-    
-    <div class="container">
-        <div class="row">
-            
-            <div class="social-group col m3 s12">
-                <h5 class="white-text">社交</h5>
-                
-                    <a class="social-link" href="http://weibo.com/2283093752" target="_blank">
-                        <i class="fa fa-2x fa-weibo"></i>
-                    </a>
-                
-                    <a class="social-link" href="https://github.com/SherlockShi" target="_blank">
-                        <i class="fa fa-2x fa-github"></i>
-                    </a>
-                
-            </div>
-            
-
-            
-            <div class="col m9 s12">
-                <h5 class="white-text">友情链接</h5>
-                
-                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
-                
-                    <a class="social-link" href="https://github.com/raytaylorlin" target="_blank">Github地址（测试友情链接）</a>
-                
-            </div>
-            
-        </div>
     </div>
-    
-
-    <div class="footer-copyright pink-link-context">
-        <div class="container">
-            © 2016 example.com, All rights reserved.
-            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
-        </div>
-    </div>
-</footer>
-
-
-    <noscript>
-    <div class="noscript">
-        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-    </div>
-</noscript>
-<div class="noscript">
-    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-</div>
-
-
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 <script>
-    (function($) {
-        $(document).ready(function() {
-            // 隐藏禁用javascript（针对微信内置浏览器）的提示
-            $('.noscript').hide();
+var BLOG_SHARE = {
+    title: "Android Studio入门教程",
+    pic: "http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://sherlockshi.github.io/2016/07/13/15_Android/1530_开发工具/AndroidStudio/Android Studio入门教程/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
 
-            // 图片缩放效果
-            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
 
-            // 给图片加上点击放大效果（materialbox插件）
-            $imgs.addClass('materialboxed').each(function(i, el) {
-                $(this).attr('data-caption', $(this).attr('alt') || ' ');
-            }).materialbox();
 
-            // 优化表格的显示
-            $('table').each(function() {
-                var $table = $(this);
-                // 除去多行代码的情况
-                if ($table.find('pre').length == 0) {
-                    $table.addClass('responsive-table striped bordered');
-                }
-            });
 
-            // 首页幻灯片
-            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢大侠慷慨解囊～
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/51725532.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
 
-            $(".button-collapse").sideNav();
-            $(".category-menu").sideNav();
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/44887159.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
 
-            // 针对gallery post
-            $('.carousel').carousel({full_width: true});
-            $('.carousel-control.prev').click(function() {
-                $('.carousel').carousel('prev');
-            });
-            $('.carousel-control.next').click(function() {
-                $('.carousel').carousel('next');
-            });
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
-            // 文章目录
-            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
-            // 修正文章目录的left-border颜色
-            var color = $('.table-of-contents-text').css('color');
-            $('.table-of-contents-link').css('border-left-color', color);
+<script src="/js/main.js"></script>
 
-            // 针对移动端做的优化：FAB按钮点击一下收回
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                $('.fixed-action-btn').addClass('click-to-toggle');
-            }
-            // 回到顶部
-            $('.btn-return-top').click(function() {
-                $('body, html').animate({
-                    scrollTop: 0
-                }, 500);
-            });
 
-            // 重置读书页面的Tab标签页的颜色
-            $('li.tab a').hover(function() {
-                $(this).toggleClass('text-lighten-4');
-            });
-            $('.indicator').addClass('pink lighten-2');
 
-            
-            // 添加new标签
-            $('').append('<span class="new badge pink"></span>');
-            
-
-            // 搜索功能
-            $('.modal-trigger').leanModal({
-                // 打开搜索框时自动聚焦
-                ready: function() {
-                    if ($('#search').is(":visible")) {
-                        $('#search-input').focus();
-                    }
-                }
-            });
-            var searchXml = "search.xml";
-            if (searchXml.length == 0) {
-             	searchXml = "search.xml";
-            }
-            var searchPath = "/" + searchXml;
-            initSearch(searchPath, 'search-input', 'search-result');
-        });
-
-        // 初始化搜索与匹配函数
-        var initSearch = function(path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function(xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function() {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function() {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function(data) {
-                            var isMatch = true;
-                            var content_index = [];
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title != '' && data_content != '') {
-                                keywords.forEach(function(keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i == 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                keywords.forEach(function(keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                });
-
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start == 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substring(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function(keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                    });
-
-                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
-        }
-    })(jQuery);
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
 </script>
 
+<script src="/js/search.js"></script>
 
-<script src="/js/prettify.js"></script>
+
+
+
+
+
+
+<!-- Google Analytics -->
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
-    });
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '85064715', 'auto');
+ga('send', 'pageview');
+
 </script>
-
-
-
-
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=55696562" charset="UTF-8"></script>
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<!-- End Google Analytics -->
 
 
 

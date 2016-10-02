@@ -4,8 +4,157 @@
   
     
     <entry>
+      <title><![CDATA[宽高比可配置的ImageView-AspectRatioImageView]]></title>
+      <url>http://sherlockshi.github.io/2016/10/02/15_Android/1540_Widget/%E5%AE%BD%E9%AB%98%E6%AF%94%E5%8F%AF%E9%85%8D%E7%BD%AE%E7%9A%84ImageView-AspectRatioImageView/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>Github项目地址：<br><a href="https://github.com/SherlockShi/AspectRatioImageView" target="_blank" rel="external">https://github.com/SherlockShi/AspectRatioImageView</a></p>
+</blockquote>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>在项目开发过程中，经常会有这样的情况：美工MM切好一张图，个人信息界面顶部的背景，美美的，但是要求宽高比例一定要5：3，不然图片会变形。好，说干就干。</p>
+<p>width肯定是要match_parent了，图片宽度才能与屏幕宽度一致，但是高度呢？wrap_content？那肯定不行，图片肯定变形了。某个固定的高度值呢？那也不行。</p>
+<a id="more"></a>
+<p>如此，便有了这个方便的自定义View - <code>AspectRatioImageView</code>，简单得只需要像普通的ImageView一样使用，再配置一定的<code>宽度比例值</code>、<code>高度比例值</code>，就可轻松实现上面的需求了。</p>
+<h1 id="二、一言不合就上图"><a href="#二、一言不合就上图" class="headerlink" title="二、一言不合就上图"></a>二、一言不合就上图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-9-30/83520279.jpg" width="210" height="400" alt="AspectRatioImageView"></p>
+<h1 id="三、使用方法"><a href="#三、使用方法" class="headerlink" title="三、使用方法"></a>三、使用方法</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>使用Gradle依赖:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    compile <span class="string">'com.sherlockshi.widget:aspectratioimageview:1.0.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或使用Maven依赖:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.sherlockshi.widget&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;aspectratioimageview&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0.1&lt;/version&gt;</span><br><span class="line">  &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>像使用ImageView一样，在XML文件中使用:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.sherlockshi.widget.AspectRatioImageView</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></span><br><span class="line">    <span class="attr">android:scaleType</span>=<span class="string">"centerCrop"</span></span><br><span class="line">    <span class="attr">app:width_ratio</span>=<span class="string">"4"</span></span><br><span class="line">    <span class="attr">app:height_ratio</span>=<span class="string">"2"</span></span><br><span class="line">    <span class="attr">android:src</span>=<span class="string">"..."</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>AspectRatioImageView有以下两个属性:<br><code>width_ratio</code>: 宽度比例值，类型为integer<br><code>height_ratio</code>: 高度比例值，类型为integer    </p>
+<blockquote>
+<p>以上两个属性，只要有一个属性未设置，就会使用默认比例3:2.</p>
+</blockquote>
+<p>以上，你就可以和美工MM愉快地出去喝一杯了，不不，你就可以轻松实现项目需求了。</p>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo常用命令]]></title>
+      <url>http://sherlockshi.github.io/2016/10/02/30_%E5%8D%9A%E5%AE%A2/3005_Hexo/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<h1 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>hexo s = hexo server</p>
+<h1 id="快捷部署"><a href="#快捷部署" class="headerlink" title="快捷部署"></a>快捷部署</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>hexo clean #清除缓存 网页正常情况下可以忽略此条命令<br>hexo g == hexo generate #生成静态网页<br>hexo d == hexo deploy   #开始部署</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用Android Studio把自己的Android library分发到JCenter]]></title>
+      <url>http://sherlockshi.github.io/2016/09/29/15_Android/1555_Maven/%E4%BD%BF%E7%94%A8Android%20Studio%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84Android%20library%E5%88%86%E5%8F%91%E5%88%B0jCenter/</url>
+      <content type="html"><![CDATA[<p>如果你想在Android Studio中引入一个library到你的项目，你只需添加如下的一行代码到模块的build.gradle文件中:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.sherlockshi.widget:aspectratioimageview:1.0.1'</span></span><br></pre></td></tr></table></figure></p>
+<p>就是如此简单的一行代码，你就可以使用这个library了。</p>
+<a id="more"></a>
+<p>酷呆了。不过你可能很好奇Android Studio是从哪里得到这个library的。这篇文章将详细讲解这是怎么回事，包括如何把你的库发布出去分享给世界各地的其他开发者，这样不仅可以让世界更美好，还可以耍一次酷。</p>
+<h1 id="Android-studio-是从哪里得到库的？"><a href="#Android-studio-是从哪里得到库的？" class="headerlink" title="Android studio 是从哪里得到库的？"></a>Android studio 是从哪里得到库的？</h1><p>先从这个简单的问题开始，我相信不是每个人都完全明白Android studio 是从哪里得到这些library的。莫非就是Android studio 从google搜索然后下载了一个合适的给我们？</p>
+<p>呵呵，没那么复杂。Android Studio是从build.gradle里面定义的Maven 仓库服务器上下载library的。Apache Maven是Apache开发的一个工具，提供了用于贡献library的文件服务器。总的来说，只有两个标准的Android library文件服务器：<code>JCenter</code> 和 <code>Maven Central</code>。</p>
+<h2 id="JCenter"><a href="#JCenter" class="headerlink" title="JCenter"></a>JCenter</h2><p>JCenter是一个由<code>bintray.com</code>维护的Maven仓库 。你可以在<a href="http://jcenter.bintray.com/" target="_blank" rel="external">这里</a>看到整个仓库的内容。<br>我们在项目的build.gradle 文件中如下定义仓库，就能使用JCenter了：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven-Central"><a href="#Maven-Central" class="headerlink" title="Maven Central"></a>Maven Central</h2><p>Maven Central 则是由sonatype.org维护的Maven仓库。你可以在这里看到整个仓库。  </p>
+<blockquote>
+<p>注：不管是JCenter还是Maven Central ，两者都是Maven仓库  </p>
+</blockquote>
+<p>我们在项目的build.gradle 文件中如下定义仓库，就能使用Maven Central了：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意，虽然JCenter和Maven Central 都是标准的 android library仓库，但是它们维护在完全不同的服务器上，由不同的人提供内容，两者之间毫无关系。在JCenter上有的可能 Maven Central 上没有，反之亦然。</p>
+<p>除了两个标准的服务器之外，如果我们使用的library的作者是把该library放在自己的服务器上，我们还可以自己定义特有的Maven仓库服务器。Twitter的Fabric.io 就是这种情况，它们在 <a href="https://maven.fabric.io/public" target="_blank" rel="external">https://maven.fabric.io/public</a> 上维护了一个自己的Maven仓库。如果你想使用Fabric.io的library，你必须自己如下定义仓库的url。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven &#123; url <span class="string">'https://maven.fabric.io/public'</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在里面使用相同的方法获取一个library:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.crashlytics.sdk.android:crashlytics:2.2.4@aar'</span></span><br></pre></td></tr></table></figure></p>
+<p>但是将library上传到标准的服务器与自建服务器，哪种方法更好呢？当然是前者。如果将我们的library公开，其他开发者除了一行定义依赖名的代码之外不需要定义任何东西。因此这篇文章中，我们将只关注对开发者更友好的JCenter 和 Maven Central 。</p>
+<p>实际上可以在Android Studio上使用的除了Maven 仓库之外还有另外一种仓库：Ivy 仓库 。但是根据我的经验来看，我还没看到任何人用过它，包括我，因此本文就直接忽略了。</p>
+<h1 id="理解JCenter和Maven-Central"><a href="#理解JCenter和Maven-Central" class="headerlink" title="理解JCenter和Maven Central"></a>理解JCenter和Maven Central</h1><p>为何有两个标准的仓库？</p>
+<p>事实上两个仓库都具有相同的使命：提供Java或者Android library服务。上传到哪个（或者都上传）取决于开发者。</p>
+<p>起初，Android Studio 选择Maven Central作为默认仓库。如果你使用老版本的Android Studio创建一个新项目，mavenCentral()会自动的定义在build.gradle中。</p>
+<p>但是Maven Central的最大问题是对开发者不够友好。上传library异常困难。上传上去的开发者都是某种程度的极客。同时还因为诸如安全方面的其他原因，Android Studio团队决定把默认的仓库替换成JCenter。正如你看到的，一旦使用最新版本的Android Studio创建一个项目，JCenter()自动被定义，而不是mavenCentral()。</p>
+<p>有许多将Maven Central替换成JCenter的理由，下面是几个主要的原因。</p>
+<ul>
+<li><p>JCenter通过CDN发送library，开发者可以享受到更快的下载体验。</p>
+</li>
+<li><p>JCenter是全世界最大的Java仓库，因此在Maven Central 上有的，在JCenter上也极有可能有。换句话说JCenter是Maven Central的<code>超集</code>。</p>
+</li>
+<li><p>上传library到仓库很简单，不需要像在Maven Central上做很多复杂的事情。</p>
+</li>
+<li><p>友好的用户界面</p>
+</li>
+<li><p>如果你想把library上传到Maven Central ，你可以在bintray网站上直接点击一个按钮就能实现。</p>
+</li>
+</ul>
+<p>基于上面的原因以及我自己的经验，可以说替换到JCenter是明智之举。</p>
+<p>所以我们这篇文章将把重心放在JCenter，反正如果你能成功把library放在JCenter，转到 Maven Central 是非常容易的事情。</p>
+<h1 id="gradle是如何从仓库上获取一个library的？"><a href="#gradle是如何从仓库上获取一个library的？" class="headerlink" title="gradle是如何从仓库上获取一个library的？"></a>gradle是如何从仓库上获取一个library的？</h1><p>在讨论如何上传library到JCenter之前，我们先看看gradle是如何从仓库获取library的。比如我们在 build.gradle输入如下代码的时候，这些库是如果奇迹般下载到我们的项目中的。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.sherlockshi.widget:aspectratioimageview:1.0.1'</span></span><br></pre></td></tr></table></figure></p>
+<p>一般来说，我们需要知道library的字符串形式，包含3部分<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">GROUP_ID:</span><span class="string">ARTIFACT_ID:</span>VERSION</span><br></pre></td></tr></table></figure></p>
+<p>上面的例子中，GROUP_ID是<code>com.sherlockshi.widget</code>，ARTIFACT_ID是<code>aspectratioimageview</code>，VERSION是<code>1.0.1</code>。</p>
+<p>GROUP_ID定义了library的group。有可能在同样的上下文中存在多个不同功能的library。如果library具有相同的group，那么它们将共享一个GROUP_ID。通常我们以开发者包名紧跟着library的group名称来命名，比如com.squareup.picasso。然后ARTIFACT_ID中是library的真实名称。至于VERSION，就是版本号而已，虽然可以是任意文字，但是我建议设置为x.y.z的形式，如果喜欢还可以加上beta这样的后缀。</p>
+<p>下面是Square library的一个例子。你可以看到每个都可以很容易的分辨出library和开发者的名称。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  compile <span class="string">'com.squareup:otto:1.3.7'</span></span><br><span class="line">  compile <span class="string">'com.squareup.picasso:picasso:2.5.2'</span></span><br><span class="line">  compile <span class="string">'com.squareup.okhttp:okhttp:2.4.0'</span></span><br><span class="line">  compile <span class="string">'com.squareup.retrofit:retrofit:1.9.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么在添加了上面的依赖之后会发生什么呢？简单。Gradle会询问Maven仓库服务器这个library是否存在，如果是，gradle会获得请求library的路径，一般这个路径都是这样的形式：GROUP_ID/ARTIFACT_ID/VERSION_ID。比如可以在<a href="http://jcenter.bintray.com/com/squareup/otto/1.3.7" target="_blank" rel="external">http://jcenter.bintray.com/com/squareup/otto/1.3.7</a> 和 <a href="https://oss.sonatype.org/content/repositories/releases/com/squareup/otto/1.3.7/" target="_blank" rel="external">https://oss.sonatype.org/content/repositories/releases/com/squareup/otto/1.3.7/</a><br>下获得com.squareup:otto:1.3.7的library文件。</p>
+<p>然后Android Studio 将下载这些文件到我们的电脑上，与我们的项目一起编译。整个过程就是这么简单，一点都不复杂。</p>
+<p>我相信你应该清楚的知道从仓库上下载的library只是存储在仓库服务器上的jar 或者aar文件而已。有点类似于自己去下载这些文件，拷贝然后和项目一起编译。但是使用gradle依赖管理的最大好处是你除了添加几行文字之外啥也不做。library一下子就可以在项目中使用了。</p>
+<h1 id="了解aar文件"><a href="#了解aar文件" class="headerlink" title="了解aar文件"></a>了解aar文件</h1><p>等等，我刚才说了仓库中存储的有两种类型的library：jar 和 aar。jar文件大家都知道，但是什么是aar文件呢？</p>
+<p>aar文件时在jar文件之上开发的。之所以有它是因为有些Android Library需要植入一些安卓特有的文件，比如AndroidManifest.xml，资源文件，Assets或者JNI。这些都不是jar文件的标准。</p>
+<p>因此aar文件就时发明出来包含所有这些东西的。总的来说它和jar一样只是普通的zip文件，不过具有不同的文件结构。jar文件以classes.jar的名字被嵌入到aar文件中。其余的文件罗列如下：<br>– /AndroidManifest.xml (mandatory)<br>– /classes.jar (mandatory)<br>– /res/ (mandatory)<br>– /R.txt (mandatory)<br>– /assets/ (optional)<br>– /libs/.jar (optional)<br>– /jni//.so (optional)<br>– /proguard.txt (optional)<br>– /lint.jar (optional)<br>可以看到.aar文件是专门为安卓设计的。因此这篇文章将教你如何创建与上传一个aar形式的library。</p>
+<h1 id="如何上传library到JCenter"><a href="#如何上传library到JCenter" class="headerlink" title="如何上传library到JCenter"></a>如何上传library到JCenter</h1><p>我相信你已经知道了仓库系统的大体工作原理。现在我们来开始最重要的部分：上传。这个任务和如何上传library文件到<a href="http://jcenter.bintray.com" target="_blank" rel="external">http://jcenter.bintray.com</a> 一样简单。如果做到，这个library就算发布了。好吧，有两个需要考虑：如何创建aar文件以及如何上传构建的文件到仓库。</p>
+<p>虽然需要若干步骤，但是我还是想强调这事并不复杂，因为已经准备好了所有事情。整个过程如下图：<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/64566263.jpg" alt=""></p>
+<p>因为细节比较多，我分为以下几个部分，一步一步的详细解释清楚。</p>
+<h2 id="在bintray上创建package"><a href="#在bintray上创建package" class="headerlink" title="在bintray上创建package"></a>在bintray上创建package</h2><p><strong>第一步</strong><br>在bintray.com上注册一个账号。（注册过程很简单，自己完成，也可以直接使用Github账号）</p>
+<p><strong>第二步</strong><br>完成注册之后，登录网站，然后点击+号<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/13698614.jpg" alt=""></p>
+<p><strong>第三步</strong><br>输入Repository相关信息，创建一个Repository<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/26172115.jpg" alt=""></p>
+<p><strong>第四步</strong><br>点击打开刚才创建好的Repository<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/78523250.jpg" alt=""></p>
+<p><strong>第五步</strong><br>点击<code>Add New Package</code>，为我们的library创建一个新的package<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/98586757.jpg" alt=""></p>
+<p><strong>第六步</strong><br>按页面要求填写相关信息<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-2/47591545.jpg" alt=""></p>
+<p>完工！现在你有了自己在Bintray上的Maven仓库，可以准备上传library到上面了。</p>
+<h2 id="准备一个Android-Studio项目"><a href="#准备一个Android-Studio项目" class="headerlink" title="准备一个Android Studio项目"></a>准备一个Android Studio项目</h2><p>很多情况下，我们需要同时上传一个以上的library到仓库，也可能不需要上传东西。因此我建议最好将每部分分成一个Module。最好分成两个module，一个Application Module一个Library Module。Application Module用于展示库的用法，Library Module是library的源代码。如果你的项目有一个以上的library，尽量创建另外的module：1个 module对应1 个library。<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61816057.jpg" alt=""><br>我相信大家知道如何创建一个新的module，因此就不会深入讲解这个问题了。其实很简单，基本就是选择 <code>File</code> -&gt; <code>New</code> -&gt; <code>Module</code>，选择<code>Android Library</code>，然后就完了。</p>
+<p><strong>添加bintray插件</strong><br>我们需要修改<code>项目的build.gradle</code>文件中的依赖部分，如下：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    classpath <span class="string">'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'</span></span><br><span class="line">    classpath <span class="string">'com.github.dcendents:android-maven-gradle-plugin:1.4.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置Bintray账号以及开发者信息</strong><br>接下来我们将修改<code>local.properties</code>。在里面定义api key的用户名以及被创建key的密码，用于bintray的认证。之所以要把这些东西放在这个文件是因为这些信息时比较敏感的，不应该到处分享，包括版本控制里面。幸运的是在创建项目的时候local.properties文件就已经被添加到.gitignore了。因此这些敏感数据不会被误传到git服务器。</p>
+<p>下面是要添加的代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#bintray</span><br><span class="line">bintray.user=******</span><br><span class="line">bintray.apikey=******</span><br><span class="line"></span><br><span class="line">#developer</span><br><span class="line">developer.id=******</span><br><span class="line">developer.name=******</span><br><span class="line">developer.email=******</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>bintray.user：你的Bintray的用户名</li>
+<li>bintray.apikey：你的的Bintray的API Key,可以在<code>Edit Profile</code>页面的 <code>API Key</code> 选项卡中找到</li>
+<li>developer.id：通常是你在开源社区的昵称</li>
+<li>developer.name：你的姓名</li>
+<li>developer.email：你的邮箱</li>
+</ul>
+<p><strong>配置项目信息</strong><br>在<code>library module</code>目录下新建<code>project.properties</code>文件，输入以下内容：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#project</span><br><span class="line">project.name=AspectRatioImageView</span><br><span class="line">project.bintrayRepo=android-widgets</span><br><span class="line">project.groupId=com.sherlockshi.widget</span><br><span class="line">project.artifactId=aspectratioimageview</span><br><span class="line">project.packaging=aar</span><br><span class="line">project.siteUrl=https://github.com/SherlockShi/AspectRatioImageView</span><br><span class="line">project.gitUrl=https://github.com/SherlockShi/AspectRatioImageView.git</span><br><span class="line"></span><br><span class="line">#javadoc</span><br><span class="line">javadoc.name=AspectRatioImageView</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>project.name：项目名称</li>
+<li>project.groupId：项目组ID</li>
+<li>project.artifactId：项目ID</li>
+<li>project.packaging：包类型，Android库是aar</li>
+<li>project.siteUrl：项目官方网站的地址，没有的话就用Github上的地址</li>
+<li>project.gitUrl：项目的Git地址</li>
+<li>javadoc.name：生成的javadoc打开后主页显示的名称，通常跟项目名称一样即可</li>
+</ul>
+<p><strong>配置bintrayUpload.gradle</strong></p>
+<blockquote>
+<p>本步骤也可以直接使用别人打包好的脚本引入即可，但本文主要介绍原理，有需要的可以自己搜索。</p>
+</blockquote>
+<ul>
+<li>首先在<code>library module</code>目录下新建<code>bintrayUpload.gradle</code>文件，直接粘贴以下内容：  </li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">'com.github.dcendents.android-maven'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'com.jfrog.bintray'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// load properties</span></span><br><span class="line">Properties properties = <span class="keyword">new</span> Properties()</span><br><span class="line">File localPropertiesFile = project.file(<span class="string">"../local.properties"</span>);</span><br><span class="line"><span class="keyword">if</span>(localPropertiesFile.exists())&#123;</span><br><span class="line">    properties.load(localPropertiesFile.newDataInputStream())</span><br><span class="line">&#125;</span><br><span class="line">File projectPropertiesFile = project.file(<span class="string">"project.properties"</span>);</span><br><span class="line"><span class="keyword">if</span>(projectPropertiesFile.exists())&#123;</span><br><span class="line">    properties.load(projectPropertiesFile.newDataInputStream())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// read properties</span></span><br><span class="line"><span class="keyword">def</span> projectName = properties.getProperty(<span class="string">"project.name"</span>)</span><br><span class="line"><span class="keyword">def</span> projectBintrayRepo = properties.getProperty(<span class="string">"project.bintrayRepo"</span>)</span><br><span class="line"><span class="keyword">def</span> projectGroupId = properties.getProperty(<span class="string">"project.groupId"</span>)</span><br><span class="line"><span class="keyword">def</span> projectArtifactId = properties.getProperty(<span class="string">"project.artifactId"</span>)</span><br><span class="line"><span class="keyword">def</span> projectVersionName = android.defaultConfig.versionName</span><br><span class="line"><span class="keyword">def</span> projectPackaging = properties.getProperty(<span class="string">"project.packaging"</span>)</span><br><span class="line"><span class="keyword">def</span> projectSiteUrl = properties.getProperty(<span class="string">"project.siteUrl"</span>)</span><br><span class="line"><span class="keyword">def</span> projectGitUrl = properties.getProperty(<span class="string">"project.gitUrl"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> developerId = properties.getProperty(<span class="string">"developer.id"</span>)</span><br><span class="line"><span class="keyword">def</span> developerName = properties.getProperty(<span class="string">"developer.name"</span>)</span><br><span class="line"><span class="keyword">def</span> developerEmail = properties.getProperty(<span class="string">"developer.email"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> bintrayUser = properties.getProperty(<span class="string">"bintray.user"</span>)</span><br><span class="line"><span class="keyword">def</span> bintrayApikey = properties.getProperty(<span class="string">"bintray.apikey"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> javadocName = properties.getProperty(<span class="string">"javadoc.name"</span>)</span><br><span class="line"></span><br><span class="line">group = projectGroupId</span><br><span class="line"></span><br><span class="line"><span class="comment">// This generates POM.xml with proper parameters</span></span><br><span class="line">install &#123;</span><br><span class="line">    repositories.mavenInstaller &#123;</span><br><span class="line">        pom &#123;</span><br><span class="line">            project &#123;</span><br><span class="line">                name projectName</span><br><span class="line">                groupId projectGroupId</span><br><span class="line">                artifactId projectArtifactId</span><br><span class="line">                version projectVersionName</span><br><span class="line">                packaging projectPackaging</span><br><span class="line">                url projectSiteUrl</span><br><span class="line">                licenses &#123;</span><br><span class="line">                    license &#123;</span><br><span class="line">                        name <span class="string">'The Apache Software License, Version 2.0'</span></span><br><span class="line">                        url <span class="string">'http://www.apache.org/licenses/LICENSE-2.0.txt'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                developers &#123;</span><br><span class="line">                    developer &#123;</span><br><span class="line">                        id developerId</span><br><span class="line">                        name developerName</span><br><span class="line">                        email developerEmail</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                scm &#123;</span><br><span class="line">                    connection projectGitUrl</span><br><span class="line">                    developerConnection projectGitUrl</span><br><span class="line">                    url projectSiteUrl</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.writeTo(<span class="string">"$buildDir/poms/pom-default.xml"</span>).writeTo(<span class="string">"pom.xml"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This generates sources.jar</span></span><br><span class="line">task sourcesJar(<span class="string">type:</span> Jar) &#123;</span><br><span class="line">    from android.sourceSets.main.java.srcDirs</span><br><span class="line">    classifier = <span class="string">'sources'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task javadoc(<span class="string">type:</span> Javadoc) &#123;</span><br><span class="line">    source = android.sourceSets.main.java.srcDirs</span><br><span class="line">    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This generates javadoc.jar</span></span><br><span class="line">task javadocJar(<span class="string">type:</span> Jar, <span class="string">dependsOn:</span> javadoc) &#123;</span><br><span class="line">    classifier = <span class="string">'javadoc'</span></span><br><span class="line">    from javadoc.destinationDir</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">artifacts &#123;</span><br><span class="line">    archives javadocJar</span><br><span class="line">    archives sourcesJar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// javadoc configuration</span></span><br><span class="line">javadoc &#123;</span><br><span class="line">    options&#123;</span><br><span class="line">        encoding <span class="string">"UTF-8"</span></span><br><span class="line">        charSet <span class="string">'UTF-8'</span></span><br><span class="line">        author <span class="literal">true</span></span><br><span class="line">        version projectVersionName</span><br><span class="line">        links <span class="string">"http://docs.oracle.com/javase/7/docs/api"</span></span><br><span class="line">        title javadocName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bintray configuration</span></span><br><span class="line">bintray &#123;</span><br><span class="line">    user = bintrayUser</span><br><span class="line">    key = bintrayApikey</span><br><span class="line">    configurations = [<span class="string">'archives'</span>]</span><br><span class="line">    pkg &#123;</span><br><span class="line">        repo = projectBintrayRepo</span><br><span class="line">        name = projectName</span><br><span class="line">        websiteUrl = projectSiteUrl</span><br><span class="line">        vcsUrl = projectGitUrl</span><br><span class="line">        licenses = [<span class="string">"Apache-2.0"</span>]</span><br><span class="line">        publish = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后修改你的<code>library module</code>的<code>build.gradle</code>文件，在最后加上：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">from:</span> <span class="string">"bintrayUpload.gradle"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="把library上传到你的bintray空间"><a href="#把library上传到你的bintray空间" class="headerlink" title="把library上传到你的bintray空间"></a>把library上传到你的bintray空间</h2><p>打开终端进入项目目录下，执行<code>gradlew bintrayUpload</code>命令即可</p>
+<p>另外，如果你的本地已经配置了Gradle了，那么执行<code>gradle bintrayUpload</code>命令也可以。gradlew是Gradle的一层封装，如果你本地没有安装Gradle, gradlew就会自动下载Gradle。</p>
+<p>在bintray的网页上检查一下你的package。你会发现在版本区域的变化。<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/52163301.jpg" alt=""></p>
+<p>点击进去，进入Files选项卡，你会看见那里有我们所上传的library文件。</p>
+<p>恭喜，你的library终于放在了互联网上，任何人都可以使用了！</p>
+<p>不过也别高兴过头，library现在仍然只是在你自己的Maven仓库，而不是在JCenter上。如果有人想使用你的library，他必须定义仓库的url，如下：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url <span class="string">'https://dl.bintray.com/sherlockshi/android-widgets/'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">'com.sherlockshi.widgets:aspectratioimageview:1.0.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以在bintray的web界面找到自己Maven仓库的url，或者直接吧nuuneoi替换成你的bintray用户名（因为前面部分其实都是一样的）。我还建议你直接访问那个链接，看看里面到底是什么。</p>
+<p>但是，就如我们前面所讲的那样，让开发者去定义url这种复杂的事情并不是分享library的最佳方式。想象一下，使用10个library不得添加10个url？所以为了更好的体验，我们把library从自己的仓库传到JCenter上。</p>
+<h2 id="同步bintray用户仓库到JCenter"><a href="#同步bintray用户仓库到JCenter" class="headerlink" title="同步bintray用户仓库到JCenter"></a>同步bintray用户仓库到JCenter</h2><p>把library同步到JCenter非常容易，只需访问网页在package界面<code>Linked To</code>区域点击右下角的<code>Add to JCenter</code>，什么也不用填，直接点击<code>Send</code>。</p>
+<p>现在我们所能做的就是等待bintray团队审核我们的请求，大概4-5个小时。一旦同步的请求审核通过，你会收到一封确认此更改的邮件。现在我们去网页上确认，你会在 Linked To 部分看到已链接到JCenter仓库。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>从此之后，任何开发者都可以使用JCenter() repository 外加一行gradle脚本来使用我们的library了<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.sherlockshi.widget:aspectratioimageview:1.0.1'</span></span><br></pre></td></tr></table></figure></p>
+<p>想检查一下自己的library在JCenter上是否存在？你可以直接访问<a href="http://jcenter.bintray.com" target="_blank" rel="external">http://jcenter.bintray.com</a> ，然后进入和你library的group id 以及artifact id匹配的目录。在本例中就是com -&gt; sherlockshi -&gt; widget -&gt; aspectratioimageview -&gt; 1.0.1。</p>
+<p>请注意链接到JCenter是一个只需做一次的操作。如果你对你的package做了任何修改，比如上传了一个新版本的binary，删除了旧版本的binary等等，这些改变也会影响到JCenter。不过毕竟你自己的仓库和JCenter在不同的地方，所以需要等待2－3分钟让JCenter同步这些修改。</p>
+<p>同时注意，如果你决定删除整个package，放在JCenter仓库上的library不会被删除。它们会像僵尸一样的存在，没有人再能删除它了。因此我建议，如果你想删除整个package，请在移除package之前先在网页上删除每一个版本。</p>
+<p>恭喜！虽然需要许多步骤，但是每一步都很简单。而且大部分操作都是一劳永逸的。</p>
+<p>期待能在上面看到你的library大作！</p>
+<h1 id="踩坑经历"><a href="#踩坑经历" class="headerlink" title="踩坑经历"></a>踩坑经历</h1><h2 id="编译上传时，提示jar包未找到"><a href="#编译上传时，提示jar包未找到" class="headerlink" title="编译上传时，提示jar包未找到"></a>编译上传时，提示jar包未找到</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:aspectratioimageview:bintrayUpload: file /Users/sherlock/work/workspace/AndroidStudio/AspectRatioImageView/aspectratioimageview/build/libs/aspectratioimageview-1.0.1-javadoc.jar could not be found.</span><br><span class="line">:aspectratioimageview:bintrayUpload: file /Users/sherlock/work/workspace/AndroidStudio/AspectRatioImageView/aspectratioimageview/build/libs/aspectratioimageview-1.0.1-sources.jar could not be found.</span><br></pre></td></tr></table></figure>
+<p>解决方法：<br>先执行<code>gradlew install</code>，再执行<code>gradlew bintrayUpload</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.devtf.cn/?p=760" target="_blank" rel="external">如何使用Android Studio把自己的Android library分发到JCenter和Maven Central</a></p>
+<p><a href="https://github.com/xiaopansky/android-library-publish-to-jcenter" target="_blank" rel="external">5分钟发布Android Library项目到JCenter</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用natapp进行微信本地开发调试]]></title>
-      <url>http://yoursite.com/2016/08/18/40_%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8natapp%E8%BF%9B%E8%A1%8C%E5%BE%AE%E4%BF%A1%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95/</url>
+      <url>http://sherlockshi.github.io/2016/08/18/40_%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/%E4%BD%BF%E7%94%A8natapp%E8%BF%9B%E8%A1%8C%E5%BE%AE%E4%BF%A1%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95/</url>
       <content type="html"><![CDATA[<h1 id="一-在本地部署微信公众平台服务器"><a href="#一-在本地部署微信公众平台服务器" class="headerlink" title="一. 在本地部署微信公众平台服务器"></a>一. 在本地部署微信公众平台服务器</h1><p>在eclipse中使用tomcat部署微信公众平台程序</p>
 <a id="more"></a>
 <h1 id="二-注册natapp"><a href="#二-注册natapp" class="headerlink" title="二. 注册natapp"></a>二. 注册natapp</h1><blockquote>
@@ -29,7 +178,7 @@
     
     <entry>
       <title><![CDATA[Android Studio配置应用签名]]></title>
-      <url>http://yoursite.com/2016/07/30/15_Android/1505_%E5%AE%89%E5%85%A8/Android%20Studio%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D/</url>
+      <url>http://sherlockshi.github.io/2016/07/30/15_Android/1505_%E5%AE%89%E5%85%A8/Android%20Studio%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>本文主要参考：<br><a href="http://dxjia.cn/2016/03/04/config-signature-in-gradle-for-release-version/" target="_blank" rel="external">在gradle中为release版本配置签名</a></p>
 </blockquote>
@@ -52,16 +201,16 @@
     
     <entry>
       <title><![CDATA[Android ScrollView无法match_parent的问题]]></title>
-      <url>http://yoursite.com/2016/07/28/15_Android/1590_Others/Android%20ScrollView%E6%97%A0%E6%B3%95match_parent%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p>Android ScrollView无法match_parent的问题</p>
+      <url>http://sherlockshi.github.io/2016/07/28/15_Android/1590_Others/Android%20ScrollView%E6%97%A0%E6%B3%95match_parent%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>Android ScrollView无法match_parent的问题</p>
 <a id="more"></a>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>在ScrollView的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在ScrollView的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Android Studio常见问题]]></title>
-      <url>http://yoursite.com/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+      <url>http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>Android Studio使用建议：将SDK Manager里面的相关工具提前下载下来，并定期更新</p>
 <ul>
@@ -72,8 +221,8 @@
 </blockquote>
 <a id="more"></a>
 <h1 id="1-Gradle版本问题"><a href="#1-Gradle版本问题" class="headerlink" title="1. Gradle版本问题"></a>1. Gradle版本问题</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Error:</span>A problem occurred configuring root project <span class="string">'XylqPda'</span>.</span><br><span class="line">&gt; Could not resolve all dependencies <span class="keyword">for</span> configuration <span class="string">':classpath'</span>.</span><br><span class="line">   &gt; Could not resolve com.android.tools.<span class="string">build:</span><span class="string">gradle:</span><span class="number">2.0</span><span class="number">.0</span>.</span><br><span class="line">     Required <span class="string">by:</span></span><br><span class="line">         :<span class="string">XylqPda:</span>unspecified</span><br><span class="line">      &gt; Could not resolve com.android.tools.<span class="string">build:</span><span class="string">gradle:</span><span class="number">2.0</span><span class="number">.0</span>.</span><br><span class="line">         &gt; Could not get resource <span class="string">'https://repo1.maven.org/maven2/com/android/tools/build/gradle/2.0.0/gradle-2.0.0.pom'</span>.</span><br><span class="line">            &gt; Could not GET <span class="string">'https://repo1.maven.org/maven2/com/android/tools/build/gradle/2.0.0/gradle-2.0.0.pom'</span>.</span><br><span class="line">               &gt; peer not authenticated</span><br><span class="line">      &gt; Could not resolve com.android.tools.<span class="string">build:</span><span class="string">gradle:</span><span class="number">2.0</span><span class="number">.0</span>.</span><br><span class="line">         &gt; Could not get resource <span class="string">'https://jcenter.bintray.com/com/android/tools/build/gradle/2.0.0/gradle-2.0.0.pom'</span>.</span><br><span class="line">            &gt; Could not GET <span class="string">'https://jcenter.bintray.com/com/android/tools/build/gradle/2.0.0/gradle-2.0.0.pom'</span>.</span><br><span class="line">               &gt; peer not authenticated</span><br></pre></td></tr></table></figure>
-<p>原因分析：<br>一般为Android Studio版本号和Gradle版本号不一致导致。</p>
-<p>解决方法：<br>将项目根目录下的build.gradle中dependencies内的<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath <span class="string">'com.android.tools.build:gradle:2.1.2'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>原因分析</strong><br>一般为Android Studio版本号和Gradle版本号不一致导致。</p>
+<p><strong>解决方法</strong><br>将项目根目录下的build.gradle中dependencies内的<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath <span class="string">'com.android.tools.build:gradle:2.1.2'</span></span><br></pre></td></tr></table></figure></p>
 <p>版本号设为跟Android Studio版本号一致。</p>
 <h1 id="2-下载Build-tools失败"><a href="#2-下载Build-tools失败" class="headerlink" title="2. 下载Build-tools失败"></a>2. 下载Build-tools失败</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Error:</span>failed to find Build Tools revision <span class="number">24.0</span><span class="number">.1</span></span><br><span class="line">Install Build Tools <span class="number">24.0</span><span class="number">.1</span> and sync project</span><br></pre></td></tr></table></figure>
 <p><a href="http://blog.csdn.net/barryhappy/article/details/44813951" target="_blank" rel="external">http://blog.csdn.net/barryhappy/article/details/44813951</a></p>
@@ -83,62 +232,62 @@
     
     <entry>
       <title><![CDATA[Gradle基础]]></title>
-      <url>http://yoursite.com/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Gradle%E5%9F%BA%E7%A1%80/</url>
+      <url>http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Gradle%E5%9F%BA%E7%A1%80/</url>
       <content type="html"><![CDATA[<h1 id="一、-什么是Gradle？"><a href="#一、-什么是Gradle？" class="headerlink" title="一、 什么是Gradle？"></a>一、 什么是Gradle？</h1><p>Gradle是一种依赖管理工具，基于Groovy语言，面向Java应用为主，它抛弃了基于XML的各种繁琐配置，取而代之的是一种基于Groovy的领域专用（DSL）语言。</p>
 <a id="more"></a>
 <h1 id="二、安装Gradle"><a href="#二、安装Gradle" class="headerlink" title="二、安装Gradle"></a>二、安装Gradle</h1><p>在Android Studio中新建项目成功后会下载Gradle，貌似这个过程不翻墙也是可以下载，但是访问特别慢，建议翻墙下载。那么下载的Gradle到什么地方呢？</p>
 <p>Mac上会默认下载到 <strong>/Users/&lt;用户名&gt;/.gradle/wrapper/dists</strong> 目录<br>Win平台会默认下载到 <strong>C:\Users\&lt;用户名&gt;\.gradle\wrapper\dists</strong> 目录</p>
 <p>你会看到这个目录下有个 gradle-x.xx-all 的文件夹, 如果下载实在太慢，但是又不想翻墙的话，可以自己手动到<a href="https://gradle.org/gradle-download/" target="_blank" rel="external"><strong>Gradle官网</strong></a>、或者<a href="https://jcenter.bintray.com/com/android/tools/build/gradle/" target="_blank" rel="external"><strong>jcenter</strong></a>里下载对应的版本，然后将下载的.zip文件复制到上述的gradle-x.xx-all 文件夹下，不过还是建议让它直接下载的好。</p>
-<h1 id="三、项目中的-Gradle-相关目录和文件"><a href="#三、项目中的-Gradle-相关目录和文件" class="headerlink" title="三、项目中的 Gradle 相关目录和文件"></a>三、项目中的 Gradle 相关目录和文件</h1><h3 id="1-app-build-gradle"><a href="#1-app-build-gradle" class="headerlink" title="1. app/build.gradle"></a>1. app/build.gradle</h3><p>这个文件是app文件夹下这个Module的gradle配置文件，也可以算是整个项目最主要的gradle配置文件</p>
+<h1 id="三、项目中的-Gradle-相关目录和文件"><a href="#三、项目中的-Gradle-相关目录和文件" class="headerlink" title="三、项目中的 Gradle 相关目录和文件"></a>三、项目中的 Gradle 相关目录和文件</h1><h2 id="app-build-gradle"><a href="#app-build-gradle" class="headerlink" title="app/build.gradle"></a>app/build.gradle</h2><p>这个文件是app文件夹下这个Module的gradle配置文件，也可以算是整个项目最主要的gradle配置文件</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明是Android程序</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">// 编译SDK的版本</span></span><br><span class="line">    compileSdkVersion <span class="number">21</span></span><br><span class="line">    <span class="comment">// build tools的版本</span></span><br><span class="line">    buildToolsVersion <span class="string">"21.1.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">    	<span class="comment">// 应用的包名</span></span><br><span class="line">        applicationId <span class="string">"me.storm.ninegag"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">21</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0.0"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// java版本</span></span><br><span class="line">    compileOptions &#123;</span><br><span class="line">        sourceCompatibility JavaVersion.VERSION_1_7</span><br><span class="line">        targetCompatibility JavaVersion.VERSION_1_7</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        debug &#123;</span><br><span class="line">            <span class="comment">// debug模式</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="comment">// 是否进行混淆</span></span><br><span class="line">            minifyEnabled <span class="literal">false</span></span><br><span class="line">            <span class="comment">// 混淆文件的位置</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.txt'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移除lint检查的error</span></span><br><span class="line">    lintOptions &#123;</span><br><span class="line">      abortOnError <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">// 编译libs目录下的所有jar包</span></span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> [<span class="string">'*.jar'</span>])</span><br><span class="line">    compile <span class="string">'com.android.support:support-v4:21.0.2'</span></span><br><span class="line">    compile <span class="string">'com.etsy.android.grid:library:1.0.5'</span></span><br><span class="line">    compile <span class="string">'com.alexvasilkov:foldable-layout:1.0.1'</span></span><br><span class="line">    <span class="comment">// 编译extras目录下的ShimmerAndroid模块</span></span><br><span class="line">    compile project(<span class="string">':extras:ShimmerAndroid'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-gradle"><a href="#2-gradle" class="headerlink" title="2. gradle/"></a>2. gradle/</h3><p>这个目录下有个 wrapper 文件夹，里面可以看到有两个文件，我们主要看下 gradle-wrapper.properties 这个文件的内容：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Mon Dec 28 10:00:20 PST 2015</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip</span><br></pre></td></tr></table></figure></p>
+<h2 id="gradle"><a href="#gradle" class="headerlink" title="gradle/"></a>gradle/</h2><p>这个目录下有个 wrapper 文件夹，里面可以看到有两个文件，我们主要看下 gradle-wrapper.properties 这个文件的内容：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Mon Dec 28 10:00:20 PST 2015</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip</span><br></pre></td></tr></table></figure></p>
 <p>可以看到里面声明了gradle的目录与下载路径以及当前项目使用的gradle版本，这些默认的路径我们一般不会更改的，这个文件里指明的gradle版本不对也是很多导包不成功的原因之一。</p>
-<h3 id="3-build-gradle"><a href="#3-build-gradle" class="headerlink" title="3. build.gradle"></a>3. build.gradle</h3><p>这个文件是整个项目的gradle基础配置文件<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></span><br><span class="line"></span><br><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:1.0.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h2><p>这个文件是整个项目的gradle基础配置文件<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></span><br><span class="line"></span><br><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:1.0.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>内容主要包含了两个方面：</p>
 <ul>
 <li>一个是声明仓库的源，这里可以看到是指明的jcenter(), 之前版本则是mavenCentral(), jcenter可以理解成是一个新的中央远程仓库，兼容maven中心仓库，而且性能更优。</li>
 <li>另一个是声明了android gradle plugin的版本，android studio 1.0正式版必须要求支持gradle plugin 1.0的版本。</li>
 </ul>
-<h3 id="4-settings-gradle"><a href="#4-settings-gradle" class="headerlink" title="4. settings.gradle"></a>4. settings.gradle</h3><p>这个文件是全局的项目配置文件，里面主要声明一些需要加入gradle的module<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">':app'</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="四、Android-Studio中几个关于Gradle的不同概念"><a href="#四、Android-Studio中几个关于Gradle的不同概念" class="headerlink" title="四、Android Studio中几个关于Gradle的不同概念"></a>四、Android Studio中几个关于Gradle的不同概念</h1><h3 id="1-Gradle、Gradle-Plugin："><a href="#1-Gradle、Gradle-Plugin：" class="headerlink" title="1. Gradle、Gradle Plugin："></a>1. Gradle、Gradle Plugin：</h3><p>Gradle 是新一代的自动化构建工具，它是一个独立的项目，跟 AS、Android 无关，但是 Gradle 官方还是很看重 Android 开发的，Google 在推出 AS 的时候选中了 Gradle 作为构建工具，为了支持 Gradle 能在 AS 上使用，Google 做了个 AS 的插件叫 Android Gradle Plugin  ，所以我们能在 AS 上使用 Gradle 完全是因为这个插件的原因。在项目的根目录有个 build.gradle 文件，里面有这么一句代码：    </p>
+<h2 id="settings-gradle"><a href="#settings-gradle" class="headerlink" title="settings.gradle"></a>settings.gradle</h2><p>这个文件是全局的项目配置文件，里面主要声明一些需要加入gradle的module<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">':app'</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="四、Android-Studio中几个关于Gradle的不同概念"><a href="#四、Android-Studio中几个关于Gradle的不同概念" class="headerlink" title="四、Android Studio中几个关于Gradle的不同概念"></a>四、Android Studio中几个关于Gradle的不同概念</h1><h2 id="Gradle、Gradle-Plugin："><a href="#Gradle、Gradle-Plugin：" class="headerlink" title="Gradle、Gradle Plugin："></a>Gradle、Gradle Plugin：</h2><p>Gradle 是新一代的自动化构建工具，它是一个独立的项目，跟 AS、Android 无关，但是 Gradle 官方还是很看重 Android 开发的，Google 在推出 AS 的时候选中了 Gradle 作为构建工具，为了支持 Gradle 能在 AS 上使用，Google 做了个 AS 的插件叫 Android Gradle Plugin  ，所以我们能在 AS 上使用 Gradle 完全是因为这个插件的原因。在项目的根目录有个 build.gradle 文件，里面有这么一句代码：    </p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath <span class="string">'com.android.tools.build:gradle:2.1.2'</span></span><br></pre></td></tr></table></figure>
 <p>这个就是依赖 gradle 插件的代码，后面的版本号代表的是 android gradle plugin 的版本，而不是 Gradle 的版本，这个是 Google 定的，跟 Gradle 官方没关系。  </p>
-<h3 id="2-Gradle-Wrapper"><a href="#2-Gradle-Wrapper" class="headerlink" title="2. Gradle Wrapper"></a>2. Gradle Wrapper</h3><p>字面意思是Gradle的包装器，主要是这样的应用场景：<br>假设我们本地有多个项目，一个是比较老的项目，还用着 Gradle 1.0 的版本，一个是比较新的项目用了 Gradle 2.0 的版本，但是你两个项目肯定都想要同时运行的，如果你只装了 Gradle 1.0 的话那肯定不行，所以为了解决这个问题，Google 推出了 Gradle Wrapper 的概念，就是他在你每个项目都配置了一个指定版本的 Gradle ，你可以理解为每个 Android 项目本地都有一个小型的 Gradle ，通过这个每个项目你可以支持用不同的 Gradle 版本来构建项目。</p>
+<h2 id="Gradle-Wrapper"><a href="#Gradle-Wrapper" class="headerlink" title="Gradle Wrapper"></a>Gradle Wrapper</h2><p>字面意思是Gradle的包装器，主要是这样的应用场景：<br>假设我们本地有多个项目，一个是比较老的项目，还用着 Gradle 1.0 的版本，一个是比较新的项目用了 Gradle 2.0 的版本，但是你两个项目肯定都想要同时运行的，如果你只装了 Gradle 1.0 的话那肯定不行，所以为了解决这个问题，Google 推出了 Gradle Wrapper 的概念，就是他在你每个项目都配置了一个指定版本的 Gradle ，你可以理解为每个 Android 项目本地都有一个小型的 Gradle ，通过这个每个项目你可以支持用不同的 Gradle 版本来构建项目。</p>
 <h1 id="五、推荐阅读"><a href="#五、推荐阅读" class="headerlink" title="五、推荐阅读"></a>五、推荐阅读</h1><p><a href="http://stormzhang.com/android/2016/07/02/gradle-for-android-beginners/" target="_blank" rel="external">给 Android 初学者的 Gradle 知识普及</a><br><a href="http://stormzhang.com/android/2016/07/15/android-gradle-config/" target="_blank" rel="external">Android 开发你需要了解的 Gradle 配置</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Android代码混淆问题汇总]]></title>
-      <url>http://yoursite.com/2016/07/21/15_Android/1505_%E5%AE%89%E5%85%A8/Android%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
-      <content type="html"><![CDATA[<h1 id="1-The-same-input-jar-is-specified-twice"><a href="#1-The-same-input-jar-is-specified-twice" class="headerlink" title="1. The same input jar is specified twice"></a>1. The same input jar is specified twice</h1><p>Android studio打包中遇到了这样的问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning:Exception <span class="keyword">while</span> processing task java.io.IOException: The same input jar […….jar] is specified twice.</span><br></pre></td></tr></table></figure></p>
+      <url>http://sherlockshi.github.io/2016/07/21/15_Android/1505_%E5%AE%89%E5%85%A8/Android%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <content type="html"><![CDATA[<h1 id="1-问题1"><a href="#1-问题1" class="headerlink" title="1. 问题1"></a>1. 问题1</h1><p>Android studio打包中遇到了这样的问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning:Exception <span class="keyword">while</span> processing task java.io.IOException: The same input jar […….jar] is specified twice.</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>打开 proguard-rules.pro，<br>注释掉所有的-libraryjars行，或者直接删除，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-libraryjars xxxx.jar</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>build.gradle文件配置了<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">include:</span> <span class="string">'*.jar'</span>, <span class="string">dir:</span> <span class="string">'libs'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h2><p>打开<code>proguard-rules.pro</code>，<br>注释掉所有的-libraryjars行，或者直接删除，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-libraryjars xxxx.jar</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>build.gradle文件配置了<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">include:</span> <span class="string">'*.jar'</span>, <span class="string">dir:</span> <span class="string">'libs'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>里面已经添加过jar包，sdk 通过 proguard 混淆代码时默认已经将 lib目录中的 jar 都已经添加到打包脚本中，所以不需要再次手动添加。  </p>
-<h1 id="2-java-io-IOException-Please-correct-the-above-warnings-first"><a href="#2-java-io-IOException-Please-correct-the-above-warnings-first" class="headerlink" title="2. java.io.IOException: Please correct the above warnings first"></a>2. java.io.IOException: Please correct the above warnings first</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Warning:com.baidu.platform.comapi.map.f: can<span class="string">'t find referenced method '</span><span class="built_in">float</span> sqrt(<span class="built_in">float</span>)<span class="string">' in library class android.util.FloatMath</span><br><span class="line">Warning:okio.DeflaterSink: can'</span>t find referenced class org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.Files</span><br><span class="line">Warning:okio.Okio: can'</span>t find referenced class java.nio.file.Path</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.OpenOption</span><br><span class="line"></span><br><span class="line">Warning:Exception while processing task java.io.IOException: Please correct the above warnings first.</span><br><span class="line">:app:transformClassesAndResourcesWithProguardForRelease FAILED</span><br><span class="line">Error:Execution failed for task '</span>:app:transformClassesAndResourcesWithProguardForRelease<span class="string">'.</span><br><span class="line">&gt; java.io.IOException: Please correct the above warnings first.</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-问题2"><a href="#2-问题2" class="headerlink" title="2. 问题2"></a>2. 问题2</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Warning:com.baidu.platform.comapi.map.f: can<span class="string">'t find referenced method '</span><span class="built_in">float</span> sqrt(<span class="built_in">float</span>)<span class="string">' in library class android.util.FloatMath</span><br><span class="line">Warning:okio.DeflaterSink: can'</span>t find referenced class org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.Files</span><br><span class="line">Warning:okio.Okio: can'</span>t find referenced class java.nio.file.Path</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.OpenOption</span><br><span class="line"></span><br><span class="line">Warning:Exception while processing task java.io.IOException: Please correct the above warnings first.</span><br><span class="line">:app:transformClassesAndResourcesWithProguardForRelease FAILED</span><br><span class="line">Error:Execution failed for task '</span>:app:transformClassesAndResourcesWithProguardForRelease<span class="string">'.</span><br><span class="line">&gt; java.io.IOException: Please correct the above warnings first.</span></span><br></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[HttpURLConnection用法]]></title>
-      <url>http://yoursite.com/2016/07/19/15_Android/1525_%E7%BD%91%E7%BB%9C/HttpURLConnection%E7%94%A8%E6%B3%95/</url>
+      <url>http://sherlockshi.github.io/2016/07/19/15_Android/1525_%E7%BD%91%E7%BB%9C/HttpURLConnection%E7%94%A8%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>原文链接：<br><a href="http://www.blogjava.net/supercrsky/articles/247449.html" target="_blank" rel="external">http://www.blogjava.net/supercrsky/articles/247449.html</a><br><a href="http://blog.csdn.net/woxueliuyun/article/details/43267365" target="_blank" rel="external">http://blog.csdn.net/woxueliuyun/article/details/43267365</a></p>
 </blockquote>
 <p>任何网络连接都需要经过socket才能连接，HttpURLConnection不需要设置socket，所以，HttpURLConnection并不是底层的连接，而是在底层连接上的一个请求。这就是为什么HttpURLConneciton只是一个抽象类，自身不能被实例化的原因。HttpURLConnection只能通过URL.openConnection()方法创建具体的实例。</p>
 <a id="more"></a>
 <p>虽然底层的网络连接可以被多个HttpURLConnection实例共享，但每一个HttpURLConnection实例只能发送一个请求。请求结束之后，应该调用HttpURLConnection实例的InputStream或OutputStream的close()方法以释放请求的网络资源，不过这种方式对于持久化连接没用。对于持久化连接，得用disconnect()方法关闭底层连接的socket。</p>
-<h3 id="创建HttpURLConnection"><a href="#创建HttpURLConnection" class="headerlink" title="创建HttpURLConnection"></a>创建HttpURLConnection</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">"http://localhost:8080/xxx.do"</span>);    </span><br><span class="line"></span><br><span class="line">URLConnection rulConnection = url.openConnection();</span><br><span class="line"><span class="comment">// 此处的urlConnection对象实际上是根据URL的    </span></span><br><span class="line"><span class="comment">// 请求协议(此处是http)生成的URLConnection类    </span></span><br><span class="line"><span class="comment">// 的子类HttpURLConnection,故此处最好将其转化    </span></span><br><span class="line"><span class="comment">// 为HttpURLConnection类型的对象,以便用到    </span></span><br><span class="line"><span class="comment">// HttpURLConnection更多的API.如下:    </span></span><br><span class="line"></span><br><span class="line">HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;</span><br></pre></td></tr></table></figure>
-<h3 id="设置HttpURLConnection参数"><a href="#设置HttpURLConnection参数" class="headerlink" title="设置HttpURLConnection参数"></a>设置HttpURLConnection参数</h3><blockquote>
+<h1 id="创建HttpURLConnection"><a href="#创建HttpURLConnection" class="headerlink" title="创建HttpURLConnection"></a>创建HttpURLConnection</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">"http://localhost:8080/xxx.do"</span>);    </span><br><span class="line"></span><br><span class="line">URLConnection rulConnection = url.openConnection();</span><br><span class="line"><span class="comment">// 此处的urlConnection对象实际上是根据URL的    </span></span><br><span class="line"><span class="comment">// 请求协议(此处是http)生成的URLConnection类    </span></span><br><span class="line"><span class="comment">// 的子类HttpURLConnection,故此处最好将其转化    </span></span><br><span class="line"><span class="comment">// 为HttpURLConnection类型的对象,以便用到    </span></span><br><span class="line"><span class="comment">// HttpURLConnection更多的API.如下:    </span></span><br><span class="line"></span><br><span class="line">HttpURLConnection httpUrlConnection = (HttpURLConnection) rulConnection;</span><br></pre></td></tr></table></figure>
+<h1 id="设置HttpURLConnection参数"><a href="#设置HttpURLConnection参数" class="headerlink" title="设置HttpURLConnection参数"></a>设置HttpURLConnection参数</h1><blockquote>
 <p>若为Get请求，不用设置下述参数，只需要最后一步的connect()即可  </p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设定请求的方法为"POST"，默认是GET    </span></span><br><span class="line">httpUrlConnection.setRequestMethod(<span class="string">"POST"</span>);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置是否向httpUrlConnection输出，因为这个是post请求，参数要放在    </span></span><br><span class="line"><span class="comment">// http正文内，因此需要设为true, 默认情况下是false;    </span></span><br><span class="line">httpUrlConnection.setDoOutput(<span class="keyword">true</span>);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置是否从httpUrlConnection读入，默认情况下是true;    </span></span><br><span class="line">httpUrlConnection.setDoInput(<span class="keyword">true</span>);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// Post 请求不能使用缓存    </span></span><br><span class="line">httpUrlConnection.setUseCaches(<span class="keyword">false</span>);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 设定传送的内容类型是可序列化的java对象    </span></span><br><span class="line"><span class="comment">// (如果不设此项,在传送序列化对象时,当WEB服务默认的不是这种类型时可能抛java.io.EOFException)    </span></span><br><span class="line">httpUrlConnection.setRequestProperty(<span class="string">"Content-type"</span>, <span class="string">"application/x-java-serialized-object"</span>);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接，从上述url.openConnection()至此的配置必须要在connect之前完成，    </span></span><br><span class="line">httpUrlConnection.connect();</span><br></pre></td></tr></table></figure>
-<h3 id="URLConnection建立连接"><a href="#URLConnection建立连接" class="headerlink" title="URLConnection建立连接"></a>URLConnection建立连接</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此处getOutputStream会隐含的进行connect(即：如同调用上面的connect()方法，    </span></span><br><span class="line"><span class="comment">// 所以在开发中不调用上述的connect()也可以)。    </span></span><br><span class="line">OutputStream outStrm = httpUrlConnection.getOutputStream();</span><br><span class="line"><span class="comment">//getInputStream()也是同理。</span></span><br></pre></td></tr></table></figure>
-<h3 id="HttpURLConnection发送请求"><a href="#HttpURLConnection发送请求" class="headerlink" title="HttpURLConnection发送请求"></a>HttpURLConnection发送请求</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 现在通过输出流对象构建对象输出流对象，以实现输出可序列化的对象。    </span></span><br><span class="line">ObjectOutputStream objOutputStrm = <span class="keyword">new</span> ObjectOutputStream(outStrm);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 向对象输出流写出数据，这些数据将存到内存缓冲区中    </span></span><br><span class="line">objOutputStrm.writeObject(<span class="keyword">new</span> String(<span class="string">"我是测试数据"</span>));    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 刷新对象输出流，将任何字节都写入潜在的流中（些处为ObjectOutputStream）    </span></span><br><span class="line">objOutputStm.flush();    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭流对象。此时，不能再向对象输出流写入任何数据，先前写入的数据存在于内存缓冲区中,    </span></span><br><span class="line"><span class="comment">// 在调用下边的getInputStream()函数时才把准备好的http请求正式发送到服务器    </span></span><br><span class="line">objOutputStm.close();</span><br></pre></td></tr></table></figure>
-<h3 id="HttpURLConneciton获取响应"><a href="#HttpURLConneciton获取响应" class="headerlink" title="HttpURLConneciton获取响应"></a>HttpURLConneciton获取响应</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用HttpURLConnection连接对象的getInputStream()函数</span></span><br><span class="line">InputStream inStrm = httpConn.getInputStream();</span><br></pre></td></tr></table></figure>
-<h3 id="设置POST参数"><a href="#设置POST参数" class="headerlink" title="设置POST参数"></a>设置POST参数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OutputStream os = httpConn.getOutputStream();    </span><br><span class="line">String param = <span class="keyword">new</span> String();    </span><br><span class="line">param = <span class="string">"CorpID="</span> + CorpID +    </span><br><span class="line">       <span class="string">"&amp;LoginName="</span> + LoginName+    </span><br><span class="line">       <span class="string">"&amp;send_no="</span> + phoneNumber +    </span><br><span class="line">       <span class="string">"&amp;msg="</span> + java.net.URLEncoder.encode(msg,<span class="string">"GBK"</span>); ;    </span><br><span class="line">os.write(param.getBytes());</span><br></pre></td></tr></table></figure>
-<h5 id="超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行"><a href="#超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行" class="headerlink" title="超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行"></a>超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(<span class="string">"sun.net.client.defaultConnectTimeout"</span>, <span class="string">"30000"</span>);</span><br><span class="line">System.setProperty(<span class="string">"sun.net.client.defaultReadTimeout"</span>, <span class="string">"30000"</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="URLConnection建立连接"><a href="#URLConnection建立连接" class="headerlink" title="URLConnection建立连接"></a>URLConnection建立连接</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此处getOutputStream会隐含的进行connect(即：如同调用上面的connect()方法，    </span></span><br><span class="line"><span class="comment">// 所以在开发中不调用上述的connect()也可以)。    </span></span><br><span class="line">OutputStream outStrm = httpUrlConnection.getOutputStream();</span><br><span class="line"><span class="comment">//getInputStream()也是同理。</span></span><br></pre></td></tr></table></figure>
+<h1 id="HttpURLConnection发送请求"><a href="#HttpURLConnection发送请求" class="headerlink" title="HttpURLConnection发送请求"></a>HttpURLConnection发送请求</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 现在通过输出流对象构建对象输出流对象，以实现输出可序列化的对象。    </span></span><br><span class="line">ObjectOutputStream objOutputStrm = <span class="keyword">new</span> ObjectOutputStream(outStrm);    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 向对象输出流写出数据，这些数据将存到内存缓冲区中    </span></span><br><span class="line">objOutputStrm.writeObject(<span class="keyword">new</span> String(<span class="string">"我是测试数据"</span>));    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 刷新对象输出流，将任何字节都写入潜在的流中（些处为ObjectOutputStream）    </span></span><br><span class="line">objOutputStm.flush();    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭流对象。此时，不能再向对象输出流写入任何数据，先前写入的数据存在于内存缓冲区中,    </span></span><br><span class="line"><span class="comment">// 在调用下边的getInputStream()函数时才把准备好的http请求正式发送到服务器    </span></span><br><span class="line">objOutputStm.close();</span><br></pre></td></tr></table></figure>
+<h1 id="HttpURLConneciton获取响应"><a href="#HttpURLConneciton获取响应" class="headerlink" title="HttpURLConneciton获取响应"></a>HttpURLConneciton获取响应</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用HttpURLConnection连接对象的getInputStream()函数</span></span><br><span class="line">InputStream inStrm = httpConn.getInputStream();</span><br></pre></td></tr></table></figure>
+<h1 id="设置POST参数"><a href="#设置POST参数" class="headerlink" title="设置POST参数"></a>设置POST参数</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OutputStream os = httpConn.getOutputStream();    </span><br><span class="line">String param = <span class="keyword">new</span> String();    </span><br><span class="line">param = <span class="string">"CorpID="</span> + CorpID +    </span><br><span class="line">       <span class="string">"&amp;LoginName="</span> + LoginName+    </span><br><span class="line">       <span class="string">"&amp;send_no="</span> + phoneNumber +    </span><br><span class="line">       <span class="string">"&amp;msg="</span> + java.net.URLEncoder.encode(msg,<span class="string">"GBK"</span>); ;    </span><br><span class="line">os.write(param.getBytes());</span><br></pre></td></tr></table></figure>
+<h2 id="超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行"><a href="#超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行" class="headerlink" title="超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行"></a>超时设置，防止网络异常的情况下，可能会导致程序僵死而不继续往下执行</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(<span class="string">"sun.net.client.defaultConnectTimeout"</span>, <span class="string">"30000"</span>);</span><br><span class="line">System.setProperty(<span class="string">"sun.net.client.defaultReadTimeout"</span>, <span class="string">"30000"</span>);</span><br></pre></td></tr></table></figure>
 <p>其中：<br>sun.net.client.defaultConnectTimeout：连接主机的超时时间（单位：毫秒）<br>sun.net.client.defaultReadTimeout：从主机读取数据的超时时间（单位：毫秒）</p>
 <p>JDK 1.5以前的版本，只能通过设置这两个系统属性来控制网络超时。在1.5中，还可以使用HttpURLConnection的父类URLConnection的以下两个方法：  </p>
 <p>setConnectTimeout：设置连接主机超时（单位：毫秒）<br>setReadTimeout：设置从主机读取数据超时（单位：毫秒）</p>
@@ -148,7 +297,7 @@
     
     <entry>
       <title><![CDATA[Android Studio入门教程]]></title>
-      <url>http://yoursite.com/2016/07/13/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</url>
+      <url>http://sherlockshi.github.io/2016/07/13/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>在Android Studio出现之前，开发Android应用主要是使用Eclipse ADT，也就是说，虽然那时候Android系统已经安装在9亿台设备上，但是没有一个专门的开发环境供Android开发者来开发Android应用。直到2013年的Google I/O大会，Google发布了Android Studio 0.1版本，我们才有了像iOS开发者的XCode一样的官方IDE。</p>
 <a id="more"></a>
 <p>2013年5月发布早期预览版本，版本号为0.1。2014年6月发布0.8版本，至此进入beta阶段。第一个稳定版本1.0于2014年12月8日发布，之后还有好多版本，比较稳定有的1.5正式版，2.0正式版，以及现在最新的2.1版本。</p>
@@ -195,15 +344,15 @@
 </tbody>
 </table>
 <p>简单的来说，Android Stduio把一个项目比喻成一个工程的一个个模块，外部的依赖也是一个个模块，这样一个项目的结构就很清晰明了。<br>当然也有一个缺点，就是一个窗口只能打开一个project，不能像eclipse那样一次一个窗口打开多个项目。</p>
-<h3 id="4-1-新建项目"><a href="#4-1-新建项目" class="headerlink" title="4.1 新建项目"></a>4.1 新建项目</h3><p><strong>两个方式：</strong>  </p>
+<h2 id="4-1-新建项目"><a href="#4-1-新建项目" class="headerlink" title="4.1 新建项目"></a>4.1 新建项目</h2><p><strong>两个方式：</strong>  </p>
 <ul>
 <li><p>Android Studio欢迎界面时：<br>  <code>start a new Android Studio project</code></p>
 </li>
 <li><p>Android Studio已有打开的项目时：<br>  <code>File</code> -&gt; <code>New</code> -&gt; <code>New Project...</code></p>
 </li>
 </ul>
-<h3 id="4-2-模拟器"><a href="#4-2-模拟器" class="headerlink" title="4.2 模拟器"></a>4.2 模拟器</h3><p><strong>＝＝＝＝＝＝＝＝建议使用真机＝＝＝＝＝＝＝＝</strong></p>
-<h5 id="自带的"><a href="#自带的" class="headerlink" title="自带的"></a>自带的</h5><h5 id="Genymotion"><a href="#Genymotion" class="headerlink" title="Genymotion"></a><a href="https://www.genymotion.com/" target="_blank" rel="external">Genymotion</a></h5><h3 id="4-3-目录结构"><a href="#4-3-目录结构" class="headerlink" title="4.3 目录结构"></a>4.3 目录结构</h3><p>目录展现模式：Project、Android  </p>
+<h2 id="4-2-模拟器"><a href="#4-2-模拟器" class="headerlink" title="4.2 模拟器"></a>4.2 模拟器</h2><p><strong>＝＝＝＝＝＝＝＝建议使用真机＝＝＝＝＝＝＝＝</strong></p>
+<h3 id="自带的"><a href="#自带的" class="headerlink" title="自带的"></a>自带的</h3><h3 id="Genymotion"><a href="#Genymotion" class="headerlink" title="Genymotion"></a><a href="https://www.genymotion.com/" target="_blank" rel="external">Genymotion</a></h3><h2 id="4-3-目录结构"><a href="#4-3-目录结构" class="headerlink" title="4.3 目录结构"></a>4.3 目录结构</h2><p>目录展现模式：Project、Android  </p>
 <ul>
 <li>app/  <ul>
 <li>libs/： 右击jar包，Add as library</li>
@@ -220,7 +369,7 @@
 <blockquote>
 <p>这里还有一些关于Gradle的配置文件还没有介绍，统一在下一节进行介绍。</p>
 </blockquote>
-<h1 id="5-Gradle介绍"><a href="#5-Gradle介绍" class="headerlink" title="5. Gradle介绍"></a>5. Gradle介绍</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Gradle%E5%9F%BA%E7%A1%80/" target="_blank" rel="external">Gradle基础</a></p>
+<h1 id="5-Gradle介绍"><a href="#5-Gradle介绍" class="headerlink" title="5. Gradle介绍"></a>5. Gradle介绍</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Gradle%E5%9F%BA%E7%A1%80/">Gradle基础</a></p>
 <h1 id="6-插件"><a href="#6-插件" class="headerlink" title="6. 插件"></a>6. 插件</h1><ul>
 <li>gson format</li>
 <li>android-butterknife-zelezny</li>
@@ -230,7 +379,7 @@
 </ul>
 <p><a href="http://mobdevgroup.com/tools/android" target="_blank" rel="external">Android开发工具</a></p>
 <h1 id="7-常用快捷键"><a href="#7-常用快捷键" class="headerlink" title="7. 常用快捷键"></a>7. 常用快捷键</h1><p><code>Preferences</code> -&gt; <code>Keymap</code><br><code>Help</code> -&gt; <code>Default Keymap Reference</code></p>
-<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><table>
+<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><table>
 <thead>
 <tr>
 <th>Action</th>
@@ -346,39 +495,39 @@
 </tr>
 </tbody>
 </table>
-<h3 id="自动导包"><a href="#自动导包" class="headerlink" title="自动导包"></a>自动导包</h3><p>我们只有每次引用一些类的时候必须要导包，而Android Studio可以通过设置自动导包，简直太实用了.</p>
+<h2 id="自动导包"><a href="#自动导包" class="headerlink" title="自动导包"></a>自动导包</h2><p>我们只有每次引用一些类的时候必须要导包，而Android Studio可以通过设置自动导包，简直太实用了.</p>
 <p>到 <code>Preferences</code> -&gt; <code>Editor</code> -&gt; <code>General</code> -&gt; <code>Auto Import</code> -&gt; <code>Java</code> 把以下选项勾上就OK了<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/Snip20160724_1.png" alt=""></p>
-<h1 id="8-常见问题"><a href="#8-常见问题" class="headerlink" title="8. 常见问题"></a>8. 常见问题</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" target="_blank" rel="external">Android Studio常见问题</a></p>
+<h1 id="8-常见问题"><a href="#8-常见问题" class="headerlink" title="8. 常见问题"></a>8. 常见问题</h1><p>详见<a href="http://sherlockshi.github.io/2016/07/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">Android Studio常见问题</a></p>
 <h1 id="9-学习资料"><a href="#9-学习资料" class="headerlink" title="9. 学习资料"></a>9. 学习资料</h1><p>stormzhang的<a href="http://stormzhang.com/devtools/2015/06/17/android-studio-all/" target="_blank" rel="external">Android Studio详细教程汇总</a><br><a href="https://dongchuan.gitbooks.io/gradle-user-guide-/content/tutorials/" target="_blank" rel="external">Gradle中文教程</a><br><a href="http://ask.android-studio.org/?/explore/category-video" target="_blank" rel="external">Android Studio视频教程</a><br><a href="http://ask.android-studio.org/?/explore/category-gradle" target="_blank" rel="external">Gradle教程</a></p>
-<h1 id="10-翻墙软件"><a href="#10-翻墙软件" class="headerlink" title="10. 翻墙软件"></a>10. 翻墙软件</h1><h3 id="免费："><a href="#免费：" class="headerlink" title="免费："></a>免费：</h3><p><a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XX-Net</a><br><a href="https://github.com/getlantern/forum" target="_blank" rel="external">蓝灯</a></p>
-<h3 id="付费："><a href="#付费：" class="headerlink" title="付费："></a>付费：</h3><p><a href="https://shadowsocks.com/" target="_blank" rel="external">Shadowsocks</a><br><a href="https://www.ytpub.com/" target="_blank" rel="external">云梯VPN</a><br>…</p>
+<h1 id="10-翻墙软件"><a href="#10-翻墙软件" class="headerlink" title="10. 翻墙软件"></a>10. 翻墙软件</h1><h2 id="免费"><a href="#免费" class="headerlink" title="免费"></a>免费</h2><p><a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XX-Net</a><br><a href="https://github.com/getlantern/forum" target="_blank" rel="external">蓝灯</a></p>
+<h2 id="付费"><a href="#付费" class="headerlink" title="付费"></a>付费</h2><p><a href="https://shadowsocks.com/" target="_blank" rel="external">Shadowsocks</a><br><a href="https://www.ytpub.com/" target="_blank" rel="external">云梯VPN</a>  </p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Andrdoid代码混淆]]></title>
-      <url>http://yoursite.com/2016/07/01/15_Android/1505_%E5%AE%89%E5%85%A8/Andrdoid%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86/</url>
+      <url>http://sherlockshi.github.io/2016/07/01/15_Android/1505_%E5%AE%89%E5%85%A8/Andrdoid%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>本文主要参考<a href="http://www.jianshu.com/p/f3455ecaa56e" target="_blank" rel="external">5分钟搞定android混淆</a></p>
 </blockquote>
 <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><a id="more"></a>
 <h1 id="2-上模板"><a href="#2-上模板" class="headerlink" title="2. 上模板"></a>2. 上模板</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-------------------------------------------定制化区域----------------------------------------------</span></span><br><span class="line"><span class="comment">#---------------------------------1.实体类、自定义控件-----------------------</span></span><br><span class="line">-keep class com.sherlockshi.core.model.entity.** &#123; *; &#125; <span class="comment">#实体类不参与混淆</span></span><br><span class="line">-keep class com.sherlockshi.core.ui.custom.** &#123; *; &#125; <span class="comment">#自定义控件不参与混淆</span></span><br><span class="line"><span class="comment">#-------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------2.第三方包-------------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------3.与js互相调用的类------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------4.反射相关的类和方法-----------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#----------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------------------基本不用动区域--------------------------------------------</span></span><br><span class="line"><span class="comment">#---------------------------------基本指令区----------------------------------</span></span><br><span class="line">-optimizationpasses 5</span><br><span class="line">-dontskipnonpubliclibraryclassmembers</span><br><span class="line">-printmapping proguardMapping.txt</span><br><span class="line">-optimizations !code/simplification/cast,!field/*,!class/merging/*</span><br><span class="line">-keepattributes *Annotation*,InnerClasses</span><br><span class="line">-keepattributes Signature</span><br><span class="line">-keepattributes SourceFile,LineNumberTable</span><br><span class="line"><span class="comment">#----------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------默认保留区---------------------------------</span></span><br><span class="line">-keep public class * extends android.app.Activity</span><br><span class="line">-keep public class * extends android.app.Application</span><br><span class="line">-keep public class * extends android.app.Service</span><br><span class="line">-keep public class * extends android.content.BroadcastReceiver</span><br><span class="line">-keep public class * extends android.content.ContentProvider</span><br><span class="line">-keep public class * extends android.app.backup.BackupAgentHelper</span><br><span class="line">-keep public class * extends android.preference.Preference</span><br><span class="line">-keep public class * extends android.view.View</span><br><span class="line">-keep public class com.android.vending.licensing.ILicensingService</span><br><span class="line">-keep class android.support.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line">-keep public class * extends android.view.View&#123;</span><br><span class="line">    *** get*();</span><br><span class="line">    void <span class="built_in">set</span>*(***);</span><br><span class="line">    public &lt;init&gt;(android.content.Context);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);</span><br><span class="line">&#125;</span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * implements java.io.Serializable &#123;</span><br><span class="line">    static final long serialVersionUID;</span><br><span class="line">    private static final java.io.ObjectStreamField[] serialPersistentFields;</span><br><span class="line">    private void writeObject(java.io.ObjectOutputStream);</span><br><span class="line">    private void <span class="built_in">read</span>Object(java.io.ObjectInputStream);</span><br><span class="line">    java.lang.Object writeReplace();</span><br><span class="line">    java.lang.Object <span class="built_in">read</span>Resolve();</span><br><span class="line">&#125;</span><br><span class="line">-keep class **.R$* &#123;</span><br><span class="line"> *;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">    void *(**On*Event);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#----------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------webview------------------------------------</span></span><br><span class="line">-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;</span><br><span class="line">   public *;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.webkit.webViewClient &#123;</span><br><span class="line">    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);</span><br><span class="line">    public boolean *(android.webkit.WebView, java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.webkit.webViewClient &#123;</span><br><span class="line">    public void *(android.webkit.webView, jav.lang.String);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#----------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
-<h1 id="3-分析"><a href="#3-分析" class="headerlink" title="3. 分析"></a>3. 分析</h1><h3 id="3-1-实体类、自定义控件"><a href="#3-1-实体类、自定义控件" class="headerlink" title="3.1 实体类、自定义控件"></a>3.1 实体类、自定义控件</h3><p>实体类由于涉及到与服务端的交互，各种gson的交互如此等等，是要保留的，自定义控件也是一样。将你项目中实体类都拎出来，用以下语法进行保留。</p>
+<h1 id="3-分析"><a href="#3-分析" class="headerlink" title="3. 分析"></a>3. 分析</h1><h2 id="3-1-实体类、自定义控件"><a href="#3-1-实体类、自定义控件" class="headerlink" title="3.1 实体类、自定义控件"></a>3.1 实体类、自定义控件</h2><p>实体类由于涉及到与服务端的交互，各种gson的交互如此等等，是要保留的，自定义控件也是一样。将你项目中实体类都拎出来，用以下语法进行保留。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-keep class 你的实体类所在的包.** &#123; *; &#125;</span><br><span class="line">-keep class 你的自定义控件所在的包.** &#123; *; &#125;</span><br></pre></td></tr></table></figure>
 <p>如我的项目下类User的完整路径为：com.demo.login.bean.User, 那我的混淆如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#---------------------------------1.实体类、自定义控件-----------------------</span></span><br><span class="line"></span><br><span class="line">-keep class com.demo.login.bean.** &#123; *; &#125; <span class="comment">#实体类不参与混淆</span></span><br><span class="line">-keep class com.demo.android.view.** &#123; *; &#125; <span class="comment">#自定义控件不参与混淆</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure></p>
 <p>当然你的实体类、自定义控件肯定不止这一个，请用上边的方式一一添加，如果你的实体类、自定义控件都在一个包下，那你就幸福了。</p>
-<h3 id="3-2-第三方包"><a href="#3-2-第三方包" class="headerlink" title="3.2 第三方包"></a>3.2 第三方包</h3><p>打开你app下的build.gradle文件，查看你用了哪些第三方的包。</p>
+<h2 id="3-2-第三方包"><a href="#3-2-第三方包" class="headerlink" title="3.2 第三方包"></a>3.2 第三方包</h2><p>打开你app下的build.gradle文件，查看你用了哪些第三方的包。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></span><br><span class="line">    compile <span class="string">'org.greenrobot:eventbus:3.0.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我这里用了glide，eventbus。我去他们的官网把已经写好的混淆copy下来。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#---------------------------------2.第三方包-------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#eventBus</span></span><br><span class="line">-keepattributes *Annotation*</span><br><span class="line">-keepclassmembers class ** &#123;</span><br><span class="line">    @org.greenrobot.eventbus.Subscribe &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line">-keep enum org.greenrobot.eventbus.ThreadMode &#123; *; &#125;</span><br><span class="line">-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent &#123;</span><br><span class="line">    &lt;init&gt;(java.lang.Throwable);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#glide</span></span><br><span class="line">-keep public class * implements com.bumptech.glide.module.GlideModule</span><br><span class="line">-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** &#123;</span><br><span class="line">  **[] <span class="variable">$VALUES</span>;</span><br><span class="line">  public *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
 <p>一般官网都是有混淆的，没有的话就google，也没有的话自己按照上面的写法自己写，还不会的话。。。。。只能换个包。。。。。如果你是直接包含的jar包的话，你这样写</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#---------------------------------2.第三方包-------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#log4j</span></span><br><span class="line">-libraryjars <span class="built_in">log</span>4j-1.2.17.jar</span><br><span class="line">-dontwarn org.apache.log4j.**</span><br><span class="line">-keep class  org.apache.log4j.** &#123; *;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
 <p>大致意思就是不混淆，不报warn。如果gradle报错的话，可以考虑注释掉-libraryjars log4j-1.2.17.jar这句。</p>
-<h3 id="3-3-与js互相调用的类"><a href="#3-3-与js互相调用的类" class="headerlink" title="3.3 与js互相调用的类"></a>3.3 与js互相调用的类</h3><p>工程中没有直接跳过，一般你可以这样写</p>
+<h2 id="3-3-与js互相调用的类"><a href="#3-3-与js互相调用的类" class="headerlink" title="3.3 与js互相调用的类"></a>3.3 与js互相调用的类</h2><p>工程中没有直接跳过，一般你可以这样写</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep class 你的类所在的包.** &#123; *; &#125;</span><br></pre></td></tr></table></figure>
 <p>如果是内部类的话，你可以这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepclasseswithmembers class 你的类所在的包.父类$子类 &#123; &lt;methods&gt;; &#125;</span><br></pre></td></tr></table></figure></p>
 <p>例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-keepclasseswithmembers class com.demo.login.bean.ui.MainActivity<span class="variable">$JSInterface</span> &#123;</span><br><span class="line">      &lt;methods&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-4-反射相关的类和方法"><a href="#3-4-反射相关的类和方法" class="headerlink" title="3.4 反射相关的类和方法"></a>3.4 反射相关的类和方法</h3><p>工程中没有直接跳过，类的话直接这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep class 你的类所在的包.** &#123; *; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-4-反射相关的类和方法"><a href="#3-4-反射相关的类和方法" class="headerlink" title="3.4 反射相关的类和方法"></a>3.4 反射相关的类和方法</h2><p>工程中没有直接跳过，类的话直接这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep class 你的类所在的包.** &#123; *; &#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="4-深入了解"><a href="#4-深入了解" class="headerlink" title="4. 深入了解"></a>4. 深入了解</h1><p>先逐条介绍下基本指令区指令的含义</p>
 <p>代码混淆的压缩比例，值在0-7之间：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-optimizationpasses 5</span><br></pre></td></tr></table></figure></p>
 <p>混淆后类名都为小写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-dontusemixedcaseclassnames</span><br></pre></td></tr></table></figure></p>
@@ -407,22 +556,22 @@
     
     <entry>
       <title><![CDATA[Android里Button只显示大写字母的问题]]></title>
-      <url>http://yoursite.com/2016/06/27/15_Android/1590_Others/Android%E9%87%8CButton%E5%8F%AA%E6%98%BE%E7%A4%BA%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p>在XML布局文件里面直接给Button设置英文text时，会出现text内容全部变成大写，如设置text为Take(Small)Picture，但实际显示为TAKE(SMALL)PICTURE</p>
+      <url>http://sherlockshi.github.io/2016/06/27/15_Android/1590_Others/Android%E9%87%8CButton%E5%8F%AA%E6%98%BE%E7%A4%BA%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在XML布局文件里面直接给Button设置英文text时，会出现text内容全部变成大写，如设置text为Take(Small)Picture，但实际显示为TAKE(SMALL)PICTURE</p>
 <a id="more"></a>
 <p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/Android%E9%87%8CButton%E5%8F%AA%E6%98%BE%E7%A4%BA%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E7%9A%84%E9%97%AE%E9%A2%98.png" alt="Alt text"></p>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>在Button的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在Button的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Android官方相机教程：简单的相机应用和自定义相机]]></title>
-      <url>http://yoursite.com/2016/06/27/15_Android/1520_%E7%9B%B8%E6%9C%BA/Android%E5%AE%98%E6%96%B9%E7%9B%B8%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E6%9C%BA/</url>
+      <url>http://sherlockshi.github.io/2016/06/27/15_Android/1520_%E7%9B%B8%E6%9C%BA/Android%E5%AE%98%E6%96%B9%E7%9B%B8%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E6%9C%BA/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>本文基于<a href="https://developer.android.com/training/camera/index.html" target="_blank" rel="external">Android相机官方教程</a>及<a href="http://wiki.jikexueyuan.com/project/android-training-geek/camera-index.html" target="_blank" rel="external">极客学院Wiki</a>整理</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="1-轻松拍摄照片"><a href="#1-轻松拍摄照片" class="headerlink" title="1. 轻松拍摄照片"></a>1. 轻松拍摄照片</h1><p>这节课将讲解如何使用已有的相机应用拍摄照片。</p>
+<h1 id="一、轻松拍摄照片"><a href="#一、轻松拍摄照片" class="headerlink" title="一、轻松拍摄照片"></a>一、轻松拍摄照片</h1><p>这节课将讲解如何使用已有的相机应用拍摄照片。</p>
 <h2 id="1-1-请求使用相机权限"><a href="#1-1-请求使用相机权限" class="headerlink" title="1.1 请求使用相机权限"></a>1.1 请求使用相机权限</h2><p>如果拍照是应用的必要功能，那么应该令它在Google Play中仅对有相机的设备可见。为了让用户知道我们的应用需要依赖相机，在Manifest清单文件中添加<uses-feature>标签:</uses-feature></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-feature</span> <span class="attr">android:name</span>=<span class="string">"android.hardware.camera"</span></span><br><span class="line">                  <span class="attr">android:required</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果我们的应用使用相机，但相机并不是应用的正常运行所必不可少的组件，可以将android:required设置为”false”。这样的话，Google Play 也会允许没有相机的设备下载该应用。当然我们有必要在使用相机之前通过调用hasSystemFeature(PackageManager.FEATURE_CAMERA)方法来检查设备上是否有相机。如果没有，我们应该禁用和相机相关的功能！</p>
@@ -461,73 +610,77 @@
     
     <entry>
       <title><![CDATA[使用Hexo搭建个人博客过程的各种问题]]></title>
-      <url>http://yoursite.com/2016/06/23/30_%E5%8D%9A%E5%AE%A2/3005_Hexo/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<h1 id="1-问题1："><a href="#1-问题1：" class="headerlink" title="1. 问题1："></a>1. 问题1：</h1><p>Q: hexo server后访问浏览器 <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> 出现 cannot get：</p>
+      <url>http://sherlockshi.github.io/2016/06/23/30_%E5%8D%9A%E5%AE%A2/3005_Hexo/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h1 id="1-问题1"><a href="#1-问题1" class="headerlink" title="1. 问题1"></a>1. 问题1</h1><p>Q: hexo server后访问浏览器 <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> 出现 cannot get</p>
 <a id="more"></a>
 <p>A: 已经解决好问题了，依次执行如下命令就行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-ejs --save</span><br><span class="line">npm install hexo-renderer-stylus --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<h1 id="2-问题2："><a href="#2-问题2：" class="headerlink" title="2. 问题2："></a>2. 问题2：</h1><p>Q: npm install时报错：</p>
+<h1 id="2-问题2"><a href="#2-问题2" class="headerlink" title="2. 问题2"></a>2. 问题2</h1><p>Q: npm install时报错：</p>
 <p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2_%E9%97%AE%E9%A2%982.png" alt="Alt text"></p>
-<p>A:</p>
+<p>A: 执行如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install</span><br></pre></td></tr></table></figure>
-<h1 id="3-问题3："><a href="#3-问题3：" class="headerlink" title="3. 问题3："></a>3. 问题3：</h1><p>Q: 社会化评论多说duoshuo_shortname在哪看:</p>
-<p>A: 到多说官网创建站点(站点为xxx.github.io)，之后就会得到short_name</p>
-<h1 id="4-问题4："><a href="#4-问题4：" class="headerlink" title="4. 问题4："></a>4. 问题4：</h1><p>Q: 如何设置分类和标签？</p>
+<h1 id="3-问题3"><a href="#3-问题3" class="headerlink" title="3. 问题3"></a>3. 问题3</h1><p>Q: 社会化评论多说duoshuo_shortname在哪看？</p>
+<p>A: 到多说官网创建站点(站点为xxx.github.io)，之后就会得到short_name。</p>
+<h1 id="4-问题4"><a href="#4-问题4" class="headerlink" title="4. 问题4"></a>4. 问题4</h1><p>Q: 如何设置分类和标签？</p>
 <p>A: 在文章的开始位置进行如下设置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 使用Hexo搭建个人博客过程的各种问题</span><br><span class="line">categories:</span><br><span class="line">  - Hexo</span><br><span class="line">tags:</span><br><span class="line">  - Hexo</span><br><span class="line">  - 问题</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h1 id="5-问题5："><a href="#5-问题5：" class="headerlink" title="5. 问题5："></a>5. 问题5：</h1><p>Q: 首页的文章目录，怎么设置显示部分摘要和read more?</p>
-<p>A:在文章中加一行如下的标记，在这个标记之前的就是摘要</p>
+<h1 id="5-问题5"><a href="#5-问题5" class="headerlink" title="5. 问题5"></a>5. 问题5</h1><p>Q: 首页的文章目录，怎么设置显示部分摘要和read more?</p>
+<p>A: 在文章中加一行如下的标记，在这个标记之前的就是摘要</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="6-问题6："><a href="#6-问题6：" class="headerlink" title="6. 问题6："></a>6. 问题6：</h1><p>Q：运行<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>命令后报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure></p>
-<p>A：执行以下命令，安装hexo-deployer-git自动部署发布工具：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h1 id="6-问题6"><a href="#6-问题6" class="headerlink" title="6. 问题6"></a>6. 问题6</h1><p>Q: 运行<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>命令后报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure></p>
+<p>A: 执行以下命令，安装hexo-deployer-git自动部署发布工具：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Markdown语言常用语法]]></title>
-      <url>http://yoursite.com/2016/04/28/10_Markdown/Markdown%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
+      <url>http://sherlockshi.github.io/2016/04/28/10_Markdown/Markdown%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：<br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a><br><a id="more"></a></p>
 </blockquote>
-<h1 id="1-代码"><a href="#1-代码" class="headerlink" title="1. 代码"></a>1. 代码</h1><h3 id="1-1-行内代码"><a href="#1-1-行内代码" class="headerlink" title="1.1 行内代码"></a>1.1 行内代码</h3><h5 id="1-用法："><a href="#1-用法：" class="headerlink" title="1) 用法："></a>1) 用法：</h5><p>把代码用反引号(`)(键盘上Esc键下面的键)包起，如：  </p>
+<h1 id="1-代码"><a href="#1-代码" class="headerlink" title="1. 代码"></a>1. 代码</h1><h2 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h2><p><strong>用法</strong><br>把代码用反引号(`)(键盘上Esc键下面的键)包起，如：  </p>
 <pre><code>`toString()`方法
-</code></pre><h5 id="2-效果："><a href="#2-效果：" class="headerlink" title="2) 效果："></a>2) 效果：</h5><p><code>toString()</code>方法  </p>
-<h3 id="1-2-代码块"><a href="#1-2-代码块" class="headerlink" title="1.2 代码块"></a>1.2 代码块</h3><h5 id="1-用法1："><a href="#1-用法1：" class="headerlink" title="1) 用法1："></a>1) 用法1：</h5><p>用 3个` 包裹一段代码，并指定一种语言，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```java  </span><br><span class="line">public class BookViewHolder extends RecyclerView.ViewHolder &#123;  </span><br><span class="line">    public TextView tvBook;  </span><br><span class="line">&#125;  </span><br><span class="line">```</span><br></pre></td></tr></table></figure></p>
-<h5 id="2-用法2："><a href="#2-用法2：" class="headerlink" title="2) 用法2："></a>2) 用法2：</h5><p>也可以在代码块的每一行使用 4 空格缩进，实现相同的的效果，此处不再举例，可自己尝试。</p>
-<h5 id="3-效果："><a href="#3-效果：" class="headerlink" title="3) 效果："></a>3) 效果：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> TextView tvBook;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p><strong>效果</strong><br><code>toString()</code>方法  </p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p><strong>用法1</strong><br>用 3个` 包裹一段代码，并指定一种语言，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```java  </span><br><span class="line">public class BookViewHolder extends RecyclerView.ViewHolder &#123;  </span><br><span class="line">    public TextView tvBook;  </span><br><span class="line">&#125;  </span><br><span class="line">```</span><br></pre></td></tr></table></figure></p>
+<p><strong>用法2</strong><br>也可以在代码块的每一行使用 4 空格缩进，实现相同的的效果，此处不再举例，可自己尝试。</p>
+<p><strong>效果</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> TextView tvBook;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>支持的语言：<code>actionscript</code>, <code>apache</code>, <code>bash</code>, <code>clojure</code>, <code>cmake</code>, <code>coffeescript</code>, <code>cpp</code>, <code>cs</code>, <code>css</code>, <code>d</code>, <code>delphi</code>, <code>django</code>, <code>erlang</code>, <code>go</code>, <code>haskell</code>, <code>html</code>, <code>http</code>, <code>ini</code>, <code>java</code>, <code>javascript</code>, <code>json</code>, <code>lisp</code>, <code>lua</code>, <code>markdown</code>, <code>matlab</code>, <code>nginx</code>, <code>objectivec</code>, <code>perl</code>, <code>php</code>, <code>python</code>, <code>r</code>, <code>ruby</code>, <code>scala</code>, <code>smalltalk</code>, <code>sql</code>, <code>tex</code>, <code>vbscript</code>, <code>xml</code></p>
-<h1 id="2-标题"><a href="#2-标题" class="headerlink" title="2. 标题"></a>2. 标题</h1><h5 id="1-用法：-1"><a href="#1-用法：-1" class="headerlink" title="1) 用法："></a>1) 用法：</h5><p>使用1-6个#号连接内容，如：  </p>
+<h1 id="2-标题"><a href="#2-标题" class="headerlink" title="2. 标题"></a>2. 标题</h1><p><strong>用法</strong><br>使用1-6个#号连接内容，如：  </p>
 <pre><code># 一级标题
-
 ## 二级标题
-
 ### 三级标题
-</code></pre><h5 id="2-效果：-1"><a href="#2-效果：-1" class="headerlink" title="2) 效果："></a>2) 效果：</h5><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h1 id="3-粗体与斜体"><a href="#3-粗体与斜体" class="headerlink" title="3. 粗体与斜体"></a>3. 粗体与斜体</h1><h5 id="1-用法：-2"><a href="#1-用法：-2" class="headerlink" title="1) 用法："></a>1) 用法：</h5><p>正常字前后不加*号，1个<em>为斜体，2个</em>为粗体，3个*为粗斜体，如：  </p>
+</code></pre><p><strong>效果</strong></p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h1 id="3-粗体与斜体"><a href="#3-粗体与斜体" class="headerlink" title="3. 粗体与斜体"></a>3. 粗体与斜体</h1><p><strong>用法</strong><br>正常字前后不加*号，1个<em>为斜体，2个</em>为粗体，3个*为粗斜体，如：  </p>
 <pre><code>这是正常的字
-
 *这是斜体的字*
-
 **这是加粗的字**
-
 ***这是粗斜体的字***
-</code></pre><h5 id="2-效果：-2"><a href="#2-效果：-2" class="headerlink" title="2) 效果："></a>2) 效果：</h5><p>这是正常的字</p>
-<p><em>这是斜体的字</em></p>
-<p><strong>这是加粗的字</strong></p>
-<p><strong><em>这是粗斜体的字</em></strong></p>
-<h1 id="4-链接"><a href="#4-链接" class="headerlink" title="4. 链接"></a>4. 链接</h1><h3 id="4-1-常用链接方法"><a href="#4-1-常用链接方法" class="headerlink" title="4.1 常用链接方法"></a>4.1 常用链接方法</h3><h5 id="1-用法：-3"><a href="#1-用法：-3" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>文字链接： [百度](http://www.baidu.com)  
-网址链接： &lt;http://www.baidu.com&gt;
-</code></pre><h5 id="2-效果：-3"><a href="#2-效果：-3" class="headerlink" title="2) 效果："></a>2) 效果：</h5><p>文字链接： <a href="http://www.baidu.com" target="_blank" rel="external">百度</a><br>网址链接： <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
-<h3 id="4-2-高级链接技巧"><a href="#4-2-高级链接技巧" class="headerlink" title="4.2 高级链接技巧"></a>4.2 高级链接技巧</h3><h5 id="1-用法：-4"><a href="#1-用法：-4" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>这个链接用 1 作为网址变量 [Google][1].
-这个链接用 yahoo 作为网址变量 [Yahoo!][yahoo].
-
-然后在文档的结尾为变量赋值（网址）:
+</code></pre><p><strong>效果</strong><br>这是正常的字<br><em>这是斜体的字</em><br><strong>这是加粗的字</strong><br><strong><em>这是粗斜体的字</em></strong></p>
+<h1 id="4-链接"><a href="#4-链接" class="headerlink" title="4. 链接"></a>4. 链接</h1><h2 id="常用链接方法"><a href="#常用链接方法" class="headerlink" title="常用链接方法"></a>常用链接方法</h2><p><strong>用法</strong><br>    文字链接： <a href="http://www.baidu.com" target="_blank" rel="external">百度</a><br>    网址链接： <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
+<p><strong>效果</strong></p>
+<p>文字链接： <a href="http://www.baidu.com" target="_blank" rel="external">百度</a><br>网址链接： <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
+<h2 id="高级链接技巧"><a href="#高级链接技巧" class="headerlink" title="高级链接技巧"></a>高级链接技巧</h2><p><strong>用法</strong><br>    这个链接用 1 作为网址变量 <a href="http://www.google.com/" target="_blank" rel="external">Google</a>.<br>    这个链接用 yahoo 作为网址变量 <a href="http://www.yahoo.com/" target="_blank" rel="external">Yahoo!</a>.</p>
+<pre><code>然后在文档的结尾为变量赋值（网址）:
   [1]: http://www.google.com/
   [yahoo]: http://www.yahoo.com/
-</code></pre><h5 id="2-效果：-4"><a href="#2-效果：-4" class="headerlink" title="2) 效果："></a>2) 效果：</h5><p>这个链接用 1 作为网址变量 <a href="http://www.google.com/" target="_blank" rel="external">Google</a>.<br>这个链接用 yahoo 作为网址变量 <a href="http://www.yahoo.com/" target="_blank" rel="external">Yahoo!</a>.  </p>
-<h1 id="5-列表"><a href="#5-列表" class="headerlink" title="5. 列表"></a>5. 列表</h1><h3 id="5-1-普通无序列表"><a href="#5-1-普通无序列表" class="headerlink" title="5.1 普通无序列表"></a>5.1 普通无序列表</h3><h5 id="1-用法：-5"><a href="#1-用法：-5" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>- 列表文本前使用 [减号+空格]
+</code></pre><p><strong>效果</strong><br>这个链接用 1 作为网址变量 <a href="http://www.google.com/" target="_blank" rel="external">Google</a>.<br>这个链接用 yahoo 作为网址变量 <a href="http://www.yahoo.com/" target="_blank" rel="external">Yahoo!</a>.  </p>
+<h1 id="5-图片"><a href="#5-图片" class="headerlink" title="5. 图片"></a>5. 图片</h1><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？<br><strong>用法</strong>  </p>
+<pre><code>![图片名称](http://图片网址)，如：
+![奇犽](http://7xlpfl.com1.z0.glb.clouddn.com/%E5%A5%87%E7%8A%BD3.jpg)
+</code></pre><p><strong>效果</strong><br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg" alt="奇犽"></p>
+<p>当然，你也可以像网址那样对图片网址使用变量：  </p>
+<pre><code>这个链接用 1 作为网址变量 [Google][1].  
+然后在文档的结尾位变量赋值（网址）
+
+ [1]: http://www.google.com/logo.png
+</code></pre><p>也可以使用 HTML 的图片语法来自定义图片的宽高大小：</p>
+<pre><code>&lt;img src=&quot;htt://example.com/sample.png&quot; width=&quot;400&quot; height=&quot;100&quot; alt=&quot;奇犽&quot;&gt;
+</code></pre><h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h1><h2 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h2><p><strong>用法</strong></p>
+<pre><code>- 列表文本前使用 [减号+空格]
 + 列表文本前使用 [加号+空格]
 * 列表文本前使用 [星号+空格]
-</code></pre><h5 id="2-效果：-5"><a href="#2-效果：-5" class="headerlink" title="2) 效果："></a>2) 效果：</h5><ul>
+</code></pre><p><strong>效果</strong></p>
+<ul>
 <li>列表文本前使用 [减号+空格]</li>
 </ul>
 <ul>
@@ -536,15 +689,18 @@
 <ul>
 <li>列表文本前使用 [星号+空格]</li>
 </ul>
-<h3 id="5-2-普通有序列表"><a href="#5-2-普通有序列表" class="headerlink" title="5.2 普通有序列表"></a>5.2 普通有序列表</h3><h5 id="1-用法：-6"><a href="#1-用法：-6" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>1. 列表前使用 [数字+空格]
+<h2 id="普通有序列表"><a href="#普通有序列表" class="headerlink" title="普通有序列表"></a>普通有序列表</h2><p><strong>用法</strong></p>
+<pre><code>1. 列表前使用 [数字+空格]
 2. 我们会自动帮你添加数字
 7. 不用担心数字不对，显示的时候我们会自动把这行的 7 纠正为 3
-</code></pre><h5 id="2-效果：-6"><a href="#2-效果：-6" class="headerlink" title="2) 效果："></a>2) 效果：</h5><ol>
+</code></pre><p><strong>效果</strong></p>
+<ol>
 <li>列表前使用 [数字+空格]</li>
 <li>我们会自动帮你添加数字</li>
 <li>不用担心数字不对，显示的时候我们会自动把这行的 7 纠正为 3</li>
 </ol>
-<h3 id="5-3-列表嵌套"><a href="#5-3-列表嵌套" class="headerlink" title="5.3 列表嵌套"></a>5.3 列表嵌套</h3><h5 id="1-用法：-7"><a href="#1-用法：-7" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>1. 列出所有元素：
+<h2 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h2><p><strong>用法</strong></p>
+<pre><code>1. 列出所有元素：
     - 无序列表元素 A
         1. 元素 A 的有序子列表
     - 前面加四个空格
@@ -557,7 +713,8 @@
     &gt; 仍然需要在 &gt;  前面加四个空格
 
 4. 列表里代码段：
-</code></pre><h5 id="2-效果：-7"><a href="#2-效果：-7" class="headerlink" title="2) 效果："></a>2) 效果：</h5><ol>
+</code></pre><p><strong>效果</strong></p>
+<ol>
 <li>列出所有元素：<ul>
 <li>无序列表元素 A<ol>
 <li>元素 A 的有序子列表</li>
@@ -575,15 +732,19 @@
 <li><p>列表里代码段：<br>待补充。</p>
 </li>
 </ol>
-<h1 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h1><h3 id="6-1-普通引用"><a href="#6-1-普通引用" class="headerlink" title="6.1 普通引用"></a>6.1 普通引用</h3><h5 id="1-用法：-8"><a href="#1-用法：-8" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>&gt; 引用文本前使用 [大于号+空格]  
+<h1 id="7-引用"><a href="#7-引用" class="headerlink" title="7. 引用"></a>7. 引用</h1><h2 id="普通引用"><a href="#普通引用" class="headerlink" title="普通引用"></a>普通引用</h2><p><strong>用法</strong></p>
+<pre><code>&gt; 引用文本前使用 [大于号+空格]  
 &gt; 折行可以不加，新起一行都要加上哦
-</code></pre><h5 id="2-效果：-8"><a href="#2-效果：-8" class="headerlink" title="2) 效果："></a>2) 效果：</h5><blockquote>
+</code></pre><p><strong>效果</strong></p>
+<blockquote>
 <p>引用文本前使用 [大于号+空格]<br>折行可以不加，新起一行都要加上哦</p>
 </blockquote>
-<h3 id="6-2-引用里嵌套引用"><a href="#6-2-引用里嵌套引用" class="headerlink" title="6.2 引用里嵌套引用"></a>6.2 引用里嵌套引用</h3><h5 id="1-用法：-9"><a href="#1-用法：-9" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>&gt; 最外层引用
+<h2 id="引用里嵌套引用"><a href="#引用里嵌套引用" class="headerlink" title="引用里嵌套引用"></a>引用里嵌套引用</h2><p><strong>用法</strong></p>
+<pre><code>&gt; 最外层引用
 &gt; &gt; 多一个 &gt; 嵌套一层引用
 &gt; &gt; &gt; 可以嵌套很多层
-</code></pre><h5 id="2-效果：-9"><a href="#2-效果：-9" class="headerlink" title="2) 效果："></a>2) 效果：</h5><blockquote>
+</code></pre><p><strong>效果</strong></p>
+<blockquote>
 <p>最外层引用</p>
 <blockquote>
 <p>多一个 &gt; 嵌套一层引用</p>
@@ -592,10 +753,12 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="6-3-引用里嵌套列表"><a href="#6-3-引用里嵌套列表" class="headerlink" title="6.3 引用里嵌套列表"></a>6.3 引用里嵌套列表</h3><h5 id="1-用法：-10"><a href="#1-用法：-10" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>&gt; - 这是引用里嵌套的一个列表
+<h2 id="引用里嵌套列表"><a href="#引用里嵌套列表" class="headerlink" title="引用里嵌套列表"></a>引用里嵌套列表</h2><p><strong>用法</strong></p>
+<pre><code>&gt; - 这是引用里嵌套的一个列表
 &gt; - 还可以有子列表
 &gt;     * 子列表需要从 - 之后延后四个空格开始
-</code></pre><h5 id="2-效果：-10"><a href="#2-效果：-10" class="headerlink" title="2) 效果："></a>2) 效果：</h5><blockquote>
+</code></pre><p><strong>效果</strong></p>
+<blockquote>
 <ul>
 <li>这是引用里嵌套的一个列表</li>
 <li>还可以有子列表<ul>
@@ -604,22 +767,13 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="6-4-引用里嵌套代码块"><a href="#6-4-引用里嵌套代码块" class="headerlink" title="6.4 引用里嵌套代码块"></a>6.4 引用里嵌套代码块</h3><h5 id="1-用法：-11"><a href="#1-用法：-11" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>&gt;     同样的，在前面加四个空格形成代码块
-</code></pre><h5 id="2-效果：-11"><a href="#2-效果：-11" class="headerlink" title="2) 效果："></a>2) 效果：</h5><blockquote>
+<h2 id="引用里嵌套代码块"><a href="#引用里嵌套代码块" class="headerlink" title="引用里嵌套代码块"></a>引用里嵌套代码块</h2><p><strong>用法</strong></p>
+<pre><code>&gt;     同样的，在前面加四个空格形成代码块
+</code></pre><p><strong>效果</strong></p>
+<blockquote>
 <pre><code>同样的，在前面加四个空格形成代码块
 </code></pre></blockquote>
-<h1 id="7-图片"><a href="#7-图片" class="headerlink" title="7. 图片"></a>7. 图片</h1><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？</p>
-<h5 id="1-用法：-12"><a href="#1-用法：-12" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>![图片名称](http://图片网址)，如：
-![奇犽](http://7xlpfl.com1.z0.glb.clouddn.com/%E5%A5%87%E7%8A%BD3.jpg)
-</code></pre><h5 id="2-效果：-12"><a href="#2-效果：-12" class="headerlink" title="2) 效果："></a>2) 效果：</h5><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/%E5%A5%87%E7%8A%BD3.jpg" alt="奇犽"></p>
-<p>当然，你也可以像网址那样对图片网址使用变量：  </p>
-<pre><code>这个链接用 1 作为网址变量 [Google][1].  
-然后在文档的结尾位变量赋值（网址）
-
- [1]: http://www.google.com/logo.png
-</code></pre><p>也可以使用 HTML 的图片语法来自定义图片的宽高大小：</p>
-<pre><code>&lt;img src=&quot;htt://example.com/sample.png&quot; width=&quot;400&quot; height=&quot;100&quot;&gt;
-</code></pre><h1 id="8-换行"><a href="#8-换行" class="headerlink" title="8. 换行"></a>8. 换行</h1><p>如果另起一行，只需在当前行结尾加 2 个空格</p>
+<h1 id="8-换行"><a href="#8-换行" class="headerlink" title="8. 换行"></a>8. 换行</h1><p>如果另起一行，只需在当前行结尾加 2 个空格</p>
 <pre><code>在当前行的结尾加 2 个空格  
 这行就会新起一行
 </code></pre><p>如果是要起一个新段落，只需要空出一行即可。</p>
@@ -632,10 +786,9 @@
 </code></pre><h1 id="10-符号转义"><a href="#10-符号转义" class="headerlink" title="10. 符号转义"></a>10. 符号转义</h1><p>如果你的描述中需要用到 markdown 的符号，比如 <em> # * 等，但又不想它被转义，这时候可以在这些符号前加反斜杠，如 \</em> # * 进行避免。  </p>
 <pre><code>\_不想这里的文本变斜体\_
 \*\*不想这里的文本被加粗\*\*
-</code></pre><h1 id="11-表格"><a href="#11-表格" class="headerlink" title="11. 表格"></a>11. 表格</h1><h5 id="1-用法：-13"><a href="#1-用法：-13" class="headerlink" title="1) 用法："></a>1) 用法：</h5><pre><code>abc | def | kdka
---- | --- | ----
-ld  | dk  | dk
-</code></pre><h5 id="2-效果：-13"><a href="#2-效果：-13" class="headerlink" title="2) 效果："></a>2) 效果：</h5><table>
+</code></pre><h1 id="11-表格"><a href="#11-表格" class="headerlink" title="11. 表格"></a>11. 表格</h1><p><strong>用法</strong><br>    abc | def | kdka<br>    — | — | —<br>    ld  | dk  | dk<br>    ld  | dk  | dk</p>
+<p><strong>效果</strong>  </p>
+<table>
 <thead>
 <tr>
 <th>abc</th>
@@ -649,12 +802,17 @@ ld  | dk  | dk
 <td>dk</td>
 <td>dk</td>
 </tr>
+<tr>
+<td>ld</td>
+<td>dk</td>
+<td>dk</td>
+</tr>
 </tbody>
 </table>
-<h1 id="12-复杂表格"><a href="#12-复杂表格" class="headerlink" title="12. 复杂表格"></a>12. 复杂表格</h1><h3 id="12-1-在Excel中填写表格"><a href="#12-1-在Excel中填写表格" class="headerlink" title="12.1 在Excel中填写表格"></a>12.1 在Excel中填写表格</h3><p>在 Excel 中正常填写你的表格内容，之后在标题行下插入一行，要居中的填入 :-:，要右对齐的填-:，其它全部填上-。</p>
+<h1 id="12-复杂表格"><a href="#12-复杂表格" class="headerlink" title="12. 复杂表格"></a>12. 复杂表格</h1><h2 id="在Excel中填写表格"><a href="#在Excel中填写表格" class="headerlink" title="在Excel中填写表格"></a>在Excel中填写表格</h2><p>在 Excel 中正常填写你的表格内容，之后在标题行下插入一行，要居中的填入 :-:，要右对齐的填-:，其它全部填上-。</p>
 <p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/%E5%9C%A8Excel%E4%B8%AD%E5%A1%AB%E5%86%99%E8%A1%A8%E6%A0%BC.png" alt=""></p>
-<h3 id="12-2-生成表格"><a href="#12-2-生成表格" class="headerlink" title="12.2 生成表格"></a>12.2 生成表格</h3><h5 id="复制、粘贴表格："><a href="#复制、粘贴表格：" class="headerlink" title="复制、粘贴表格："></a>复制、粘贴表格：</h5><p>选中表格，复制，然后粘贴到 Markdown 编辑器中</p>
-<h5 id="用-替换tab："><a href="#用-替换tab：" class="headerlink" title="用|替换tab："></a>用|替换tab：</h5><p>复制出来的 Excel 默认以tab作为单元格分隔符，而 Markdown 则以|为分隔符。顺理成章，当我们使用 | 对原tab分隔符进行替换后，即可生成 Markdown 化的表格。</p>
+<h2 id="生成表格"><a href="#生成表格" class="headerlink" title="生成表格"></a>生成表格</h2><h3 id="复制、粘贴表格："><a href="#复制、粘贴表格：" class="headerlink" title="复制、粘贴表格："></a>复制、粘贴表格：</h3><p>选中表格，复制，然后粘贴到 Markdown 编辑器中</p>
+<h3 id="用-替换tab："><a href="#用-替换tab：" class="headerlink" title="用|替换tab："></a>用|替换tab：</h3><p>复制出来的 Excel 默认以tab作为单元格分隔符，而 Markdown 则以|为分隔符。顺理成章，当我们使用 | 对原tab分隔符进行替换后，即可生成 Markdown 化的表格。</p>
 <table>
 <thead>
 <tr>
@@ -685,8 +843,8 @@ ld  | dk  | dk
 </tr>
 </tbody>
 </table>
-<h3 id="12-3-在线生成Markdown表格"><a href="#12-3-在线生成Markdown表格" class="headerlink" title="12.3 在线生成Markdown表格"></a>12.3 在线生成Markdown表格</h3><p><a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables</a></p>
-<h3 id="12-4-复杂表格生成办法"><a href="#12-4-复杂表格生成办法" class="headerlink" title="12.4 复杂表格生成办法"></a>12.4 复杂表格生成办法</h3><blockquote>
+<h2 id="在线生成Markdown表格"><a href="#在线生成Markdown表格" class="headerlink" title="在线生成Markdown表格"></a>在线生成Markdown表格</h2><p><a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables</a></p>
+<h2 id="复杂表格生成办法"><a href="#复杂表格生成办法" class="headerlink" title="复杂表格生成办法"></a>复杂表格生成办法</h2><blockquote>
 <p>我们仍然建议使用其他的方式替代复杂的表格，甚至尽量少用表格。</p>
 </blockquote>
 <p>在你本地或者远程的HTML编辑器上生成复杂表格，然后粘贴表格的HTML代码到编辑区即可。</p>
@@ -695,10 +853,10 @@ ld  | dk  | dk
     
     <entry>
       <title><![CDATA[RecyclerView学习笔记1_入门]]></title>
-      <url>http://yoursite.com/2016/04/19/15_Android/1510_View/RecyclerView/RecyclerView%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01_%E5%85%A5%E9%97%A8/</url>
+      <url>http://sherlockshi.github.io/2016/04/19/15_Android/1510_View/RecyclerView/RecyclerView%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01_%E5%85%A5%E9%97%A8/</url>
       <content type="html"><![CDATA[<h1 id="一、-前言"><a href="#一、-前言" class="headerlink" title="一、 前言"></a>一、 前言</h1><p>RecyclerView是谷歌V7包下新增的控件,用来替代ListView、GridView的使用.</p>
 <a id="more"></a>
-<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><ul>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><ul>
 <li><p>LayoutManager：布局管理器,目前SDK中提供了三种自带的LayoutManager:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LinearLayoutManager-----类似ListView</span><br><span class="line">GridLayoutManager-----类似GridView</span><br><span class="line">StaggeredGridLayoutManager-----瀑布流</span><br></pre></td></tr></table></figure>
 </li>
@@ -719,13 +877,13 @@ ld  | dk  | dk
 <h2 id="ViewHolder文件：BookViewHolder"><a href="#ViewHolder文件：BookViewHolder" class="headerlink" title="ViewHolder文件：BookViewHolder"></a>ViewHolder文件：BookViewHolder</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TextView tvBook;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BookViewHolder</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(view);</span><br><span class="line">        tvBook = (TextView) view.findViewById(R.id.tv_book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="适配器：BookRecyclerViewAdapter"><a href="#适配器：BookRecyclerViewAdapter" class="headerlink" title="适配器：BookRecyclerViewAdapter"></a>适配器：BookRecyclerViewAdapter</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookRecyclerViewAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">BookViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LayoutInflater mLayoutInflater;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line">    <span class="keyword">private</span> String[] mBooks;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BookRecyclerViewAdapter</span><span class="params">(Context context, String[] mBooks)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mBooks = mBooks;</span><br><span class="line">        <span class="keyword">this</span>.mContext = context;</span><br><span class="line">        mLayoutInflater = LayoutInflater.from(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BookViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建一个View</span></span><br><span class="line">        View view = mLayoutInflater.inflate(R.layout.rv_item_book, parent, <span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">// 创建一个ViewHolder</span></span><br><span class="line">        BookViewHolder bookViewHolder = <span class="keyword">new</span> BookViewHolder(view);</span><br><span class="line">        <span class="keyword">return</span> bookViewHolder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(BookViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 绑定数据到ViewHolder上</span></span><br><span class="line">        holder.tvBook.setText(mBooks[position]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// item数量</span></span><br><span class="line">        <span class="keyword">return</span> mBooks.length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="主界面：MainActivity"><a href="#主界面：MainActivity" class="headerlink" title="主界面：MainActivity"></a>主界面：MainActivity</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RecyclerView rvBook;</span><br><span class="line">    <span class="keyword">private</span> String[] mBooks = &#123;<span class="string">"认知盈余"</span>, <span class="string">"和喜欢的一切在一起"</span>, <span class="string">"从0到1"</span>, <span class="string">"从你的全世界路过"</span>, <span class="string">"打工旅行"</span>, <span class="string">"番茄工作法图解"</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        rvBook = (RecyclerView) findViewById(R.id.rv_book);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1\. 这里用线性显示,类似于ListView</span></span><br><span class="line">        rvBook.setLayoutManager(<span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2\. 这里用线性宫格显示,类似于GridView</span></span><br><span class="line"><span class="comment">//        rvBook.setLayoutManager(new GridLayoutManager(this, 2));</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3\. 这里用线性宫格显示,类似于瀑布流</span></span><br><span class="line"><span class="comment">//        rvBook.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));</span></span><br><span class="line"></span><br><span class="line">        rvBook.setAdapter(<span class="keyword">new</span> BookRecyclerViewAdapter(MainActivity.<span class="keyword">this</span>, mBooks));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>RecyclerView的另一个特点是标准化了 ViewHolder，编写Adapter面向的是ViewHolder而不在是View了，复用的逻辑被封装了， 写起来更加简单。</p>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>RecyclerView的另一个特点是标准化了 ViewHolder，编写Adapter面向的是ViewHolder而不再是View了，复用的逻辑被封装了，写起来更加简单。</p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Hexo入门]]></title>
-      <url>http://yoursite.com/2016/04/19/30_%E5%8D%9A%E5%AE%A2/3005_Hexo/Hexo%E5%85%A5%E9%97%A8/</url>
+      <url>http://sherlockshi.github.io/2016/04/19/30_%E5%8D%9A%E5%AE%A2/3005_Hexo/Hexo%E5%85%A5%E9%97%A8/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <a id="more"></a>
 <h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><h2 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
@@ -739,905 +897,45 @@ ld  | dk  | dk
 ]]></content>
     </entry>
     
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/2002/10/14/25_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Java%E4%B8%8E%E6%A8%A1%E5%BC%8F(%E6%B8%85%E6%99%B0%E4%B9%A6%E7%AD%BE%E7%89%88)/src/readme2/</url>
-      <content type="html"><![CDATA[<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
-<title>��¼����Դ�����嵥�����տ����У�</title>
-</head>
-
-<body>
-
-<p>��</p>
-<p align="center"> <font size="7">��¼����Դ�����嵥�����տ����У�</font></p>
-<p align="center">&nbsp;</p>
-
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td>com.javapatterns.abstractfactory</td>
-    <td>���󹤳�ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.adapter</td>
-    <td>������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.bridge</td>
-    <td>����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.builder</td>
-    <td>������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.carp</td>
-    <td>����/�ۺϸ���ԭ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.chainofresp</td>
-    <td>������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.chainofresp.scheduler</td>
-    <td>ר�⣺��ʱ�������Ĵ���</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.command</td>
-    <td>����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.command.swingundo</td>
-    <td>ר�⣺Swing���е�������ͻָ�</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.composite</td>
-    <td>�ϳ�ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.decorator</td>
-    <td>װ��ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.dip</td>
-    <td>������תԭ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.doubledispatch</td>
-    <td>ר�⣺��������������</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.facade</td>
-    <td>����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.factorymethod</td>
-    <td>��������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.flyweight</td>
-    <td>��Ԫģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.immutable</td>
-    <td>����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.interfaces</td>
-    <td class="xl24">Java�ӿ�</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.interpreter</td>
-    <td>������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.isp</td>
-    <td>�ӿڸ���ԭ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.iterator</td>
-    <td>������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.javaio</td>
-    <td>ר�⣺����ģʽ��Java I/O�е�Ӧ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.keygen</td>
-    <td>ר�⣺���м��������뵥��������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.liskov</td>
-    <td>���ϴ���ԭ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.lod</td>
-    <td>�����ط���</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.mediator</td>
-    <td>��ͣ��ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.memento</td>
-    <td>����¼ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.multilingual</td>
-    <td>ר��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.observer</td>
-    <td>�۲���ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.observerawt</td>
-    <td>ר�⣺�۲���ģʽ��AWT�е��¼�����</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.observersax</td>
-    <td>ר�⣺�۲���ģʽ��SAX2������</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.observertimer</td>
-    <td>ר�⣺�۲���ģʽ��Swing��ʱ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.openclose</td>
-    <td>����-�ա�ԭ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.prototype</td>
-    <td>ԭʼģ��ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.proxy</td>
-    <td>����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.proxy.smartproxy</td>
-    <td>ר�⣺�������ô���</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.proxy.imageloader</td>
-    <td>ר�⣺��������������</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.serializable</td>
-    <td>ר�⣺JavaBean�ġ����ء��͡��ⶳ��</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.servlet</td>
-    <td>ר�⣺Servlet�����е�ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.simplefactory</td>
-    <td>�򵥹���ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.singleton</td>
-    <td>��̬ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.singleton.mxrecord</td>
-    <td>ר�⣺����ģʽ��MX��¼</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.state</td>
-    <td>״̬ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.strategy</td>
-    <td>����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.templatemethod</td>
-    <td>ģ�巽��ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.uml</td>
-    <td> ͳһ��ģ����UML����</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.visitor</td>
-    <td>������ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.windowadapter</td>
-    <td>ȱʡ����ģʽ</td>
-  </tr>
-  <tr>
-    <td>com.javapatterns.xmlproperties</td>
-    <td>ר�⣺������ģʽ��XMLProperties</td>
-  </tr>
-</table>
-
-<p><a href="http://www.phei.com.cn" target="_new">����֧����վ��http://www.phei.com.cn</a></p>
-<p><a href="http://WebEndsHere.com" target="_new">����֧����վ��http://WebEndsHere.com</a></p>
-<p><a href="mailto:JavaPatterns@yahoo.com" target="_blank" rel="external">������һ�����⣺JavaPatterns@yahoo.com</a></p>
-<p><a href="mailto:shejimoshi-subscribe@yahoogroups.com" target="_blank" rel="external">�μ�������,�����ߺ���������һͬ��������</a></p>
-<p><a href="readme1.htm">��¼һ��Դ�����嵥�����½����У�</a></p>
-<p>&nbsp;</p>
-</body>
-
-</html>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/2002/10/14/25_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Java%E4%B8%8E%E6%A8%A1%E5%BC%8F(%E6%B8%85%E6%99%B0%E4%B9%A6%E7%AD%BE%E7%89%88)/src/readme1/</url>
-      <content type="html"><![CDATA[<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>��¼һ��Դ�����嵥�����½����У� </title>
-</head>
-
-<body>
-
-<p align="center" style="text-align:center">&nbsp;
-</p><p align="center" style="text-align:center"><font size="7">��¼һ��Դ�����嵥�����½����У� </font>
-</p><p align="center" style="text-align:center">&nbsp; 
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td nowrap="" valign="bottom" width="50%"> 
-      <p>&nbsp;</p>
-      <p><b>��һ���ݡ�UML��ģʽ���� </b> </p>
-    </td>
-    <td nowrap="" width="50%">&nbsp;
-      
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.uml
-      
-      
-    </td>
-    <td nowrap="">
-      ͳһ��ģ����UML����
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      <p>&nbsp;</p>
-      <p><b>�ڶ����ݡ���������������ԭ�� </b> </p>
-    </td>
-    <td nowrap="">&nbsp;
-      
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.openclose
-      
-      
-    </td>
-    <td nowrap="">
-      ����-�ա�ԭ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.interfaces
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺Java�ӿ�
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.liskov
-      
-      
-    </td>
-    <td nowrap="">
-      ���ϴ���ԭ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.dip
-      
-      
-    </td>
-    <td nowrap="">
-      ������תԭ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.isp
-      
-      
-    </td>
-    <td nowrap="">
-      �ӿڸ���ԭ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.carp
-      
-      
-    </td>
-    <td nowrap="">
-      ����/�ۺϸ���ԭ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.lod
-      
-      
-    </td>
-    <td nowrap="">
-      �����ط���
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      <p>&nbsp;</p>
-      <p><b>�������ݡ�����ģʽ </b> </p>
-    </td>
-    <td nowrap="">&nbsp;
-      
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.simplefactory
-      
-      
-    </td>
-    <td nowrap="">
-      �򵥹���ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.factorymethod
-      
-      
-    </td>
-    <td nowrap="">
-      ��������ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td width="313" nowrap="" valign="bottom" style="width:206.0pt;padding:.75pt .75pt 0cm .75pt;
-  height:15.75pt"> 
-      com.javapatterns.abstractfactory
-      
-      
-    </td>
-    <td nowrap="" style="width:227.2pt;padding:
-  .75pt .75pt 0cm .75pt;height:15.75pt"> 
-      ���󹤳�ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.singleton
-      
-      
-    </td>
-    <td nowrap=""> ����ģʽ </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.singleton.mxrecord
-      
-      
-    </td>
-    <td nowrap=""> ר�⣺����ģʽ��MX��¼ </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.multilingual
-      
-      
-    </td>
-    <td nowrap=""> ר�⣺����ģʽ��������֧�� </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.keygen
-      
-      
-    </td>
-    <td nowrap=""> ר�⣺���м��������뵥��������ģʽ </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.builder
-      
-      
-    </td>
-    <td nowrap="">
-      ������ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.prototype
-      
-      
-    </td>
-    <td nowrap="">
-      ԭʼģ��ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.serializable
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺JavaBean�ġ����ء��͡��ⶳ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      <p>&nbsp;</p>
-      <p><b>���Ĳ��ݡ��ṹģʽ </b> </p>
-    </td>
-    <td nowrap="">&nbsp;
-      
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.adapter
-      
-      
-    </td>
-    <td nowrap=""> ������ģʽ </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.windowadapter
-      
-      
-    </td>
-    <td nowrap="">
-      ȱʡ����ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.xmlproperties
-      
-      
-    </td>
-    <td nowrap=""> ר�⣺������ģʽ��XMLProperties </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.composite
-      
-      
-    </td>
-    <td nowrap="">
-      �ϳ�ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.decorator
-      
-      
-    </td>
-    <td nowrap="">
-      װ��ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.javaio
-      
-      
-    </td>
-    <td nowrap=""> ר�⣺����ģʽ��Java I/O�е�Ӧ��</td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.proxy
-      
-      
-    </td>
-    <td nowrap="">
-      ����ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.proxy.smartproxy
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺�������ô���
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.proxy.imageloader
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺��������������
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.flyweight
-      
-      
-    </td>
-    <td nowrap="">
-      ��Ԫģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.facade
-      
-      
-    </td>
-    <td nowrap="">
-      ����ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.bridge
-      
-      
-    </td>
-    <td nowrap="">
-      ����ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      <p>&nbsp;</p>
-      <p><b>���岿�ݡ���Ϊģʽ </b> </p>
-    </td>
-    <td nowrap="">&nbsp;
-      
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.command.swingundo
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺Swing���е�������ͻָ�
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.immutable
-      
-      
-    </td>
-    <td nowrap="">
-      ����ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap=""> com.javapatterns.strategy </td>
-    <td nowrap="">      ����ģʽ  </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.templatemethod
-      
-      
-    </td>
-    <td nowrap="">
-      ģ�巽��ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.servlet
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺Servlet�����е�ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.observer
-      
-      
-    </td>
-    <td nowrap="">
-      �۲���ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.observerawt
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺�۲���ģʽ��AWT�е��¼�����
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.observersax
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺�۲���ģʽ��SAX2������
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.observertimer
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺�۲���ģʽ��Swing��ʱ��
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.iterator
-      
-      
-    </td>
-    <td nowrap="">
-      ������ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.chainofresp
-      
-      
-    </td>
-    <td nowrap="">
-      ������ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.chainofresp.scheduler
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺��ʱ�������Ĵ���
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.command
-      
-      
-    </td>
-    <td nowrap="">
-      ����ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.memento
-      
-      
-    </td>
-    <td nowrap="">
-      ����¼ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.state
-      
-      
-    </td>
-    <td nowrap="">
-      ״̬ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.doubledispatch
-      
-      
-    </td>
-    <td nowrap="">
-      ר�⣺��������������
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="" valign="bottom"> 
-      com.javapatterns.visitor
-      
-      
-    </td>
-    <td nowrap="">
-      ������ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.interpreter
-      
-      
-    </td>
-    <td nowrap="" valign="bottom"> 
-      ������ģʽ
-      
-      
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="">
-      com.javapatterns.mediator
-      
-      
-    </td>
-    <td nowrap="" valign="bottom"> 
-      ��ͣ��ģʽ
-      
-      
-    </td>
-  </tr>
-</table>
-&nbsp;
-
-
-
-</p><p>&nbsp;</p>
-<p><a href="http://www.phei.com.cn" target="_new">����֧����վ��http://www.phei.com.cn</a></p>
-<p><a href="http://WebEndsHere.com" target="_new">����֧����վ��http://WebEndsHere.com</a></p>
-<p><a href="mailto:JavaPatterns@yahoo.com" target="_blank" rel="external">������һ�����⣺JavaPatterns@yahoo.com</a></p>
-<p><a href="mailto:shejimoshi-subscribe@yahoogroups.com" target="_blank" rel="external">�μ�������,�����ߺ���������һͬ��������</a></p>
-<p><a href="readme2.htm">��¼����Դ�����嵥�����տ����У�</a></p>
-<p>&nbsp;</p>
-</body>
-
-</html>
-]]></content>
-    </entry>
-    
   
   
     
     <entry>
       <title><![CDATA[关于]]></title>
-      <url>http://yoursite.com/about/index.html</url>
+      <url>http://sherlockshi.github.io/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是SherlockShi，欢迎来到我的个人技术博客。</p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[读书]]></title>
-      <url>http://yoursite.com/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>http://yoursite.com/tags/index.html</url>
+      <url>http://sherlockshi.github.io/reading/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index%E5%89%AF%E6%9C%AC.html</url>
+      <url>http://sherlockshi.github.io/tags/index-1.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC.html</url>
       <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
 <h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
+      <content type="html"></content>
     </entry>
     
   
