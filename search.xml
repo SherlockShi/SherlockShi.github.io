@@ -7,7 +7,7 @@
       <title><![CDATA[nodeppt常用功能]]></title>
       <url>http://sherlockshi.github.io/2016/10/03/10_Markdown/nodeppt%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/</url>
       <content type="html"><![CDATA[<blockquote>
-<p>更多功能请教参考<a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">nodeppt官方文档</a></p>
+<p>更多功能请参考<a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">nodeppt官方文档</a></p>
 </blockquote>
 <h1 id="一、-启动"><a href="#一、-启动" class="headerlink" title="一、 启动"></a>一、 启动</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodeppt start</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -1095,13 +1095,6 @@
     
     <entry>
       <title><![CDATA[tags]]></title>
-      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC.html</url>
-      <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
-<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
       <url>http://sherlockshi.github.io/tags/index-1.html</url>
       <content type="html"></content>
     </entry>
@@ -1110,6 +1103,13 @@
       <title></title>
       <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
       <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC.html</url>
+      <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
+<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
     </entry>
     
   
