@@ -4,9 +4,28 @@
   
     
     <entry>
+      <title><![CDATA[nodeppt常用功能]]></title>
+      <url>http://sherlockshi.github.io/2016/10/03/10_Markdown/nodeppt%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>更多功能请教参考<a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">nodeppt官方文档</a></p>
+</blockquote>
+<h1 id="一、-启动"><a href="#一、-启动" class="headerlink" title="一、 启动"></a>一、 启动</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodeppt start</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="二、导出html"><a href="#二、导出html" class="headerlink" title="二、导出html"></a>二、导出html</h1><p>导出全部，包括nodeppt的js、img和css文件夹<br>默认导出在publish文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodeppt generate filepath <span class="_">-a</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="三、导出ppt"><a href="#三、导出ppt" class="headerlink" title="三、导出ppt"></a>三、导出ppt</h1><p>使用url?print=1访问页面，然后选择chrome的系统打印即可：<br><code>打印</code> -&gt; <code>使用系统对话框进行打印</code> -&gt; (左下角)<code>存储为PDF...</code></p>
+<blockquote>
+<p>注意url中不能包含“#1”等具体页码信息，否则打印时会只打印一页</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android程序员简历模板]]></title>
       <url>http://sherlockshi.github.io/2016/10/02/45_%E5%B7%A5%E4%BD%9C/4505_%E7%AE%80%E5%8E%86/Android%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AE%80%E5%8E%86%E6%A8%A1%E6%9D%BF/</url>
-      <content type="html"><![CDATA[<h1 id="Android程序员简历模板"><a href="#Android程序员简历模板" class="headerlink" title="Android程序员简历模板"></a>Android程序员简历模板</h1><p>本简历模板由国内首家互联网人才拍卖网站「 <a href="http://www.jobdeer.com" target="_blank" rel="external">JobDeer.com</a> 」提供。</p>
+      <content type="html"><![CDATA[<blockquote>
+<p>其他程序员简历模板可参考<a href="https://github.com/geekcompany/ResumeSample" target="_blank" rel="external">ResumeSample</a></p>
+</blockquote>
+<h1 id="Android程序员简历模板"><a href="#Android程序员简历模板" class="headerlink" title="Android程序员简历模板"></a>Android程序员简历模板</h1><p>本简历模板由国内首家互联网人才拍卖网站「 <a href="http://www.jobdeer.com" target="_blank" rel="external">JobDeer.com</a> 」提供。</p>
 <p>（括号里的是我们的顾问编写的说明，建议在简历书写完成后统一删除）</p>
 <a id="more"></a>
 <h2 id="先讲讲怎样才是一份好的技术简历"><a href="#先讲讲怎样才是一份好的技术简历" class="headerlink" title="先讲讲怎样才是一份好的技术简历"></a>先讲讲怎样才是一份好的技术简历</h2><p>首先，一份好的简历不光说明事实，更通过FAB模式来增强其说服力。</p>
@@ -1056,16 +1075,22 @@
   
     
     <entry>
-      <title></title>
-      <url>http://sherlockshi.github.io/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://sherlockshi.github.io/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是SherlockShi，欢迎来到我的个人技术博客。</p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://sherlockshi.github.io/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
@@ -1076,20 +1101,14 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[tags]]></title>
       <url>http://sherlockshi.github.io/tags/index-1.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://sherlockshi.github.io/reading/index.html</url>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
       <content type="html"></content>
     </entry>
     
