@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-03T04:17:43.000Z</updated>
+  <updated>2016-10-04T13:45:08.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -14,6 +14,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Material Animations 1：Content Transitions</title>
+    <link href="http://sherlockshi.github.io/2016/10/03/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations1_ContentTransitions/"/>
+    <id>http://sherlockshi.github.io/2016/10/03/15_Android/1545_动画/MaterialAnimations1_ContentTransitions/</id>
+    <published>2016-10-03T14:36:34.000Z</published>
+    <updated>2016-10-04T13:45:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
+</blockquote>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><blockquote>
+<p>同overridePendingTransition()方法执行效果类似</p>
+</blockquote>
+<p>Content Transition也称为Transitions between Activities，或Enter/Exit Transition，包括下图4个部分（本图截取自Udacity）：</p>
+<a id="more"></a>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-4/39816433.jpg" alt="Content Transition执行过程"></p>
+<ul>
+<li><strong>1. Exit A</strong>: 离开A界面时的转换动画</li>
+<li><strong>2. Enter B</strong>: 进入B界面时的转换动画</li>
+<li><strong>3. Return B</strong>: 从B界面返回时的转换动画；可不设置，默认执行<code>Enter B</code>的逆过程</li>
+<li><strong>4. Reenter A</strong>: 重新进入A界面时的转换动画；可不设置，默认执行<code>Exit A</code>的逆过程</li>
+</ul>
+<h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-4/94174213.jpg" alt=""></p>
+<h1 id="三、实现方法"><a href="#三、实现方法" class="headerlink" title="三、实现方法"></a>三、实现方法</h1><h2 id="编码实现"><a href="#编码实现" class="headerlink" title="编码实现"></a>编码实现</h2><blockquote>
+<p>ActivityA.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_a);</span><br><span class="line">    setupWindowAnimations();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupWindowAnimations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Slide slide = <span class="keyword">new</span> Slide();</span><br><span class="line">    slide.setDuration(<span class="number">500</span>);</span><br><span class="line">    slide.setSlideEdge(Gravity.LEFT);</span><br><span class="line">    getWindow().setExitTransition(slide);</span><br><span class="line"><span class="comment">//    getWindow().setReenterTransition(slide);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ActivityB.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_b);</span><br><span class="line">    setupWindowAnimations();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupWindowAnimations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Fade fade = <span class="keyword">new</span> Fade();</span><br><span class="line">    fade.setDuration(<span class="number">500</span>);</span><br><span class="line">    getWindow().setEnterTransition(fade);</span><br><span class="line"><span class="comment">//    getWindow().setReturnTransition(slide);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于大部分相关API只支持API 19以上版本，甚至只支持API 21以上版本，因此需要添加如下判断：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="XML-amp-Code实例化实现"><a href="#XML-amp-Code实例化实现" class="headerlink" title="XML &amp; Code实例化实现"></a>XML &amp; Code实例化实现</h2><h3 id="定义XML"><a href="#定义XML" class="headerlink" title="定义XML"></a>定义XML</h3><blockquote>
+<p>res/transition-v21/fade.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">fade</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/"</span></span><br><span class="line">    <span class="attr">android:duration</span>=<span class="string">"500"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>res/transition-v21/slide.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">slide</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/"</span></span><br><span class="line">    <span class="attr">android:duration</span>=<span class="string">"500"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Code实例化"><a href="#Code实例化" class="headerlink" title="Code实例化"></a>Code实例化</h3><blockquote>
+<p>ActivityA.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_a);</span><br><span class="line">    setupWindowAnimations();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupWindowAnimations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Slide slide = TransitionInflater.from(<span class="keyword">this</span>).inflateTransition(R.transition.slide);</span><br><span class="line">    getWindow().setExitTransition(slide);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ActivityB.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_b);</span><br><span class="line">    setupWindowAnimations();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupWindowAnimations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Fade fade = TransitionInflater.from(<span class="keyword">this</span>).inflateTransition(R.transition.fade);</span><br><span class="line">    getWindow().setEnterTransition(fade);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="XML-amp-Style声明式实现（强烈推荐）"><a href="#XML-amp-Style声明式实现（强烈推荐）" class="headerlink" title="XML &amp; Style声明式实现（强烈推荐）"></a>XML &amp; Style声明式实现（强烈推荐）</h2><h3 id="定义XML-1"><a href="#定义XML-1" class="headerlink" title="定义XML"></a>定义XML</h3><blockquote>
+<p>如果没有其它属性要求，本步骤可跳过，直接在下一步使用系统定义好的XML  </p>
+</blockquote>
+<p>同<code>XML &amp; Code实例化实现</code>一样，声明XML文件</p>
+<blockquote>
+<p>res/transition-v21/fade.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">fade</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/"</span></span><br><span class="line">    <span class="attr">android:duration</span>=<span class="string">"500"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>res/transition-v21/slide.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">slide</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/"</span></span><br><span class="line">    <span class="attr">android:duration</span>=<span class="string">"500"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Style文件声明"><a href="#Style文件声明" class="headerlink" title="Style文件声明"></a>Style文件声明</h3><blockquote>
+<p>res/values-v21/styles.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@transition/slide<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReenterTransition"</span>&gt;</span>@transition/slide<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@transition/slide<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReturnTransition"</span>&gt;</span>@transition/slide<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以直接使用系统提供的过渡效果：</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@android:transition/slide_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReenterTransition"</span>&gt;</span>@android:transition/slide_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@android:transition/slide_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReturnTransition"</span>&gt;</span>@android:transition/slide_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="声明打开Content-Transitions（非必须）"><a href="#声明打开Content-Transitions（非必须）" class="headerlink" title="声明打开Content Transitions（非必须）"></a>声明打开Content Transitions（非必须）</h3><blockquote>
+<p>如果本步骤继承的父主题不是AppCompt相关主题，还需要在styles.xml文件中声明:</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">startActivity(<span class="keyword">new</span> Intent(ActivityA.<span class="keyword">this</span>, ActivityB.class),</span><br><span class="line">                ActivityOptionsCompat.makeSceneTransitionAnimation(ActivityA.<span class="keyword">this</span>).toBundle());</span><br></pre></td></tr></table></figure>
+<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">finishAfterTransition();</span><br></pre></td></tr></table></figure>
+<h1 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h1><p><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">https://github.com/lgvalle/Material-Animations</a></p>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&quot;&gt;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;同overridePendingTransition()方法执行效果类似&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Content Transition也称为Transitions between Activities，或Enter/Exit Transition，包括下图4个部分（本图截取自Udacity）：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://sherlockshi.github.io/tags/Android/"/>
+    
+      <category term="Material" scheme="http://sherlockshi.github.io/tags/Material/"/>
+    
+      <category term="Animations" scheme="http://sherlockshi.github.io/tags/Animations/"/>
+    
+      <category term="Transitions" scheme="http://sherlockshi.github.io/tags/Transitions/"/>
+    
+  </entry>
   
   <entry>
     <title>nodeppt常用功能</title>
@@ -305,9 +409,9 @@
     
       <category term="Hexo" scheme="http://sherlockshi.github.io/tags/Hexo/"/>
     
-      <category term="命令" scheme="http://sherlockshi.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
-    
       <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
+    
+      <category term="命令" scheme="http://sherlockshi.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
