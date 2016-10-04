@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-04T13:45:08.000Z</updated>
+  <updated>2016-10-04T13:59:48.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://sherlockshi.github.io/2016/10/03/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations1_ContentTransitions/"/>
     <id>http://sherlockshi.github.io/2016/10/03/15_Android/1545_动画/MaterialAnimations1_ContentTransitions/</id>
     <published>2016-10-03T14:36:34.000Z</published>
-    <updated>2016-10-04T13:45:08.000Z</updated>
+    <updated>2016-10-04T13:59:48.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
@@ -85,9 +85,9 @@
 <blockquote>
 <p>也可以直接使用系统提供的过渡效果：</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@android:transition/slide_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReenterTransition"</span>&gt;</span>@android:transition/slide_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@android:transition/slide_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReturnTransition"</span>&gt;</span>@android:transition/slide_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@android:transition/slide_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReenterTransition"</span>&gt;</span>@android:transition/slide_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@android:transition/slide_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReturnTransition"</span>&gt;</span>@android:transition/slide_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="声明打开Content-Transitions（非必须）"><a href="#声明打开Content-Transitions（非必须）" class="headerlink" title="声明打开Content Transitions（非必须）"></a>声明打开Content Transitions（非必须）</h3><blockquote>
-<p>如果本步骤继承的父主题不是AppCompt相关主题，还需要在styles.xml文件中声明:</p>
+<p>如果上一个步骤继承的父主题不是AppCompt相关主题，还需要在styles.xml文件中声明:</p>
 </blockquote>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">startActivity(<span class="keyword">new</span> Intent(ActivityA.<span class="keyword">this</span>, ActivityB.class),</span><br><span class="line">                ActivityOptionsCompat.makeSceneTransitionAnimation(ActivityA.<span class="keyword">this</span>).toBundle());</span><br></pre></td></tr></table></figure>
@@ -409,9 +409,9 @@
     
       <category term="Hexo" scheme="http://sherlockshi.github.io/tags/Hexo/"/>
     
-      <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
-    
       <category term="命令" scheme="http://sherlockshi.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+      <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
     
   </entry>
   
