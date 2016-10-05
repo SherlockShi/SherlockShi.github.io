@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Material Animations 2：Shared Element Transition | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="Android,Material,Animations,Shared Element,Transition">
+  <meta name="description" content="项目地址：https://github.com/SherlockShi/AndroidMaterialAnimationPractise
+
+一、前言元素共享变换（shared element transition）决定了共享的view元素从一个Activity/Fragment 到另一个Activity/Fragment的切换中是如何动画变化的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Material Animations 2：Shared Element Transition">
+<meta property="og:url" content="http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations2_SharedElements/index.html">
+<meta property="og:site_name" content="SherlockShi's Home">
+<meta property="og:description" content="项目地址：https://github.com/SherlockShi/AndroidMaterialAnimationPractise
+
+一、前言元素共享变换（shared element transition）决定了共享的view元素从一个Activity/Fragment 到另一个Activity/Fragment的切换中是如何动画变化的。">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-5/5566926.jpg">
+<meta property="og:updated_time" content="2016-10-05T15:23:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Material Animations 2：Shared Element Transition">
+<meta name="twitter:description" content="项目地址：https://github.com/SherlockShi/AndroidMaterialAnimationPractise
+
+一、前言元素共享变换（shared element transition）决定了共享的view元素从一个Activity/Fragment 到另一个Activity/Fragment的切换中是如何动画变化的。">
+<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-5/5566926.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;blockquote&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&quot;&gt;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;p&gt;元素共享变换（shared element transition）决定了共享的view元素从一个Activity/Fragment 到另一个Activity/Fragment的切换中是如何动画变化的。  &lt;/p&gt;">
+  <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">SherlockShi</h5>
+        <a href="mailto:sherlock_shi@163.com" title="sherlock_shi@163.com" class="mail">sherlock_shi@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              Home
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              Tags
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/sherlockshi" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://weibo.com/2283093752" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>SherlockShi&#39;s Home &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Material Animations 2：Shared Element Transition</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Material Animations 2：Shared Element Transition</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-10-04T12:48:47.000Z" itemprop="datePublished" class="page-time">
+  2016-10-04
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-15_Android/1545_动画/MaterialAnimations2_SharedElements" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Animations/">Animations</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material/">Material</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shared-Element/">Shared Element</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Transition/">Transition</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、前言"><span class="post-toc-text">一、前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、效果图"><span class="post-toc-text">二、效果图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、实现方法"><span class="post-toc-text">三、实现方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在主题中启用窗口内容转换"><span class="post-toc-text">在主题中启用窗口内容转换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在styles-xml文件中指定一个共享元素转换"><span class="post-toc-text">在styles.xml文件中指定一个共享元素转换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将转换效果定义为XML资源（可选）"><span class="post-toc-text">将转换效果定义为XML资源（可选）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为共享元素指定transitionName"><span class="post-toc-text">为共享元素指定transitionName</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-makeSceneTransitionAnimation-方法"><span class="post-toc-text">使用 makeSceneTransitionAnimation() 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、参考资料"><span class="post-toc-text">四、参考资料</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
+</blockquote>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>元素共享变换（shared element transition）决定了共享的view元素从一个Activity/Fragment 到另一个Activity/Fragment的切换中是如何动画变化的。  </p>
+<a id="more"></a>
+<p><strong>请记住</strong>，共享元素变换并不是真正实现了两个Activity或者Fragment之间元素的共享，界面还是两个不同界面，只不过Framework采用了不同的方法来达到相同的视觉效果。</p>
+<h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-5/5566926.jpg" alt=""></p>
+<h1 id="三、实现方法"><a href="#三、实现方法" class="headerlink" title="三、实现方法"></a>三、实现方法</h1><h2 id="在主题中启用窗口内容转换"><a href="#在主题中启用窗口内容转换" class="headerlink" title="在主题中启用窗口内容转换"></a>在主题中启用窗口内容转换</h2><blockquote>
+<p>values-v21/styles.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    ...  </span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="在styles-xml文件中指定一个共享元素转换"><a href="#在styles-xml文件中指定一个共享元素转换" class="headerlink" title="在styles.xml文件中指定一个共享元素转换"></a>在styles.xml文件中指定一个共享元素转换</h2><blockquote>
+<p>values-v21/styles.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    ...</span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span>@transition/def_transition<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementReenterTransition"</span>&gt;</span>@transition/def_transition<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span>@transition/def_transition<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementReturnTransition"</span>&gt;</span>@transition/def_transition<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此处也可以直接使用系统默认自带的转换效果，如果这么做，则下一步<code>将转换效果定义为XML资源</code>可省略</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    ...</span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span>@android:transition/move<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementReenterTransition"</span>&gt;</span>@android:transition/move<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span>@android:transition/move<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementReturnTransition"</span>&gt;</span>@android:transition/move<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="将转换效果定义为XML资源（可选）"><a href="#将转换效果定义为XML资源（可选）" class="headerlink" title="将转换效果定义为XML资源（可选）"></a>将转换效果定义为XML资源（可选）</h2><blockquote>
+<p>transition-v21/def_transition.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">transitionSet</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">changeBounds</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">changeTransform</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">changeClipBounds</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">changeImageTransform</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>changeBounds</code> - 为目标视图的布局边界的变化添加动画。</li>
+<li><code>changeClipBounds</code> - 为目标视图的裁剪边界的变化添加动画。</li>
+<li><code>changeTransform</code> - 为目标视图的缩放与旋转变化添加动画。</li>
+<li><code>changeImageTransform</code> - 为目标图像的大小与缩放变化添加动画。</li>
+</ul>
+<p>详细文档可参考<a href="https://developer.android.com/reference/android/transition/Transition.html" target="_blank" rel="external">Transition类</a>或具体某一属性的API文档。</p>
+<h2 id="为共享元素指定transitionName"><a href="#为共享元素指定transitionName" class="headerlink" title="为共享元素指定transitionName"></a>为共享元素指定transitionName</h2><p>利用<code>android:transitionName</code>属性对两个布局中的共享元素指定一个通用名称：</p>
+<blockquote>
+<p>layout/activity_main.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImageView</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/iv_square_blue"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"48dp"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"48dp"</span></span><br><span class="line">    <span class="attr">android:src</span>=<span class="string">"@drawable/circle_blue"</span></span><br><span class="line">    <span class="attr">android:transitionName</span>=<span class="string">"@string/transition_name_square_blue"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/tv_element_title"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:text</span>=<span class="string">"@string/activity_main_shared_elements"</span></span><br><span class="line">    <span class="attr">android:transitionName</span>=<span class="string">"@string/transition_name_element_title"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>activity_shared_elements.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImageView</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"120dp"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"120dp"</span></span><br><span class="line">    <span class="attr">android:src</span>=<span class="string">"@drawable/circle_blue"</span></span><br><span class="line">    <span class="attr">android:transitionName</span>=<span class="string">"@string/transition_name_square_blue"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:text</span>=<span class="string">"@string/activity_main_shared_elements"</span></span><br><span class="line">    <span class="attr">android:transitionName</span>=<span class="string">"@string/transition_name_element_title"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>要点：</strong>共享元素尽量设置固定值或wrap_content，否则在界面过渡的开始、结束位置容易出现闪屏。<br><strong>分析原因可能为：</strong>由于元素的居中等显示属性的不同导致，如设置文本居中显示，则元素从起始位置开始移动，到达结束位置时，先移动到结束时的居中位置，然后瞬间变到结束位置，如果这时候两个位置不一致，会造成闪屏。</p>
+<h2 id="使用-makeSceneTransitionAnimation-方法"><a href="#使用-makeSceneTransitionAnimation-方法" class="headerlink" title="使用 makeSceneTransitionAnimation() 方法"></a>使用 makeSceneTransitionAnimation() 方法</h2><blockquote>
+<p>MainActivity.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">View ivSquareBlue = findViewById(R.id.iv_square_blue);</span><br><span class="line">String squareBlueTransitionName = getString(R.string.transition_name_square_blue);</span><br><span class="line"></span><br><span class="line"><span class="comment">// only one shared elements</span></span><br><span class="line">ActivityOptionsCompat activityOptionsCompat = </span><br><span class="line">        ActivityOptionsCompat.makeSceneTransitionAnimation(<span class="keyword">this</span>, ivSquareBlue, squareBlueTransitionName);</span><br><span class="line">startActivity(intent, activityOptionsCompat.toBundle());</span><br></pre></td></tr></table></figure>
+<p>如果有多个共享元素，则使用以下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">View ivSquareBlue = findViewById(R.id.iv_square_blue);</span><br><span class="line">String squareBlueTransitionName = getString(R.string.transition_name_square_blue);</span><br><span class="line"></span><br><span class="line">View tvElementTitle = findViewById(R.id.tv_element_title);</span><br><span class="line">String elementTitleTransitionName = getString(R.string.transition_name_element_title);</span><br><span class="line"></span><br><span class="line"><span class="comment">// multiple shared elements</span></span><br><span class="line">ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(<span class="keyword">this</span>,</span><br><span class="line">        Pair.create(ivSquareBlue, squareBlueTransitionName),</span><br><span class="line">        Pair.create(tvElementTitle, elementTitleTransitionName));</span><br><span class="line"></span><br><span class="line">startActivity(intent, activityOptionsCompat.toBundle());</span><br></pre></td></tr></table></figure>
+<h1 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h1><p><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">Material Animations</a><br><a href="https://developer.android.com/training/material/animations.html" target="_blank" rel="external">定义定制动画-Android开发文档</a></p>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations2_SharedElements/" target="_blank" rel="external">http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations2_SharedElements/</a>
+                </p>
+                <footer><cite><a href="http://sherlockshi.github.io">@SherlockShi's Home</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">为CardView添加点击后的抬升效果</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/10/03/15_Android/1545_动画/MaterialAnimations1_ContentTransitions/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Material Animations 1：Content Transitions</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="15_Android/1545_动画/MaterialAnimations2_SharedElements" data-title="Material Animations 2：Shared Element Transition" data-url="http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations2_SharedElements/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"sherlockshi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "Material Animations 2：Shared Element Transition",
+    pic: "http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations2_SharedElements/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢大侠慷慨解囊～
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/51725532.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/44887159.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85064715-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
