@@ -17,8 +17,11 @@
 <meta property="og:site_name" content="SherlockShi's Home">
 <meta property="og:description" content="本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：https://segmentfault.com/markdown">
 <meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/100/interlace/1/">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/150/interlace/1/">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/200/interlace/1/">
 <meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/%E5%9C%A8Excel%E4%B8%AD%E5%A1%AB%E5%86%99%E8%A1%A8%E6%A0%BC.png">
-<meta property="og:updated_time" content="2016-10-07T02:39:18.000Z">
+<meta property="og:updated_time" content="2016-10-07T07:17:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown语言常用语法">
 <meta name="twitter:description" content="本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：https://segmentfault.com/markdown">
@@ -27,7 +30,8 @@
     <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
   
   <meta name="summary" content="&lt;blockquote&gt;
-&lt;p&gt;本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/markdown&quot;&gt;https://segmentfault.com/markdown&lt;/a&gt;&lt;br&gt;">
+&lt;p&gt;本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/markdown&quot;&gt;https://segmentfault.com/markdown&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -202,8 +206,9 @@
 
             <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
-<p>本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：<br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a><br><a id="more"></a></p>
+<p>本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：<br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a></p>
 </blockquote>
+<a id="more"></a>
 <h1 id="1-代码"><a href="#1-代码" class="headerlink" title="1. 代码"></a>1. 代码</h1><h2 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h2><p><strong>用法</strong><br>把代码用反引号(`)(键盘上Esc键下面的键)包起，如：  </p>
 <pre><code>`toString()`方法
 </code></pre><p><strong>效果</strong><br><code>toString()</code>方法  </p>
@@ -230,9 +235,10 @@
   [1]: http://www.google.com/
   [yahoo]: http://www.yahoo.com/
 </code></pre><p><strong>效果</strong><br>这个链接用 1 作为网址变量 <a href="http://www.google.com/" target="_blank" rel="external">Google</a>.<br>这个链接用 yahoo 作为网址变量 <a href="http://www.yahoo.com/" target="_blank" rel="external">Yahoo!</a>.  </p>
-<h1 id="5-图片"><a href="#5-图片" class="headerlink" title="5. 图片"></a>5. 图片</h1><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？<br><strong>用法</strong>  </p>
+<h1 id="5-图片"><a href="#5-图片" class="headerlink" title="5. 图片"></a>5. 图片</h1><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？</p>
+<p><strong>用法</strong>  </p>
 <pre><code>![图片名称](http://图片网址)，如：
-![奇犽](http://7xlpfl.com1.z0.glb.clouddn.com/%E5%A5%87%E7%8A%BD3.jpg)
+![奇犽](http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg)
 </code></pre><p><strong>效果</strong><br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg" alt="奇犽"></p>
 <p>当然，你也可以像网址那样对图片网址使用变量：  </p>
 <pre><code>这个链接用 1 作为网址变量 [Google][1].  
@@ -241,7 +247,27 @@
  [1]: http://www.google.com/logo.png
 </code></pre><p>也可以使用 HTML 的图片语法来自定义图片的宽高大小：</p>
 <pre><code>&lt;img src=&quot;htt://example.com/sample.png&quot; width=&quot;250&quot; height=&quot;250&quot; alt=&quot;奇犽&quot;&gt;
-</code></pre><h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h1><h2 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h2><p><strong>用法</strong></p>
+</code></pre><blockquote>
+<p>如果使用七牛进行存储的图片，还可以在URL后面添加参数，控制加载的图片大小：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>?imageView2/2/w/100/</th>
+<th>?imageView2/2/w/150/</th>
+<th>?imageView2/2/w/200/</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/100/interlace/1/" alt="奇犽"></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/150/interlace/1/" alt="奇犽"></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/200/interlace/1/" alt="奇犽"></td>
+</tr>
+</tbody>
+</table>
+<p>具体参数可参考<a href="http://o9gnz92z5.bkt.clouddn.com/code/v6/api/kodo-api/image/imageview2.html" target="_blank" rel="external">七牛图片处理接口文档</a></p>
+<h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h1><h2 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h2><p><strong>用法</strong></p>
 <pre><code>- 列表文本前使用 [减号+空格]
 + 列表文本前使用 [加号+空格]
 * 列表文本前使用 [星号+空格]

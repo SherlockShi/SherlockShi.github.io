@@ -3,29 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>为CardView添加点击后的抬升效果 | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
+  <title>Material Animations 3：View Animations | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="Android,Material Design,CardView">
-  <meta name="description" content="一、效果图在真机上阴影效果很好，录屏效果差一点。">
+  <meta name="keywords" content="Android,Material,Animations,View Animations">
+  <meta name="description" content="项目地址：https://github.com/SherlockShi/AndroidMaterialAnimationPractise
+
+一、前言
+Transition框架可以用来给一个View的布局属性变化增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为CardView添加点击后的抬升效果">
-<meta property="og:url" content="http://sherlockshi.github.io/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/index.html">
+<meta property="og:title" content="Material Animations 3：View Animations">
+<meta property="og:url" content="http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/index.html">
 <meta property="og:site_name" content="SherlockShi's Home">
-<meta property="og:description" content="一、效果图在真机上阴影效果很好，录屏效果差一点。">
-<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-5/13322114.jpg">
-<meta property="og:updated_time" content="2016-10-05T13:08:10.000Z">
+<meta property="og:description" content="项目地址：https://github.com/SherlockShi/AndroidMaterialAnimationPractise
+
+一、前言
+Transition框架可以用来给一个View的布局属性变化增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/9496996.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/17219880.jpg">
+<meta property="og:updated_time" content="2016-10-07T15:03:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为CardView添加点击后的抬升效果">
-<meta name="twitter:description" content="一、效果图在真机上阴影效果很好，录屏效果差一点。">
-<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-5/13322114.jpg">
+<meta name="twitter:title" content="Material Animations 3：View Animations">
+<meta name="twitter:description" content="项目地址：https://github.com/SherlockShi/AndroidMaterialAnimationPractise
+
+一、前言
+Transition框架可以用来给一个View的布局属性变化增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。">
+<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/9496996.jpg">
   
     <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;h1 id=&quot;一、效果图&quot;&gt;&lt;a href=&quot;#一、效果图&quot; class=&quot;headerlink&quot; title=&quot;一、效果图&quot;&gt;&lt;/a&gt;一、效果图&lt;/h1&gt;&lt;p&gt;在真机上阴影效果很好，录屏效果差一点。&lt;/p&gt;">
+  <meta name="summary" content="&lt;blockquote&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&quot;&gt;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Transition框架可以用来给一个&lt;code&gt;View&lt;/code&gt;的布局&lt;code&gt;属性变化&lt;/code&gt;增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。&lt;/li&gt;
+&lt;/ul&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -105,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">为CardView添加点击后的抬升效果</div>
+        <div class="flex-col header-title ellipsis">Material Animations 3：View Animations</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -126,11 +141,11 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">为CardView添加点击后的抬升效果</h1>
+    <h1 class="author">Material Animations 3：View Animations</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-10-05T12:34:38.000Z" itemprop="datePublished" class="page-time">
-  2016-10-05
+            <time datetime="2016-10-04T12:48:47.000Z" itemprop="datePublished" class="page-time">
+  2016-10-04
 </time>
 
 
@@ -140,11 +155,11 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-15_Android/1545_动画/为CardView添加点击后的抬升效果" 
+      <article id="post-15_Android/1545_动画/MaterialAnimations3_ViewAnimations" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CardView/">CardView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Animations/">Animations</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material/">Material</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/View-Animations/">View Animations</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -191,7 +206,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、效果图"><span class="post-toc-text">一、效果图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、实现方法"><span class="post-toc-text">二、实现方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建一个TranslationZ的变换动画"><span class="post-toc-text">创建一个TranslationZ的变换动画</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为CardView加上属性"><span class="post-toc-text">为CardView加上属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、参考资料"><span class="post-toc-text">三、参考资料</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、前言"><span class="post-toc-text">一、前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、效果图"><span class="post-toc-text">二、效果图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、属性变化"><span class="post-toc-text">三、属性变化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用beginDelayedTransition-方法"><span class="post-toc-text">调用beginDelayedTransition()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改变View的属性"><span class="post-toc-text">改变View的属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、元素变化"><span class="post-toc-text">四、元素变化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用getSceneForLayout-方法"><span class="post-toc-text">调用getSceneForLayout()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用go-方法"><span class="post-toc-text">调用go()方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、参考资料"><span class="post-toc-text">五、参考资料</span></a></li></ol>
             </nav>
             
         </aside>
@@ -199,16 +214,41 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="一、效果图"><a href="#一、效果图" class="headerlink" title="一、效果图"></a>一、效果图</h1><p>在真机上阴影效果很好，录屏效果差一点。</p>
-<a id="more"></a>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-5/13322114.jpg" alt=""></p>
-<h1 id="二、实现方法"><a href="#二、实现方法" class="headerlink" title="二、实现方法"></a>二、实现方法</h1><h2 id="创建一个TranslationZ的变换动画"><a href="#创建一个TranslationZ的变换动画" class="headerlink" title="创建一个TranslationZ的变换动画"></a>创建一个<code>TranslationZ</code>的变换动画</h2><blockquote>
-<p>res/animator/touch_raise.xml</p>
+            <blockquote>
+<p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span><br><span class="line">        <span class="attr">android:state_enabled</span>=<span class="string">"true"</span></span><br><span class="line">        <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">objectAnimator</span></span><br><span class="line">            <span class="attr">android:duration</span>=<span class="string">"@android:integer/config_shortAnimTime"</span></span><br><span class="line">            <span class="attr">android:propertyName</span>=<span class="string">"translationZ"</span></span><br><span class="line">            <span class="attr">android:valueTo</span>=<span class="string">"8dp"</span></span><br><span class="line">            <span class="attr">android:valueType</span>=<span class="string">"floatType"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">objectAnimator</span></span><br><span class="line">            <span class="attr">android:duration</span>=<span class="string">"@android:integer/config_shortAnimTime"</span></span><br><span class="line">            <span class="attr">android:propertyName</span>=<span class="string">"translationZ"</span></span><br><span class="line">            <span class="attr">android:valueTo</span>=<span class="string">"0dp"</span></span><br><span class="line">            <span class="attr">android:valueType</span>=<span class="string">"floatType"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="为CardView加上属性"><a href="#为CardView加上属性" class="headerlink" title="为CardView加上属性"></a>为CardView加上属性</h2><p>CardView布局中加入属性<code>android:stateListAnimator=&quot;@animator/touch_raise&quot;</code>。</p>
-<p>这样，你的卡片按住时就会有浮起的效果了（或称抬升、阴影加深）。</p>
-<h1 id="三、参考资料"><a href="#三、参考资料" class="headerlink" title="三、参考资料"></a>三、参考资料</h1><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1025/3621.html" target="_blank" rel="external">关于使用 CardView 开发过程中要注意的细节-泡在网上的日子</a></p>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><ul>
+<li>Transition框架可以用来给一个<code>View</code>的布局<code>属性变化</code>增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>Transition框架也可以用来给当前界面布局(current activity layout)里面的<code>元素变化</code>增加动画效果。Transition发生在各个场景(Scenes)中，一个场景只是我们UI布局中的一个常见的静态布局而已。只要从一个场景切换到另一个，Transition框架就会自动为场景的切换增加动画效果。</li>
+</ul>
+<p><code>属性变化</code>指的是某一个View，比如一个ImageView，它的宽度、高度、位置等参数的变化；<br>而<code>元素变化</code>，指的是整个布局、场景里面的元素位置等参数的变化。它们的区别主要在于面向的对象不同，一个是针对View，一个是针对Layout。</p>
+<h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><table>
+<thead>
+<tr>
+<th>属性变化</th>
+<th>元素变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/9496996.jpg" alt=""></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/17219880.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h1 id="三、属性变化"><a href="#三、属性变化" class="headerlink" title="三、属性变化"></a>三、属性变化</h1><h2 id="调用beginDelayedTransition-方法"><a href="#调用beginDelayedTransition-方法" class="headerlink" title="调用beginDelayedTransition()方法"></a>调用<code>beginDelayedTransition()</code>方法</h2><p>调用这行代码，就相当我们告诉Transition框架，“大哥，界面要变化了，你准备下，帮忙给点动效撒～”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.beginDelayedTransition(llytRoot);</span><br></pre></td></tr></table></figure>
+<h2 id="改变View的属性"><a href="#改变View的属性" class="headerlink" title="改变View的属性"></a>改变View的属性</h2><p>然后只要改变View的某一个或多个属性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ViewGroup.LayoutParams params = ivSquareGreen.getLayoutParams();</span><br><span class="line">params.width = <span class="number">200</span>;</span><br><span class="line">ivSquareGreen.setLayoutParams(params);</span><br></pre></td></tr></table></figure>
+<p>改变View的宽度属性，会触发layoutMeasure，Transition框架就会记录下起始值和结束值，然后展示从起始值到结束值的动画效果。</p>
+<h1 id="四、元素变化"><a href="#四、元素变化" class="headerlink" title="四、元素变化"></a>四、元素变化</h1><h2 id="调用getSceneForLayout-方法"><a href="#调用getSceneForLayout-方法" class="headerlink" title="调用getSceneForLayout()方法"></a>调用<code>getSceneForLayout()</code>方法</h2><p>这个方法会根据每一个布局文件，创建出一个个的场景(Scene)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scene1 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene1, <span class="keyword">this</span>);</span><br><span class="line">scene2 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene2, <span class="keyword">this</span>);</span><br><span class="line">scene3 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene3, <span class="keyword">this</span>);</span><br><span class="line">scene4 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene4, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="调用go-方法"><a href="#调用go-方法" class="headerlink" title="调用go()方法"></a>调用<code>go()</code>方法</h2><p>调用这个方法，会跳转到下一个场景，并基于当前场景和目标场景展示指定的动画效果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.go(scene1, <span class="keyword">new</span> ChangeBounds());</span><br></pre></td></tr></table></figure>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><p><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">Material Animations</a>  </p>
 <p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
 
 
@@ -221,7 +261,7 @@
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://sherlockshi.github.io/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/" target="_blank" rel="external">http://sherlockshi.github.io/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/</a>
+                <a href="http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/" target="_blank" rel="external">http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/</a>
                 </p>
                 <footer><cite><a href="http://sherlockshi.github.io">@SherlockShi's Home</a></cite></footer>
             </blockquote>
@@ -230,18 +270,18 @@
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2016/10/06/15_Android/1545_动画/Material Design风格常用控件的使用与定制/" id="post-prev" class="post-nav-link">
+      <a href="/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Material Design风格常用控件的使用与定制</h4>
+        <h4 class="title">为CardView添加点击后的抬升效果</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/10/04/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/" id="post-next" class="post-nav-link">
+      <a href="/2016/10/04/15_Android/1545_动画/MaterialAnimations2_SharedElements/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Material Animations 3：View Animations</h4>
+        <h4 class="title">Material Animations 2：Shared Element Transition</h4>
       </a>
     </div>
   
@@ -252,7 +292,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="15_Android/1545_动画/为CardView添加点击后的抬升效果" data-title="为CardView添加点击后的抬升效果" data-url="http://sherlockshi.github.io/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/index.html"></div>
+	<div class="ds-thread" data-thread-key="15_Android/1545_动画/MaterialAnimations3_ViewAnimations" data-title="Material Animations 3：View Animations" data-url="http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -283,10 +323,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "为CardView添加点击后的抬升效果",
+    title: "Material Animations 3：View Animations",
     pic: "http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://sherlockshi.github.io/2016/10/05/15_Android/1545_动画/为CardView添加点击后的抬升效果/index.html"
+    url: "http://sherlockshi.github.io/2016/10/04/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

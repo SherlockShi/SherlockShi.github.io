@@ -71,6 +71,48 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Material Animations 3：View Animations]]></title>
+      <url>http://sherlockshi.github.io/2016/10/04/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations3_ViewAnimations/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
+</blockquote>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><ul>
+<li>Transition框架可以用来给一个<code>View</code>的布局<code>属性变化</code>增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>Transition框架也可以用来给当前界面布局(current activity layout)里面的<code>元素变化</code>增加动画效果。Transition发生在各个场景(Scenes)中，一个场景只是我们UI布局中的一个常见的静态布局而已。只要从一个场景切换到另一个，Transition框架就会自动为场景的切换增加动画效果。</li>
+</ul>
+<p><code>属性变化</code>指的是某一个View，比如一个ImageView，它的宽度、高度、位置等参数的变化；<br>而<code>元素变化</code>，指的是整个布局、场景里面的元素位置等参数的变化。它们的区别主要在于面向的对象不同，一个是针对View，一个是针对Layout。</p>
+<h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><table>
+<thead>
+<tr>
+<th>属性变化</th>
+<th>元素变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/9496996.jpg" alt=""></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/17219880.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h1 id="三、属性变化"><a href="#三、属性变化" class="headerlink" title="三、属性变化"></a>三、属性变化</h1><h2 id="调用beginDelayedTransition-方法"><a href="#调用beginDelayedTransition-方法" class="headerlink" title="调用beginDelayedTransition()方法"></a>调用<code>beginDelayedTransition()</code>方法</h2><p>调用这行代码，就相当我们告诉Transition框架，“大哥，界面要变化了，你准备下，帮忙给点动效撒～”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.beginDelayedTransition(llytRoot);</span><br></pre></td></tr></table></figure>
+<h2 id="改变View的属性"><a href="#改变View的属性" class="headerlink" title="改变View的属性"></a>改变View的属性</h2><p>然后只要改变View的某一个或多个属性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ViewGroup.LayoutParams params = ivSquareGreen.getLayoutParams();</span><br><span class="line">params.width = <span class="number">200</span>;</span><br><span class="line">ivSquareGreen.setLayoutParams(params);</span><br></pre></td></tr></table></figure>
+<p>改变View的宽度属性，会触发layoutMeasure，Transition框架就会记录下起始值和结束值，然后展示从起始值到结束值的动画效果。</p>
+<h1 id="四、元素变化"><a href="#四、元素变化" class="headerlink" title="四、元素变化"></a>四、元素变化</h1><h2 id="调用getSceneForLayout-方法"><a href="#调用getSceneForLayout-方法" class="headerlink" title="调用getSceneForLayout()方法"></a>调用<code>getSceneForLayout()</code>方法</h2><p>这个方法会根据每一个布局文件，创建出一个个的场景(Scene)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scene1 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene1, <span class="keyword">this</span>);</span><br><span class="line">scene2 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene2, <span class="keyword">this</span>);</span><br><span class="line">scene3 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene3, <span class="keyword">this</span>);</span><br><span class="line">scene4 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene4, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="调用go-方法"><a href="#调用go-方法" class="headerlink" title="调用go()方法"></a>调用<code>go()</code>方法</h2><p>调用这个方法，会跳转到下一个场景，并基于当前场景和目标场景展示指定的动画效果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.go(scene1, <span class="keyword">new</span> ChangeBounds());</span><br></pre></td></tr></table></figure>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><p><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">Material Animations</a>  </p>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Material Animations 2：Shared Element Transition]]></title>
       <url>http://sherlockshi.github.io/2016/10/04/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations2_SharedElements/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -1009,8 +1051,9 @@
       <title><![CDATA[Markdown语言常用语法]]></title>
       <url>http://sherlockshi.github.io/2016/04/28/10_Markdown/Markdown%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
-<p>本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：<br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a><br><a id="more"></a></p>
+<p>本文主要记录Markdown语言的常用语法，做为备忘，本文内容主要参考：<br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a></p>
 </blockquote>
+<a id="more"></a>
 <h1 id="1-代码"><a href="#1-代码" class="headerlink" title="1. 代码"></a>1. 代码</h1><h2 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h2><p><strong>用法</strong><br>把代码用反引号(`)(键盘上Esc键下面的键)包起，如：  </p>
 <pre><code>`toString()`方法
 </code></pre><p><strong>效果</strong><br><code>toString()</code>方法  </p>
@@ -1037,9 +1080,10 @@
   [1]: http://www.google.com/
   [yahoo]: http://www.yahoo.com/
 </code></pre><p><strong>效果</strong><br>这个链接用 1 作为网址变量 <a href="http://www.google.com/" target="_blank" rel="external">Google</a>.<br>这个链接用 yahoo 作为网址变量 <a href="http://www.yahoo.com/" target="_blank" rel="external">Yahoo!</a>.  </p>
-<h1 id="5-图片"><a href="#5-图片" class="headerlink" title="5. 图片"></a>5. 图片</h1><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？<br><strong>用法</strong>  </p>
+<h1 id="5-图片"><a href="#5-图片" class="headerlink" title="5. 图片"></a>5. 图片</h1><p>跟链接的方法区别在于前面加了个感叹号 !，这样是不是觉得好记多了呢？</p>
+<p><strong>用法</strong>  </p>
 <pre><code>![图片名称](http://图片网址)，如：
-![奇犽](http://7xlpfl.com1.z0.glb.clouddn.com/%E5%A5%87%E7%8A%BD3.jpg)
+![奇犽](http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg)
 </code></pre><p><strong>效果</strong><br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg" alt="奇犽"></p>
 <p>当然，你也可以像网址那样对图片网址使用变量：  </p>
 <pre><code>这个链接用 1 作为网址变量 [Google][1].  
@@ -1048,7 +1092,27 @@
  [1]: http://www.google.com/logo.png
 </code></pre><p>也可以使用 HTML 的图片语法来自定义图片的宽高大小：</p>
 <pre><code>&lt;img src=&quot;htt://example.com/sample.png&quot; width=&quot;250&quot; height=&quot;250&quot; alt=&quot;奇犽&quot;&gt;
-</code></pre><h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h1><h2 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h2><p><strong>用法</strong></p>
+</code></pre><blockquote>
+<p>如果使用七牛进行存储的图片，还可以在URL后面添加参数，控制加载的图片大小：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>?imageView2/2/w/100/</th>
+<th>?imageView2/2/w/150/</th>
+<th>?imageView2/2/w/200/</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/100/interlace/1/" alt="奇犽"></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/150/interlace/1/" alt="奇犽"></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg?imageView2/2/w/200/interlace/1/" alt="奇犽"></td>
+</tr>
+</tbody>
+</table>
+<p>具体参数可参考<a href="http://o9gnz92z5.bkt.clouddn.com/code/v6/api/kodo-api/image/imageview2.html" target="_blank" rel="external">七牛图片处理接口文档</a></p>
+<h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h1><h2 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h2><p><strong>用法</strong></p>
 <pre><code>- 列表文本前使用 [减号+空格]
 + 列表文本前使用 [加号+空格]
 * 列表文本前使用 [星号+空格]
@@ -1274,12 +1338,6 @@
   
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://sherlockshi.github.io/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://sherlockshi.github.io/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是SherlockShi，欢迎来到我的个人技术博客。</p>
@@ -1287,14 +1345,20 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>http://sherlockshi.github.io/tags/index-1.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
       <url>http://sherlockshi.github.io/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
       <content type="html"></content>
     </entry>
     
@@ -1306,8 +1370,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://sherlockshi.github.io/tags/index-1.html</url>
+      <title><![CDATA[读书]]></title>
+      <url>http://sherlockshi.github.io/reading/index.html</url>
       <content type="html"></content>
     </entry>
     
