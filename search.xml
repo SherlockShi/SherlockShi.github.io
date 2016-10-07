@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[Material Design风格常用控件的使用与定制]]></title>
       <url>http://sherlockshi.github.io/2016/10/06/15_Android/1545_%E5%8A%A8%E7%94%BB/Material%20Design%E9%A3%8E%E6%A0%BC%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%AE%9A%E5%88%B6/</url>
-      <content type="html"><![CDATA[<p>项目地址：</p>
+      <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/SherlockShi/MaterialWidgetPractise" target="_blank" rel="external">https://github.com/SherlockShi/MaterialWidgetPractise</a></p>
 <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>你是否还在使用selector来定制Button普通状态、按下状态的变化呢？</p>
 <p>你是否也想自己的Button有Material Design的阴影效果呢？</p>
 <p>你是否也想让各种控件轻松变换各种颜色风格呢？</p>
@@ -1274,16 +1274,9 @@
   
     
     <entry>
-      <title></title>
-      <url>http://sherlockshi.github.io/tags/index.html</url>
+      <title><![CDATA[读书]]></title>
+      <url>http://sherlockshi.github.io/reading/index.html</url>
       <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC.html</url>
-      <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
-<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
     </entry>
     
     <entry>
@@ -1294,15 +1287,22 @@
     </entry>
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://sherlockshi.github.io/reading/index.html</url>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
-      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC%202.html</url>
+      <url>http://sherlockshi.github.io/tags/index.html</url>
       <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://sherlockshi.github.io/tags/index%E5%89%AF%E6%9C%AC.html</url>
+      <content type="html"><![CDATA[<p>type: “tags”<br>noDate: true</p>
+<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2>]]></content>
     </entry>
     
     <entry>
