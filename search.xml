@@ -16,7 +16,7 @@
 <ul>
 <li>Transition框架也可以用来给当前界面布局(current activity layout)里面的<code>元素变化</code>增加动画效果。Transition发生在各个场景(Scenes)中，一个场景只是我们UI布局中的一个常见的静态布局而已。只要从一个场景切换到另一个，Transition框架就会自动为场景的切换增加动画效果。</li>
 </ul>
-<p><code>属性变化</code>指的是某一个View，比如一个ImageView，它的宽度、高度、位置等参数的变化；<br>而<code>元素变化</code>，指的是整个布局、场景里面的元素位置等参数的变化。它们的区别主要在于面向的对象不同，一个是针对View，一个是针对Layout。</p>
+<p><code>属性变化</code>指的是某一个View，比如一个ImageView，它的宽度、高度、位置等参数的变化；<br><code>元素变化</code>，指的是整个布局、场景里面的元素位置等参数的变化。它们的区别主要在于面向的对象不同，一个是针对View，一个是针对Layout。</p>
 <h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><table>
 <thead>
 <tr>
@@ -1351,14 +1351,14 @@
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://sherlockshi.github.io/tags/index-1.html</url>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://sherlockshi.github.io/tags/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>http://sherlockshi.github.io/tags/index-1.html</url>
       <content type="html"></content>
     </entry>
     
