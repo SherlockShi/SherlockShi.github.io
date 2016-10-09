@@ -10,20 +10,20 @@
   
   
   <meta name="keywords" content="Android,安全,代码混淆">
-  <meta name="description" content="1. 问题1Android studio打包中遇到了这样的问题：1Warning:Exception while processing task java.io.IOException: The same input jar […….jar] is specified twice.">
+  <meta name="description" content="一、问题1Android studio打包中遇到了这样的问题：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android代码混淆问题汇总">
 <meta property="og:url" content="http://sherlockshi.github.io/2016/07/21/15_Android/1505_安全/Android代码混淆问题汇总/index.html">
 <meta property="og:site_name" content="SherlockShi's Home">
-<meta property="og:description" content="1. 问题1Android studio打包中遇到了这样的问题：1Warning:Exception while processing task java.io.IOException: The same input jar […….jar] is specified twice.">
-<meta property="og:updated_time" content="2016-10-02T02:55:57.000Z">
+<meta property="og:description" content="一、问题1Android studio打包中遇到了这样的问题：">
+<meta property="og:updated_time" content="2016-10-09T13:30:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android代码混淆问题汇总">
-<meta name="twitter:description" content="1. 问题1Android studio打包中遇到了这样的问题：1Warning:Exception while processing task java.io.IOException: The same input jar […….jar] is specified twice.">
+<meta name="twitter:description" content="一、问题1Android studio打包中遇到了这样的问题：">
   
     <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;h1 id=&quot;1-问题1&quot;&gt;&lt;a href=&quot;#1-问题1&quot; class=&quot;headerlink&quot; title=&quot;1. 问题1&quot;&gt;&lt;/a&gt;1. 问题1&lt;/h1&gt;&lt;p&gt;Android studio打包中遇到了这样的问题：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Warning:Exception &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; processing task java.io.IOException: The same input jar […….jar] is specified twice.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;">
+  <meta name="summary" content="&lt;h1 id=&quot;一、问题1&quot;&gt;&lt;a href=&quot;#一、问题1&quot; class=&quot;headerlink&quot; title=&quot;一、问题1&quot;&gt;&lt;/a&gt;一、问题1&lt;/h1&gt;&lt;p&gt;Android studio打包中遇到了这样的问题：&lt;/p&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -189,7 +189,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-问题1"><span class="post-toc-text">1. 问题1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法："><span class="post-toc-text">解决办法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原因分析"><span class="post-toc-text">原因分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-问题2"><span class="post-toc-text">2. 问题2</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、问题1"><span class="post-toc-text">一、问题1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决办法"><span class="post-toc-text">解决办法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原因分析"><span class="post-toc-text">原因分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、问题2"><span class="post-toc-text">二、问题2</span></a></li></ol>
             </nav>
             
         </aside>
@@ -197,12 +197,15 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="1-问题1"><a href="#1-问题1" class="headerlink" title="1. 问题1"></a>1. 问题1</h1><p>Android studio打包中遇到了这样的问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning:Exception <span class="keyword">while</span> processing task java.io.IOException: The same input jar […….jar] is specified twice.</span><br></pre></td></tr></table></figure></p>
+            <h1 id="一、问题1"><a href="#一、问题1" class="headerlink" title="一、问题1"></a>一、问题1</h1><p>Android studio打包中遇到了这样的问题：</p>
 <a id="more"></a>
-<h2 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h2><p>打开<code>proguard-rules.pro</code>，<br>注释掉所有的-libraryjars行，或者直接删除，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-libraryjars xxxx.jar</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>build.gradle文件配置了<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">include:</span> <span class="string">'*.jar'</span>, <span class="string">dir:</span> <span class="string">'libs'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning:Exception <span class="keyword">while</span> processing task java.io.IOException: The same input jar […….jar] is specified twice.</span><br></pre></td></tr></table></figure>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>打开<code>proguard-rules.pro</code>，<br>注释掉所有的-libraryjars行，或者直接删除，如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-libraryjars xxxx.jar</span></span><br></pre></td></tr></table></figure>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>build.gradle文件配置了</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">include:</span> <span class="string">'*.jar'</span>, <span class="string">dir:</span> <span class="string">'libs'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>里面已经添加过jar包，sdk 通过 proguard 混淆代码时默认已经将 lib目录中的 jar 都已经添加到打包脚本中，所以不需要再次手动添加。  </p>
-<h1 id="2-问题2"><a href="#2-问题2" class="headerlink" title="2. 问题2"></a>2. 问题2</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Warning:com.baidu.platform.comapi.map.f: can<span class="string">'t find referenced method '</span><span class="built_in">float</span> sqrt(<span class="built_in">float</span>)<span class="string">' in library class android.util.FloatMath</span><br><span class="line">Warning:okio.DeflaterSink: can'</span>t find referenced class org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.Files</span><br><span class="line">Warning:okio.Okio: can'</span>t find referenced class java.nio.file.Path</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.OpenOption</span><br><span class="line"></span><br><span class="line">Warning:Exception while processing task java.io.IOException: Please correct the above warnings first.</span><br><span class="line">:app:transformClassesAndResourcesWithProguardForRelease FAILED</span><br><span class="line">Error:Execution failed for task '</span>:app:transformClassesAndResourcesWithProguardForRelease<span class="string">'.</span><br><span class="line">&gt; java.io.IOException: Please correct the above warnings first.</span></span><br></pre></td></tr></table></figure>
+<h1 id="二、问题2"><a href="#二、问题2" class="headerlink" title="二、问题2"></a>二、问题2</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Warning:com.baidu.platform.comapi.map.f: can<span class="string">'t find referenced method '</span><span class="built_in">float</span> sqrt(<span class="built_in">float</span>)<span class="string">' in library class android.util.FloatMath</span><br><span class="line">Warning:okio.DeflaterSink: can'</span>t find referenced class org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.Files</span><br><span class="line">Warning:okio.Okio: can'</span>t find referenced class java.nio.file.Path</span><br><span class="line">Warning:okio.Okio: can<span class="string">'t find referenced class java.nio.file.OpenOption</span><br><span class="line"></span><br><span class="line">Warning:Exception while processing task java.io.IOException: Please correct the above warnings first.</span><br><span class="line">:app:transformClassesAndResourcesWithProguardForRelease FAILED</span><br><span class="line">Error:Execution failed for task '</span>:app:transformClassesAndResourcesWithProguardForRelease<span class="string">'.</span><br><span class="line">&gt; java.io.IOException: Please correct the above warnings first.</span></span><br></pre></td></tr></table></figure>
 
 
             

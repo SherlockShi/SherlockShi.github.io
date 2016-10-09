@@ -10,20 +10,20 @@
   
   
   <meta name="keywords" content="Android,ScrollView,match_parent">
-  <meta name="description" content="问题Android ScrollView无法match_parent的问题">
+  <meta name="description" content="一、问题Android ScrollView无法match_parent的问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android ScrollView无法match_parent的问题">
 <meta property="og:url" content="http://sherlockshi.github.io/2016/07/28/15_Android/1590_Others/Android ScrollView无法match_parent的问题/index.html">
 <meta property="og:site_name" content="SherlockShi's Home">
-<meta property="og:description" content="问题Android ScrollView无法match_parent的问题">
-<meta property="og:updated_time" content="2016-10-02T03:36:35.000Z">
+<meta property="og:description" content="一、问题Android ScrollView无法match_parent的问题">
+<meta property="og:updated_time" content="2016-10-09T14:18:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android ScrollView无法match_parent的问题">
-<meta name="twitter:description" content="问题Android ScrollView无法match_parent的问题">
+<meta name="twitter:description" content="一、问题Android ScrollView无法match_parent的问题">
   
     <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;Android ScrollView无法match_parent的问题&lt;/p&gt;">
+  <meta name="summary" content="&lt;h1 id=&quot;一、问题&quot;&gt;&lt;a href=&quot;#一、问题&quot; class=&quot;headerlink&quot; title=&quot;一、问题&quot;&gt;&lt;/a&gt;一、问题&lt;/h1&gt;&lt;p&gt;Android ScrollView无法match_parent的问题&lt;/p&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -189,7 +189,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题"><span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决办法"><span class="post-toc-text">解决办法</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、问题"><span class="post-toc-text">一、问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、解决办法"><span class="post-toc-text">二、解决办法</span></a></li></ol>
             </nav>
             
         </aside>
@@ -197,9 +197,10 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>Android ScrollView无法match_parent的问题</p>
+            <h1 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h1><p>Android ScrollView无法match_parent的问题</p>
 <a id="more"></a>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在ScrollView的属性里加上：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="二、解决办法"><a href="#二、解决办法" class="headerlink" title="二、解决办法"></a>二、解决办法</h1><p>在ScrollView的属性里加上：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
             
