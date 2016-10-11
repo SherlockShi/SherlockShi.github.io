@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-09T14:09:06.000Z</updated>
+  <updated>2016-10-11T15:18:53.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -16,78 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Material Animations 3：View Animations</title>
-    <link href="http://sherlockshi.github.io/2016/10/07/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations3_ViewAnimations/"/>
-    <id>http://sherlockshi.github.io/2016/10/07/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/</id>
-    <published>2016-10-07T15:02:00.000Z</published>
-    <updated>2016-10-09T14:09:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
-</blockquote>
-<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><ul>
-<li>Transition框架可以用来给一个<code>View</code>的布局<code>属性变化</code>增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>Transition框架也可以用来给当前界面布局(current activity layout)里面的<code>元素变化</code>增加动画效果。Transition发生在各个场景(Scenes)中，一个场景只是我们UI布局中的一个常见的静态布局而已。只要从一个场景切换到另一个，Transition框架就会自动为场景的切换增加动画效果。</li>
-</ul>
-<p><code>属性变化</code>指的是某一个View，比如一个ImageView，它的宽度、高度、位置等参数的变化；<br><code>元素变化</code>指的是整个布局、场景里面的元素位置等参数的变化。它们的区别主要在于面向的对象不同，一个是针对View，一个是针对Layout。</p>
-<h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><table>
-<thead>
-<tr>
-<th>属性变化</th>
-<th>元素变化</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/9496996.jpg" alt=""></td>
-<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/17219880.jpg" alt=""></td>
-</tr>
-</tbody>
-</table>
-<h1 id="三、属性变化"><a href="#三、属性变化" class="headerlink" title="三、属性变化"></a>三、属性变化</h1><h2 id="1-调用beginDelayedTransition-方法"><a href="#1-调用beginDelayedTransition-方法" class="headerlink" title="1. 调用beginDelayedTransition()方法"></a>1. 调用<code>beginDelayedTransition()</code>方法</h2><p>调用这行代码，就相当我们告诉Transition框架，“大哥，界面要变化了，你准备下，帮忙给点动效撒～”</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.beginDelayedTransition(llytRoot);</span><br></pre></td></tr></table></figure>
-<h2 id="2-改变View的属性"><a href="#2-改变View的属性" class="headerlink" title="2. 改变View的属性"></a>2. 改变View的属性</h2><p>然后只要改变View的某一个或多个属性。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ViewGroup.LayoutParams params = ivSquareGreen.getLayoutParams();</span><br><span class="line">params.width = <span class="number">200</span>;</span><br><span class="line">ivSquareGreen.setLayoutParams(params);</span><br></pre></td></tr></table></figure>
-<p>改变View的宽度属性，会触发layoutMeasure，Transition框架就会记录下起始值和结束值，然后展示从起始值到结束值的动画效果。</p>
-<h1 id="四、元素变化"><a href="#四、元素变化" class="headerlink" title="四、元素变化"></a>四、元素变化</h1><h2 id="1-调用getSceneForLayout-方法"><a href="#1-调用getSceneForLayout-方法" class="headerlink" title="1. 调用getSceneForLayout()方法"></a>1. 调用<code>getSceneForLayout()</code>方法</h2><p>这个方法会根据每一个布局文件，创建出一个个的场景(Scene)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scene1 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene1, <span class="keyword">this</span>);</span><br><span class="line">scene2 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene2, <span class="keyword">this</span>);</span><br><span class="line">scene3 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene3, <span class="keyword">this</span>);</span><br><span class="line">scene4 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene4, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="2-调用go-方法"><a href="#2-调用go-方法" class="headerlink" title="2. 调用go()方法"></a>2. 调用<code>go()</code>方法</h2><p>调用这个方法，会跳转到下一个场景，并基于当前场景和目标场景展示指定的动画效果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.go(scene1, <span class="keyword">new</span> ChangeBounds());</span><br></pre></td></tr></table></figure>
-<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><p><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">Material Animations</a>  </p>
-<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&quot;&gt;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Transition框架可以用来给一个&lt;code&gt;View&lt;/code&gt;的布局&lt;code&gt;属性变化&lt;/code&gt;增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://sherlockshi.github.io/tags/Android/"/>
-    
-      <category term="Material" scheme="http://sherlockshi.github.io/tags/Material/"/>
-    
-      <category term="Animations" scheme="http://sherlockshi.github.io/tags/Animations/"/>
-    
-      <category term="View Animations" scheme="http://sherlockshi.github.io/tags/View-Animations/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Material Animations 4：Circular Reveal Animations</title>
-    <link href="http://sherlockshi.github.io/2016/10/07/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations4_CircularRevealAnimations/"/>
-    <id>http://sherlockshi.github.io/2016/10/07/15_Android/1545_动画/MaterialAnimations4_CircularRevealAnimations/</id>
-    <published>2016-10-07T15:02:00.000Z</published>
-    <updated>2016-10-11T14:42:17.000Z</updated>
+    <link href="http://sherlockshi.github.io/2016/10/11/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations4_CircularRevealAnimations/"/>
+    <id>http://sherlockshi.github.io/2016/10/11/15_Android/1545_动画/MaterialAnimations4_CircularRevealAnimations/</id>
+    <published>2016-10-11T15:18:00.000Z</published>
+    <updated>2016-10-11T15:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>Circular Reveal Animations，官方称之为循环揭露动画效果，是一种用来显示/隐藏一组UI界面元素的动画效果，它是在API 21引入的，对应的类是<code>ViewAnimationUtils</code>。</p>
 <a id="more"></a>
@@ -147,6 +80,73 @@
     <summary type="html">
     
       &lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;p&gt;Circular Reveal Animations，官方称之为循环揭露动画效果，是一种用来显示/隐藏一组UI界面元素的动画效果，它是在API 21引入的，对应的类是&lt;code&gt;ViewAnimationUtils&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://sherlockshi.github.io/tags/Android/"/>
+    
+      <category term="Material" scheme="http://sherlockshi.github.io/tags/Material/"/>
+    
+      <category term="Animations" scheme="http://sherlockshi.github.io/tags/Animations/"/>
+    
+      <category term="View Animations" scheme="http://sherlockshi.github.io/tags/View-Animations/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Material Animations 3：View Animations</title>
+    <link href="http://sherlockshi.github.io/2016/10/07/15_Android/1545_%E5%8A%A8%E7%94%BB/MaterialAnimations3_ViewAnimations/"/>
+    <id>http://sherlockshi.github.io/2016/10/07/15_Android/1545_动画/MaterialAnimations3_ViewAnimations/</id>
+    <published>2016-10-07T15:02:00.000Z</published>
+    <updated>2016-10-09T14:09:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>项目地址：<a href="https://github.com/SherlockShi/AndroidMaterialAnimationPractise" target="_blank" rel="external">https://github.com/SherlockShi/AndroidMaterialAnimationPractise</a></p>
+</blockquote>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><ul>
+<li>Transition框架可以用来给一个<code>View</code>的布局<code>属性变化</code>增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>Transition框架也可以用来给当前界面布局(current activity layout)里面的<code>元素变化</code>增加动画效果。Transition发生在各个场景(Scenes)中，一个场景只是我们UI布局中的一个常见的静态布局而已。只要从一个场景切换到另一个，Transition框架就会自动为场景的切换增加动画效果。</li>
+</ul>
+<p><code>属性变化</code>指的是某一个View，比如一个ImageView，它的宽度、高度、位置等参数的变化；<br><code>元素变化</code>指的是整个布局、场景里面的元素位置等参数的变化。它们的区别主要在于面向的对象不同，一个是针对View，一个是针对Layout。</p>
+<h1 id="二、效果图"><a href="#二、效果图" class="headerlink" title="二、效果图"></a>二、效果图</h1><table>
+<thead>
+<tr>
+<th>属性变化</th>
+<th>元素变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/9496996.jpg" alt=""></td>
+<td><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-7/17219880.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<h1 id="三、属性变化"><a href="#三、属性变化" class="headerlink" title="三、属性变化"></a>三、属性变化</h1><h2 id="1-调用beginDelayedTransition-方法"><a href="#1-调用beginDelayedTransition-方法" class="headerlink" title="1. 调用beginDelayedTransition()方法"></a>1. 调用<code>beginDelayedTransition()</code>方法</h2><p>调用这行代码，就相当我们告诉Transition框架，“大哥，界面要变化了，你准备下，帮忙给点动效撒～”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.beginDelayedTransition(llytRoot);</span><br></pre></td></tr></table></figure>
+<h2 id="2-改变View的属性"><a href="#2-改变View的属性" class="headerlink" title="2. 改变View的属性"></a>2. 改变View的属性</h2><p>然后只要改变View的某一个或多个属性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ViewGroup.LayoutParams params = ivSquareGreen.getLayoutParams();</span><br><span class="line">params.width = <span class="number">200</span>;</span><br><span class="line">ivSquareGreen.setLayoutParams(params);</span><br></pre></td></tr></table></figure>
+<p>改变View的宽度属性，会触发layoutMeasure，Transition框架就会记录下起始值和结束值，然后展示从起始值到结束值的动画效果。</p>
+<h1 id="四、元素变化"><a href="#四、元素变化" class="headerlink" title="四、元素变化"></a>四、元素变化</h1><h2 id="1-调用getSceneForLayout-方法"><a href="#1-调用getSceneForLayout-方法" class="headerlink" title="1. 调用getSceneForLayout()方法"></a>1. 调用<code>getSceneForLayout()</code>方法</h2><p>这个方法会根据每一个布局文件，创建出一个个的场景(Scene)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scene1 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene1, <span class="keyword">this</span>);</span><br><span class="line">scene2 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene2, <span class="keyword">this</span>);</span><br><span class="line">scene3 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene3, <span class="keyword">this</span>);</span><br><span class="line">scene4 = Scene.getSceneForLayout(flytRoot, R.layout.activity_animations_scene4, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="2-调用go-方法"><a href="#2-调用go-方法" class="headerlink" title="2. 调用go()方法"></a>2. 调用<code>go()</code>方法</h2><p>调用这个方法，会跳转到下一个场景，并基于当前场景和目标场景展示指定的动画效果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TransitionManager.go(scene1, <span class="keyword">new</span> ChangeBounds());</span><br></pre></td></tr></table></figure>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><p><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">Material Animations</a>  </p>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&quot;&gt;https://github.com/SherlockShi/AndroidMaterialAnimationPractise&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Transition框架可以用来给一个&lt;code&gt;View&lt;/code&gt;的布局&lt;code&gt;属性变化&lt;/code&gt;增加动画效果。你要做的事，就是改变你想改变的属性，然后Transition框架就会自动为你展示必要的动画效果。&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
