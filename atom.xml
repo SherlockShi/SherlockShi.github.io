@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-11T15:18:53.000Z</updated>
+  <updated>2016-10-12T06:35:30.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android WebView图片适配解决方案</title>
+    <link href="http://sherlockshi.github.io/2016/10/12/15_Android/1525_%E7%BD%91%E7%BB%9C/AndroidWebView%E5%9B%BE%E7%89%87%E9%80%82%E9%85%8D%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://sherlockshi.github.io/2016/10/12/15_Android/1525_网络/AndroidWebView图片适配解决办法/</id>
+    <published>2016-10-12T06:28:00.000Z</published>
+    <updated>2016-10-12T06:35:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>WebView的各种坑，今天又让我发现一个。</p>
+<a id="more"></a>
+<h1 id="一、懵逼"><a href="#一、懵逼" class="headerlink" title="一、懵逼"></a>一、懵逼</h1><p>最近公司项目中新闻模块需要用WebView来加载，而且服务端返回的是<code>String</code>类型的html代码，包含各种标签，各种转义符，一开始直接用loadDataWithBaseURL()加载的时候，出现各种<code>&amp;lt;</code>、<code>&amp;gt;</code>，直接懵逼了，后面一查，只是因为转义符的关系，那直接用String类的replace()方法替换成对应的<code>&lt;</code>、<code>&gt;</code>，就搞定了。</p>
+<p>但是当新闻里面的图片大于屏幕宽度时，会出现横向滚动条，图片也只显示部分，向右滚动屏幕才能看到剩余的图片内容，这样极不方便，也不美观。</p>
+<p>网上搜索了一番，有种解决方案是直接把整个WebView的绽放比例变小，适配屏幕，这样出来的图片是适配屏幕了，但是文字就变得非常小，完全就是把PC端网页塞进手机的感觉了。</p>
+<h1 id="二、转机"><a href="#二、转机" class="headerlink" title="二、转机"></a>二、转机</h1><p>突然看到泡在网上的日子大哥的一篇文章<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0208/2438.html" target="_blank" rel="external">WebView加载图片超过屏幕大小的问题</a>，说的是让PC端在img标签里面配置一下最大宽度就可以解决了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span><br><span class="line"> </span><br><span class="line">img&#123;</span><br><span class="line"> max-width:80%;</span><br><span class="line"> height:auto;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="三、再次懵逼"><a href="#三、再次懵逼" class="headerlink" title="三、再次懵逼"></a>三、再次懵逼</h1><p>赶紧联系服务端人员，结果被告知，这是使用某个框架做出来的效果，没办法修改里面的样式，这不又再次懵逼了吗…</p>
+<h1 id="四、柳暗花明又一村"><a href="#四、柳暗花明又一村" class="headerlink" title="四、柳暗花明又一村"></a>四、柳暗花明又一村</h1><p>程序员都是打不死的蟑螂，只要有一线希望，就要努力去实现自己的价值，不，保住自己的饭碗。</p>
+<p>上面泡网大哥的方法，其实就是给img设置样式。那服务端搞不定，就只能我们客户端这边来做了，能不能我们直接给每个img标签都加上最大宽度的限制呢？既然我们能把转义符替换掉，那是不是也能用同样的方法来加样式呢？</p>
+<h1 id="五、解决方案"><a href="#五、解决方案" class="headerlink" title="五、解决方案"></a>五、解决方案</h1><p>答案是肯定的，在我们获取到的String类型的html代码里面，我们已经把转义符replace成我们实际需要的字符，这时候我们就能取到img的标签了(<code>&lt;img&gt;</code>)，那只要加上如下的代码，就可以了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htmlData = htmlData.replace(<span class="string">"&lt;img"</span>, <span class="string">"&lt;img style='max-width:90%;height:auto;'"</span>);</span><br></pre></td></tr></table></figure>
+<p>原理就是上面分析的，在每个img标签里面，加上最大宽度和高度的控制，最大宽度比例可以根据需要自由设置。经过测试，暂时没发现问题，如果大家有发现问题，或者有其它的解决方案，欢迎随时给我留言。</p>
+<blockquote>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WebView的各种坑，今天又让我发现一个。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://sherlockshi.github.io/tags/Android/"/>
+    
+      <category term="网络" scheme="http://sherlockshi.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="WebView" scheme="http://sherlockshi.github.io/tags/WebView/"/>
+    
+      <category term="图片" scheme="http://sherlockshi.github.io/tags/%E5%9B%BE%E7%89%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Material Animations 4：Circular Reveal Animations</title>
