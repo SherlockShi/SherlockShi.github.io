@@ -3,29 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
+  <title>RxJava操作符实践：5_错误处理之1_1_onErrorReturn | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="Android,RxJava,操作符,错误处理,onExceptionResumeNext">
-  <meta name="description" content="一、描述让Observable在遇到错误时继续发射后面的数据项。">
+  <meta name="keywords" content="Android,RxJava,操作符,错误处理,onErrorReturn">
+  <meta name="description" content="一、描述让Observable遇到错误时发射一个特殊的项并且正常终止。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext">
-<meta property="og:url" content="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext/index.html">
+<meta property="og:title" content="RxJava操作符实践：5_错误处理之1_1_onErrorReturn">
+<meta property="og:url" content="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn/index.html">
 <meta property="og:site_name" content="SherlockShi's Home">
-<meta property="og:description" content="一、描述让Observable在遇到错误时继续发射后面的数据项。">
-<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/e1_3_on_exception_resume_next.png">
-<meta property="og:updated_time" content="2016-10-17T03:32:16.000Z">
+<meta property="og:description" content="一、描述让Observable遇到错误时发射一个特殊的项并且正常终止。">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/e1_1_on_error_return.png">
+<meta property="og:updated_time" content="2016-10-17T03:12:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext">
-<meta name="twitter:description" content="一、描述让Observable在遇到错误时继续发射后面的数据项。">
-<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/e1_3_on_exception_resume_next.png">
+<meta name="twitter:title" content="RxJava操作符实践：5_错误处理之1_1_onErrorReturn">
+<meta name="twitter:description" content="一、描述让Observable遇到错误时发射一个特殊的项并且正常终止。">
+<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/e1_1_on_error_return.png">
   
     <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;h1 id=&quot;一、描述&quot;&gt;&lt;a href=&quot;#一、描述&quot; class=&quot;headerlink&quot; title=&quot;一、描述&quot;&gt;&lt;/a&gt;一、描述&lt;/h1&gt;&lt;p&gt;让Observable在遇到错误时继续发射后面的数据项。&lt;/p&gt;">
+  <meta name="summary" content="&lt;h1 id=&quot;一、描述&quot;&gt;&lt;a href=&quot;#一、描述&quot; class=&quot;headerlink&quot; title=&quot;一、描述&quot;&gt;&lt;/a&gt;一、描述&lt;/h1&gt;&lt;p&gt;让Observable遇到错误时发射一个特殊的项并且正常终止。&lt;/p&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -105,7 +105,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext</div>
+        <div class="flex-col header-title ellipsis">RxJava操作符实践：5_错误处理之1_1_onErrorReturn</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -126,10 +126,10 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext</h1>
+    <h1 class="author">RxJava操作符实践：5_错误处理之1_1_onErrorReturn</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-10-17T03:26:00.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2016-10-17T02:21:00.000Z" itemprop="datePublished" class="page-time">
   2016-10-17
 </time>
 
@@ -140,11 +140,11 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext" 
+      <article id="post-15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RxJava/">RxJava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/onExceptionResumeNext/">onExceptionResumeNext</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作符/">操作符</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误处理/">错误处理</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RxJava/">RxJava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/onErrorReturn/">onErrorReturn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作符/">操作符</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误处理/">错误处理</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -199,16 +199,13 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable在遇到错误时继续发射后面的数据项。</p>
+            <h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable遇到错误时发射一个特殊的项并且正常终止。</p>
 <a id="more"></a>
-<p>和onErrorResumeNext类似，onExceptionResumeNext方法返回一个镜像原有Observable行为的新Observable，也使用一个备用的Observable，不同的是，如果onError收到的Throwable不是一个Exception，它会将错误传递给观察者的onError方法，不会使用备用的Observable。</p>
-<h1 id="二、示意图"><a href="#二、示意图" class="headerlink" title="二、示意图"></a>二、示意图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/e1_3_on_exception_resume_next.png" alt="onExceptionResumeNext"></p>
-<h1 id="三、示例代码"><a href="#三、示例代码" class="headerlink" title="三、示例代码"></a>三、示例代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Observable.create(<span class="keyword">new</span> Observable.OnSubscribe&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> Integer&gt; subscriber)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (subscriber.isUnsubscribed()) &#123;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i == <span class="number">4</span>) &#123;</span><br><span class="line">                        subscriber.onError(<span class="keyword">new</span> Exception(<span class="string">"Integer is 4!"</span>));</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        subscriber.onNext(i);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                subscriber.onCompleted();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">                .onExceptionResumeNext(Observable.just(<span class="number">166</span>, <span class="number">167</span>, <span class="number">168</span>))</span><br><span class="line">                .subscribe(<span class="keyword">new</span> Subscriber&lt;Integer&gt;() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                        System.out.println(<span class="string">"onCompleted."</span>);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">                        System.out.println(<span class="string">"onError: "</span> + e.getMessage());</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">                        System.out.println(<span class="string">"onNext: "</span> + integer);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure>
-<h1 id="四、运行结果"><a href="#四、运行结果" class="headerlink" title="四、运行结果"></a>四、运行结果</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">onNext: <span class="number">0</span></span><br><span class="line">onNext: <span class="number">1</span></span><br><span class="line">onNext: <span class="number">2</span></span><br><span class="line">onNext: <span class="number">3</span></span><br><span class="line">onNext: <span class="number">166</span></span><br><span class="line">onNext: <span class="number">167</span></span><br><span class="line">onNext: <span class="number">168</span></span><br><span class="line">onCompleted.</span><br></pre></td></tr></table></figure>
-<p>将第10行代码改为new Throwable后，会看到输出结果为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onNext: <span class="number">0</span></span><br><span class="line">onNext: <span class="number">1</span></span><br><span class="line">onNext: <span class="number">2</span></span><br><span class="line">onNext: <span class="number">3</span></span><br><span class="line">onError: Integer is <span class="number">4</span>!</span><br></pre></td></tr></table></figure>
-<p>可见上文提到的结论是正确的：<br>如果onError收到的Throwable不是一个Exception，它会将错误传递给观察者的onError方法，不会使用备用的Observable。</p>
-<p>关于Error和Exception的区别，大家可以查看Android官方文档，或查看<a href="http://blog.csdn.net/job_hesc/article/details/46612015" target="_blank" rel="external">Android RxJava使用介绍（四） RxJava的操作符</a>。</p>
+<p>onErrorReturn方法返回一个镜像原有Observable行为的新Observable，后者会忽略前者的onError调用，不会将错误传递给观察者，作为替代，它会发发射一个特殊的项并调用观察者的onCompleted方法。</p>
+<h1 id="二、示意图"><a href="#二、示意图" class="headerlink" title="二、示意图"></a>二、示意图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/e1_1_on_error_return.png" alt="onErrorReturn"></p>
+<h1 id="三、示例代码"><a href="#三、示例代码" class="headerlink" title="三、示例代码"></a>三、示例代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Observable.create(<span class="keyword">new</span> Observable.OnSubscribe&lt;Integer&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> Integer&gt; subscriber)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (subscriber.isUnsubscribed()) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">4</span>) &#123;</span><br><span class="line">                subscriber.onError(<span class="keyword">new</span> Exception(<span class="string">"Integer is 4!"</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                subscriber.onNext(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        subscriber.onCompleted();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">    .onErrorReturn(<span class="keyword">new</span> Func1&lt;Throwable, Integer&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(Throwable throwable)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">166</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .subscribe(<span class="keyword">new</span> Subscriber&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"onCompleted."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"onError: "</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"onNext: "</span> + integer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="四、运行结果"><a href="#四、运行结果" class="headerlink" title="四、运行结果"></a>四、运行结果</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onNext: <span class="number">0</span></span><br><span class="line">onNext: <span class="number">1</span></span><br><span class="line">onNext: <span class="number">2</span></span><br><span class="line">onNext: <span class="number">3</span></span><br><span class="line">onNext: <span class="number">166</span></span><br><span class="line">onCompleted.</span><br></pre></td></tr></table></figure>
+<p>onErrorReturn操作符是在Observable发生错误或异常的时候（即将回调oError方法时），拦截错误并执行指定的逻辑，返回一个跟源Observable相同类型的结果，最后回调订阅者的onComplete方法。</p>
 <blockquote>
 <p>项目代码已上传到Github：<a href="https://github.com/SherlockShi/RxJavaBestPractise" target="_blank" rel="external">https://github.com/SherlockShi/RxJavaBestPractise</a></p>
 </blockquote>
@@ -228,7 +225,7 @@
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext/" target="_blank" rel="external">http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext/</a>
+                <a href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn/" target="_blank" rel="external">http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn/</a>
                 </p>
                 <footer><cite><a href="http://sherlockshi.github.io">@SherlockShi's Home</a></cite></footer>
             </blockquote>
@@ -237,18 +234,18 @@
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之2_retry/" id="post-prev" class="post-nav-link">
+      <a href="/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_2_onErrorResumeNext/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">RxJava操作符实践：5_结合操作之2_retry</h4>
+        <h4 class="title">RxJava操作符实践：5_错误处理之1_2_onErrorResumeNext</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_2_onErrorResumeNext/" id="post-next" class="post-nav-link">
+      <a href="/2016/10/16/15_Android/1560_RxJava/RxJava操作符实践：4_结合操作之7_switch/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">RxJava操作符实践：5_结合操作之1_2_onErrorResumeNext</h4>
+        <h4 class="title">RxJava操作符实践：4_结合操作之7_switch</h4>
       </a>
     </div>
   
@@ -259,7 +256,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext" data-title="RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext" data-url="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext/index.html"></div>
+	<div class="ds-thread" data-thread-key="15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn" data-title="RxJava操作符实践：5_错误处理之1_1_onErrorReturn" data-url="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -290,10 +287,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext",
+    title: "RxJava操作符实践：5_错误处理之1_1_onErrorReturn",
     pic: "http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext/index.html"
+    url: "http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

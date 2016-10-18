@@ -4,8 +4,8 @@
   
     
     <entry>
-      <title><![CDATA[RxJava操作符实践：5_结合操作之2_retry]]></title>
-      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B2_retry/</url>
+      <title><![CDATA[RxJava操作符实践：5_错误处理之2_retry]]></title>
+      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B2_retry/</url>
       <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>如果原始Observable遇到错误，重新订阅它期望它能正常终止。</p>
 <a id="more"></a>
 <p>Retry操作符不会将原始Observable的onError通知传递给观察者，它会订阅这个Observable，再给它一次机会无错误地完成它的数据序列。Retry总是传递onNext通知给观察者，由于重新订阅，可能会造成数据项重复，如上图所示。</p>
@@ -41,8 +41,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext]]></title>
-      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B1_3_onExceptionResumeNext/</url>
+      <title><![CDATA[RxJava操作符实践：5_错误处理之1_3_onExceptionResumeNext]]></title>
+      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B1_3_onExceptionResumeNext/</url>
       <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable在遇到错误时继续发射后面的数据项。</p>
 <a id="more"></a>
 <p>和onErrorResumeNext类似，onExceptionResumeNext方法返回一个镜像原有Observable行为的新Observable，也使用一个备用的Observable，不同的是，如果onError收到的Throwable不是一个Exception，它会将错误传递给观察者的onError方法，不会使用备用的Observable。</p>
@@ -65,8 +65,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[RxJava操作符实践：5_结合操作之1_2_onErrorResumeNext]]></title>
-      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B1_2_onErrorResumeNext/</url>
+      <title><![CDATA[RxJava操作符实践：5_错误处理之1_2_onErrorResumeNext]]></title>
+      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B1_2_onErrorResumeNext/</url>
       <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable在遇到错误时开始发射第二个Observable的数据序列。</p>
 <a id="more"></a>
 <p>onErrorResumeNext方法返回一个镜像原有Observable行为的新Observable，后者会忽略前者的onError调用，不会将错误传递给观察者，作为替代，它会开始镜像另一个，备用的Observable。</p>
@@ -87,7 +87,7 @@
     
     <entry>
       <title><![CDATA[RxJava操作符实践：5_错误处理之1_1_onErrorReturn]]></title>
-      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B1_1_onErrorReturn/</url>
+      <url>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B1_1_onErrorReturn/</url>
       <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable遇到错误时发射一个特殊的项并且正常终止。</p>
 <a id="more"></a>
 <p>onErrorReturn方法返回一个镜像原有Observable行为的新Observable，后者会忽略前者的onError调用，不会将错误传递给观察者，作为替代，它会发发射一个特殊的项并调用观察者的onCompleted方法。</p>
@@ -2690,14 +2690,14 @@ ld  | dk  | dk
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://sherlockshi.github.io/tags/index-1.html</url>
+      <title></title>
+      <url>http://sherlockshi.github.io/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://sherlockshi.github.io/tags/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>http://sherlockshi.github.io/tags/index-1.html</url>
       <content type="html"></content>
     </entry>
     

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-17T05:53:16.000Z</updated>
+  <updated>2016-10-17T09:40:07.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>RxJava操作符实践：5_结合操作之2_retry</title>
-    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B2_retry/"/>
-    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之2_retry/</id>
+    <title>RxJava操作符实践：5_错误处理之2_retry</title>
+    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B2_retry/"/>
+    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之2_retry/</id>
     <published>2016-10-17T03:46:00.000Z</published>
-    <updated>2016-10-17T05:53:16.000Z</updated>
+    <updated>2016-10-17T09:40:07.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>如果原始Observable遇到错误，重新订阅它期望它能正常终止。</p>
 <a id="more"></a>
@@ -75,11 +75,11 @@
   </entry>
   
   <entry>
-    <title>RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext</title>
-    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B1_3_onExceptionResumeNext/"/>
-    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_3_onExceptionResumeNext/</id>
+    <title>RxJava操作符实践：5_错误处理之1_3_onExceptionResumeNext</title>
+    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B1_3_onExceptionResumeNext/"/>
+    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_3_onExceptionResumeNext/</id>
     <published>2016-10-17T03:26:00.000Z</published>
-    <updated>2016-10-17T03:32:16.000Z</updated>
+    <updated>2016-10-17T09:39:51.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable在遇到错误时继续发射后面的数据项。</p>
 <a id="more"></a>
@@ -121,11 +121,11 @@
   </entry>
   
   <entry>
-    <title>RxJava操作符实践：5_结合操作之1_2_onErrorResumeNext</title>
-    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B1_2_onErrorResumeNext/"/>
-    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_2_onErrorResumeNext/</id>
+    <title>RxJava操作符实践：5_错误处理之1_2_onErrorResumeNext</title>
+    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B1_2_onErrorResumeNext/"/>
+    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_2_onErrorResumeNext/</id>
     <published>2016-10-17T03:08:00.000Z</published>
-    <updated>2016-10-17T03:12:13.000Z</updated>
+    <updated>2016-10-17T09:39:38.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、描述"><a href="#一、描述" class="headerlink" title="一、描述"></a>一、描述</h1><p>让Observable在遇到错误时开始发射第二个Observable的数据序列。</p>
 <a id="more"></a>
@@ -165,8 +165,8 @@
   
   <entry>
     <title>RxJava操作符实践：5_错误处理之1_1_onErrorReturn</title>
-    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E4%B9%8B1_1_onErrorReturn/"/>
-    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_结合操作之1_1_onErrorReturn/</id>
+    <link href="http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E8%B7%B5%EF%BC%9A5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%8B1_1_onErrorReturn/"/>
+    <id>http://sherlockshi.github.io/2016/10/17/15_Android/1560_RxJava/RxJava操作符实践：5_错误处理之1_1_onErrorReturn/</id>
     <published>2016-10-17T02:21:00.000Z</published>
     <updated>2016-10-17T03:12:01.000Z</updated>
     
@@ -2864,9 +2864,9 @@
     
       <category term="Hexo" scheme="http://sherlockshi.github.io/tags/Hexo/"/>
     
-      <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
-    
       <category term="命令" scheme="http://sherlockshi.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+      <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
     
   </entry>
   
