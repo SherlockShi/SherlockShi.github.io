@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-24T13:30:26.000Z</updated>
+  <updated>2016-10-27T13:59:17.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -14,6 +14,112 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac系统下STF的环境搭建和运行</title>
+    <link href="http://sherlockshi.github.io/2016/10/26/15_Android/1565_%E6%B5%8B%E8%AF%95/STF/Mac%E7%B3%BB%E7%BB%9F%E4%B8%8BSTF%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%BF%90%E8%A1%8C/"/>
+    <id>http://sherlockshi.github.io/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/</id>
+    <published>2016-10-26T14:48:00.000Z</published>
+    <updated>2016-10-27T13:59:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本文参考以下文章整理：<br><a href="https://testerhome.com/topics/3083" target="_blank" rel="external">MAC 下 STF 的环境搭建和运行</a></p>
+</blockquote>
+<h1 id="一、-前言"><a href="#一、-前言" class="headerlink" title="一、 前言"></a>一、 前言</h1><p>STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。</p>
+<a id="more"></a>
+<h1 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h1><h2 id="1-安装xcode和xcode-命令行工具"><a href="#1-安装xcode和xcode-命令行工具" class="headerlink" title="1. 安装xcode和xcode 命令行工具"></a>1. 安装xcode和xcode 命令行工具</h2><p>（安装Macport需要）</p>
+<ul>
+<li>Xcode：直接在<code>App Store</code>下载安装</li>
+<li>Xcode Command Line Tools：在terminal中输入以下命令，然后在弹出的安装步骤中猛点下一步自动安装。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装Macport，后面需要用到port"><a href="#2-安装Macport，后面需要用到port" class="headerlink" title="2. 安装Macport，后面需要用到port"></a>2. 安装Macport，后面需要用到port</h2><p>参考：<a href="http://www.ccvita.com/434.html" target="_blank" rel="external">http://www.ccvita.com/434.html</a></p>
+<h3 id="1-1-直接到官网下载安装包进行安装"><a href="#1-1-直接到官网下载安装包进行安装" class="headerlink" title="1.1 直接到官网下载安装包进行安装"></a>1.1 直接到官网下载安装包进行安装</h3><p><a href="http://www.macports.org/install.php" target="_blank" rel="external">http://www.macports.org/install.php</a></p>
+<h3 id="1-2-添加环境变量"><a href="#1-2-添加环境变量" class="headerlink" title="1.2 添加环境变量"></a>1.2 添加环境变量</h3><p>将<code>/opt/local/bin</code>和<code>/opt/local/sbin</code>添加到<code>$PATH</code>搜索路径中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>在文件中加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/opt/<span class="built_in">local</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/<span class="built_in">local</span>/sbin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>更新环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-更新ports-tree和MacPorts版本"><a href="#1-3-更新ports-tree和MacPorts版本" class="headerlink" title="1.3 更新ports tree和MacPorts版本"></a>1.3 更新ports tree和MacPorts版本</h3><p>强烈推荐第一次运行的时候使用-v参数，显示详细的更新过程。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port -v selfupdate</span><br></pre></td></tr></table></figure>
+<h2 id="3-linux的基本包安装"><a href="#3-linux的基本包安装" class="headerlink" title="3. linux的基本包安装"></a>3. linux的基本包安装</h2><p>Mac之前有类似环境忽略。</p>
+<h2 id="4-SDK环境安装"><a href="#4-SDK环境安装" class="headerlink" title="4. SDK环境安装"></a>4. SDK环境安装</h2><p>这里不做详细说明估计都有</p>
+<ul>
+<li>Java</li>
+<li>android 留意安装完成后配置环境变量</li>
+</ul>
+<h2 id="5-nodejs安装"><a href="#5-nodejs安装" class="headerlink" title="5. nodejs安装"></a>5. nodejs安装</h2><ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
+<li>验证：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h2 id="6-安装bower"><a href="#6-安装bower" class="headerlink" title="6. 安装bower"></a>6. 安装bower</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install bower -g</span><br></pre></td></tr></table></figure>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower -v</span><br></pre></td></tr></table></figure>
+<h2 id="7-安装rethinkdb"><a href="#7-安装rethinkdb" class="headerlink" title="7. 安装rethinkdb"></a>7. 安装rethinkdb</h2><p>（这里建议通过pgk安装）</p>
+<ul>
+<li><a href="https://www.rethinkdb.com/docs/install/" target="_blank" rel="external">https://www.rethinkdb.com/docs/install/</a></li>
+<li>验证：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rethinkdb -v</span><br></pre></td></tr></table></figure>
+<h2 id="8-安装graphicsmagick"><a href="#8-安装graphicsmagick" class="headerlink" title="8. 安装graphicsmagick"></a>8. 安装graphicsmagick</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install graphicsmagick</span><br></pre></td></tr></table></figure>
+<h2 id="9-安装libsodium"><a href="#9-安装libsodium" class="headerlink" title="9. 安装libsodium"></a>9. 安装libsodium</h2><p>（zeromq的依赖）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install libsodium</span><br></pre></td></tr></table></figure></p>
+<h2 id="10-安装zeromp"><a href="#10-安装zeromp" class="headerlink" title="10. 安装zeromp"></a>10. 安装zeromp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install zmq</span><br></pre></td></tr></table></figure>
+<h2 id="11-安装protobuf"><a href="#11-安装protobuf" class="headerlink" title="11. 安装protobuf"></a>11. 安装protobuf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install protobuf-cpp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不用理会环境变量</li>
+</ul>
+<h2 id="12-安装pkg-config"><a href="#12-安装pkg-config" class="headerlink" title="12. 安装pkg-config"></a>12. 安装pkg-config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install pkgconfig</span><br></pre></td></tr></table></figure>
+<h2 id="13-安装stf"><a href="#13-安装stf" class="headerlink" title="13. 安装stf"></a>13. 安装stf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g stf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间应该是看网速，原文中备注会很长，但是我这边很快就安装完成了。</li>
+</ul>
+<h1 id="三、运行"><a href="#三、运行" class="headerlink" title="三、运行"></a>三、运行</h1><h2 id="1-运行stf"><a href="#1-运行stf" class="headerlink" title="1. 运行stf"></a>1. 运行stf</h2><h3 id="1-1-启动rethinkdb"><a href="#1-1-启动rethinkdb" class="headerlink" title="1.1 启动rethinkdb"></a>1.1 启动rethinkdb</h3><p>在终端中输入以下命令，这时访问浏览器就可以看到rethinkdb的管理界面： <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rethinkdb</span><br></pre></td></tr></table></figure>
+<p> 成功则会显示下面提示：</p>
+<p> <img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_9.png" alt=""></p>
+<p> 这时候访问浏览器可以看到RethinkDB启动好了：</p>
+<p> <img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_10.png" alt=""></p>
+<h3 id="1-2-启动stf"><a href="#1-2-启动stf" class="headerlink" title="1.2 启动stf"></a>1.2 启动stf</h3><p>（需新建终端）</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stf <span class="built_in">local</span> --public-ip 本机IP --allow-remote</span><br></pre></td></tr></table></figure>
+<p> 如：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stf <span class="built_in">local</span> --public-ip 192.168.1.102 --allow-remote</span><br></pre></td></tr></table></figure>
+<p> 其中<code>--allow-remote</code>表示允许远程访问。</p>
+<p>成功则会显示下面提示，如果已经连接手机，还会有手机信息：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_11.png" alt=""></p>
+<p>注：官方文档中给的例子实际测试无法访问：<code>stf local</code></p>
+<h2 id="2-运行客户端"><a href="#2-运行客户端" class="headerlink" title="2. 运行客户端"></a>2. 运行客户端</h2><ul>
+<li>浏览器输入<code>http://localhost:7100/</code>，只要填入符合规则的登录信息即可：</li>
+</ul>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_13.png" alt=""></p>
+<ul>
+<li>成功，可以实现远程操作啦！</li>
+</ul>
+<h1 id="四、效果图"><a href="#四、效果图" class="headerlink" title="四、效果图"></a>四、效果图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_14.png" alt=""></p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_15.png" alt=""></p>
+<blockquote>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文参考以下文章整理：&lt;br&gt;&lt;a href=&quot;https://testerhome.com/topics/3083&quot;&gt;MAC 下 STF 的环境搭建和运行&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、-前言&quot;&gt;&lt;a href=&quot;#一、-前言&quot; class=&quot;headerlink&quot; title=&quot;一、 前言&quot;&gt;&lt;/a&gt;一、 前言&lt;/h1&gt;&lt;p&gt;STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://sherlockshi.github.io/tags/Android/"/>
+    
+      <category term="测试" scheme="http://sherlockshi.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="STF" scheme="http://sherlockshi.github.io/tags/STF/"/>
+    
+  </entry>
   
   <entry>
     <title>RxJava操作符实践：11_转换操作之8_nest</title>
@@ -4916,9 +5022,9 @@
     
       <category term="Hexo" scheme="http://sherlockshi.github.io/tags/Hexo/"/>
     
-      <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
-    
       <category term="命令" scheme="http://sherlockshi.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+      <category term="常用" scheme="http://sherlockshi.github.io/tags/%E5%B8%B8%E7%94%A8/"/>
     
   </entry>
   

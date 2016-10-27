@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mac系统下STF的环境搭建和运行 | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="Android,测试,STF">
+  <meta name="description" content="本文参考以下文章整理：MAC 下 STF 的环境搭建和运行
+
+一、 前言STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac系统下STF的环境搭建和运行">
+<meta property="og:url" content="http://sherlockshi.github.io/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/index.html">
+<meta property="og:site_name" content="SherlockShi's Home">
+<meta property="og:description" content="本文参考以下文章整理：MAC 下 STF 的环境搭建和运行
+
+一、 前言STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_9.png">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_10.png">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_11.png">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_13.png">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_14.png">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_15.png">
+<meta property="og:updated_time" content="2016-10-27T13:59:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac系统下STF的环境搭建和运行">
+<meta name="twitter:description" content="本文参考以下文章整理：MAC 下 STF 的环境搭建和运行
+
+一、 前言STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。">
+<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_9.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;blockquote&gt;
+&lt;p&gt;本文参考以下文章整理：&lt;br&gt;&lt;a href=&quot;https://testerhome.com/topics/3083&quot;&gt;MAC 下 STF 的环境搭建和运行&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、-前言&quot;&gt;&lt;a href=&quot;#一、-前言&quot; class=&quot;headerlink&quot; title=&quot;一、 前言&quot;&gt;&lt;/a&gt;一、 前言&lt;/h1&gt;&lt;p&gt;STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。&lt;/p&gt;">
+  <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar"><img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">SherlockShi</h5>
+          <a href="mailto:sherlock_shi@163.com" title="sherlock_shi@163.com" class="mail">sherlock_shi@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockshi" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/2283093752" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>SherlockShi&#39;s Home &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Mac系统下STF的环境搭建和运行</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">Mac系统下STF的环境搭建和运行</h1>
+        
+        
+
+    </div>
+
+    
+
+</header>
+
+<div class="container body-wrap">
+    <article id="post-15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Mac系统下STF的环境搭建和运行</h1>
+        <div class="post-meta">
+            <time datetime="2016-10-26T14:48:00.000Z" itemprop="datePublished" class="post-time">
+  2016-10-26
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本文参考以下文章整理：<br><a href="https://testerhome.com/topics/3083" target="_blank" rel="external">MAC 下 STF 的环境搭建和运行</a></p>
+</blockquote>
+<h1 id="一、-前言"><a href="#一、-前言" class="headerlink" title="一、 前言"></a>一、 前言</h1><p>STF，全称是Smartphone Test Farm，WEB 端批量移动设备管理控制工具，就是可以用浏览器来批量控制你的移动设备，目前只支持Android设备。</p>
+<a id="more"></a>
+<h1 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h1><h2 id="1-安装xcode和xcode-命令行工具"><a href="#1-安装xcode和xcode-命令行工具" class="headerlink" title="1. 安装xcode和xcode 命令行工具"></a>1. 安装xcode和xcode 命令行工具</h2><p>（安装Macport需要）</p>
+<ul>
+<li>Xcode：直接在<code>App Store</code>下载安装</li>
+<li>Xcode Command Line Tools：在terminal中输入以下命令，然后在弹出的安装步骤中猛点下一步自动安装。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装Macport，后面需要用到port"><a href="#2-安装Macport，后面需要用到port" class="headerlink" title="2. 安装Macport，后面需要用到port"></a>2. 安装Macport，后面需要用到port</h2><p>参考：<a href="http://www.ccvita.com/434.html" target="_blank" rel="external">http://www.ccvita.com/434.html</a></p>
+<h3 id="1-1-直接到官网下载安装包进行安装"><a href="#1-1-直接到官网下载安装包进行安装" class="headerlink" title="1.1 直接到官网下载安装包进行安装"></a>1.1 直接到官网下载安装包进行安装</h3><p><a href="http://www.macports.org/install.php" target="_blank" rel="external">http://www.macports.org/install.php</a></p>
+<h3 id="1-2-添加环境变量"><a href="#1-2-添加环境变量" class="headerlink" title="1.2 添加环境变量"></a>1.2 添加环境变量</h3><p>将<code>/opt/local/bin</code>和<code>/opt/local/sbin</code>添加到<code>$PATH</code>搜索路径中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>在文件中加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/opt/<span class="built_in">local</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/<span class="built_in">local</span>/sbin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>更新环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-更新ports-tree和MacPorts版本"><a href="#1-3-更新ports-tree和MacPorts版本" class="headerlink" title="1.3 更新ports tree和MacPorts版本"></a>1.3 更新ports tree和MacPorts版本</h3><p>强烈推荐第一次运行的时候使用-v参数，显示详细的更新过程。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port -v selfupdate</span><br></pre></td></tr></table></figure>
+<h2 id="3-linux的基本包安装"><a href="#3-linux的基本包安装" class="headerlink" title="3. linux的基本包安装"></a>3. linux的基本包安装</h2><p>Mac之前有类似环境忽略。</p>
+<h2 id="4-SDK环境安装"><a href="#4-SDK环境安装" class="headerlink" title="4. SDK环境安装"></a>4. SDK环境安装</h2><p>这里不做详细说明估计都有</p>
+<ul>
+<li>Java</li>
+<li>android 留意安装完成后配置环境变量</li>
+</ul>
+<h2 id="5-nodejs安装"><a href="#5-nodejs安装" class="headerlink" title="5. nodejs安装"></a>5. nodejs安装</h2><ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
+<li>验证：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h2 id="6-安装bower"><a href="#6-安装bower" class="headerlink" title="6. 安装bower"></a>6. 安装bower</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install bower -g</span><br></pre></td></tr></table></figure>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower -v</span><br></pre></td></tr></table></figure>
+<h2 id="7-安装rethinkdb"><a href="#7-安装rethinkdb" class="headerlink" title="7. 安装rethinkdb"></a>7. 安装rethinkdb</h2><p>（这里建议通过pgk安装）</p>
+<ul>
+<li><a href="https://www.rethinkdb.com/docs/install/" target="_blank" rel="external">https://www.rethinkdb.com/docs/install/</a></li>
+<li>验证：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rethinkdb -v</span><br></pre></td></tr></table></figure>
+<h2 id="8-安装graphicsmagick"><a href="#8-安装graphicsmagick" class="headerlink" title="8. 安装graphicsmagick"></a>8. 安装graphicsmagick</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install graphicsmagick</span><br></pre></td></tr></table></figure>
+<h2 id="9-安装libsodium"><a href="#9-安装libsodium" class="headerlink" title="9. 安装libsodium"></a>9. 安装libsodium</h2><p>（zeromq的依赖）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install libsodium</span><br></pre></td></tr></table></figure></p>
+<h2 id="10-安装zeromp"><a href="#10-安装zeromp" class="headerlink" title="10. 安装zeromp"></a>10. 安装zeromp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install zmq</span><br></pre></td></tr></table></figure>
+<h2 id="11-安装protobuf"><a href="#11-安装protobuf" class="headerlink" title="11. 安装protobuf"></a>11. 安装protobuf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install protobuf-cpp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不用理会环境变量</li>
+</ul>
+<h2 id="12-安装pkg-config"><a href="#12-安装pkg-config" class="headerlink" title="12. 安装pkg-config"></a>12. 安装pkg-config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port install pkgconfig</span><br></pre></td></tr></table></figure>
+<h2 id="13-安装stf"><a href="#13-安装stf" class="headerlink" title="13. 安装stf"></a>13. 安装stf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g stf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间应该是看网速，原文中备注会很长，但是我这边很快就安装完成了。</li>
+</ul>
+<h1 id="三、运行"><a href="#三、运行" class="headerlink" title="三、运行"></a>三、运行</h1><h2 id="1-运行stf"><a href="#1-运行stf" class="headerlink" title="1. 运行stf"></a>1. 运行stf</h2><h3 id="1-1-启动rethinkdb"><a href="#1-1-启动rethinkdb" class="headerlink" title="1.1 启动rethinkdb"></a>1.1 启动rethinkdb</h3><p>在终端中输入以下命令，这时访问浏览器就可以看到rethinkdb的管理界面： <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rethinkdb</span><br></pre></td></tr></table></figure>
+<p> 成功则会显示下面提示：</p>
+<p> <img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_9.png" alt=""></p>
+<p> 这时候访问浏览器可以看到RethinkDB启动好了：</p>
+<p> <img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_10.png" alt=""></p>
+<h3 id="1-2-启动stf"><a href="#1-2-启动stf" class="headerlink" title="1.2 启动stf"></a>1.2 启动stf</h3><p>（需新建终端）</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stf <span class="built_in">local</span> --public-ip 本机IP --allow-remote</span><br></pre></td></tr></table></figure>
+<p> 如：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stf <span class="built_in">local</span> --public-ip 192.168.1.102 --allow-remote</span><br></pre></td></tr></table></figure>
+<p> 其中<code>--allow-remote</code>表示允许远程访问。</p>
+<p>成功则会显示下面提示，如果已经连接手机，还会有手机信息：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_11.png" alt=""></p>
+<p>注：官方文档中给的例子实际测试无法访问：<code>stf local</code></p>
+<h2 id="2-运行客户端"><a href="#2-运行客户端" class="headerlink" title="2. 运行客户端"></a>2. 运行客户端</h2><ul>
+<li>浏览器输入<code>http://localhost:7100/</code>，只要填入符合规则的登录信息即可：</li>
+</ul>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_13.png" alt=""></p>
+<ul>
+<li>成功，可以实现远程操作啦！</li>
+</ul>
+<h1 id="四、效果图"><a href="#四、效果图" class="headerlink" title="四、效果图"></a>四、效果图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_14.png" alt=""></p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_15.png" alt=""></p>
+<blockquote>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+</blockquote>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+            <div class="content">
+               转载请注明出处：<a href="/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/" target="_blank" rel="external">http://sherlockshi.github.io/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/index.html</a>
+            </div>
+            <footer>
+                <a href="http://sherlockshi.github.io">
+                    <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg" alt="SherlockShi">
+                    SherlockShi
+                </a>
+            </footer>
+        </blockquote>
+
+        
+        <div class="post-reward">
+            <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+        </div>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STF/">STF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+
+
+            
+            <div class="post-share-wrap">
+                <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+                <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+                    <i class="icon icon-share-alt icon-lg"></i>
+                </a>
+            </div>
+            
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/10/24/15_Android/1560_RxJava/RxJava操作符实践：11_转换操作之8_nest/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">RxJava操作符实践：11_转换操作之8_nest</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行" data-title="Mac系统下STF的环境搭建和运行" data-url="http://sherlockshi.github.io/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"sherlockshi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+</article>
+
+<aside class="post-widget" id="post-widget">
+
+    
+    <nav class="post-toc-wrap" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、-前言"><span class="post-toc-text">一、 前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、环境搭建"><span class="post-toc-text">二、环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-安装xcode和xcode-命令行工具"><span class="post-toc-text">1. 安装xcode和xcode 命令行工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装Macport，后面需要用到port"><span class="post-toc-text">2. 安装Macport，后面需要用到port</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-直接到官网下载安装包进行安装"><span class="post-toc-text">1.1 直接到官网下载安装包进行安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-添加环境变量"><span class="post-toc-text">1.2 添加环境变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-更新ports-tree和MacPorts版本"><span class="post-toc-text">1.3 更新ports tree和MacPorts版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-linux的基本包安装"><span class="post-toc-text">3. linux的基本包安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-SDK环境安装"><span class="post-toc-text">4. SDK环境安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-nodejs安装"><span class="post-toc-text">5. nodejs安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-安装bower"><span class="post-toc-text">6. 安装bower</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-安装rethinkdb"><span class="post-toc-text">7. 安装rethinkdb</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-安装graphicsmagick"><span class="post-toc-text">8. 安装graphicsmagick</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-安装libsodium"><span class="post-toc-text">9. 安装libsodium</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-安装zeromp"><span class="post-toc-text">10. 安装zeromp</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-安装protobuf"><span class="post-toc-text">11. 安装protobuf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12-安装pkg-config"><span class="post-toc-text">12. 安装pkg-config</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#13-安装stf"><span class="post-toc-text">13. 安装stf</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、运行"><span class="post-toc-text">三、运行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-运行stf"><span class="post-toc-text">1. 运行stf</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-启动rethinkdb"><span class="post-toc-text">1.1 启动rethinkdb</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-启动stf"><span class="post-toc-text">1.2 启动stf</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-运行客户端"><span class="post-toc-text">2. 运行客户端</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、效果图"><span class="post-toc-text">四、效果图</span></a></li></ol>
+    </nav>
+    
+</aside>
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "Mac系统下STF的环境搭建和运行",
+    pic: "http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://sherlockshi.github.io/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢大侠慷慨解囊～
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/51725532.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/44887159.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85064715-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+</body>
+</html>
