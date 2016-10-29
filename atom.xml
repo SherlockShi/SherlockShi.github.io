@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-10-27T13:59:17.000Z</updated>
+  <updated>2016-10-29T03:20:57.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://sherlockshi.github.io/2016/10/26/15_Android/1565_%E6%B5%8B%E8%AF%95/STF/Mac%E7%B3%BB%E7%BB%9F%E4%B8%8BSTF%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%BF%90%E8%A1%8C/"/>
     <id>http://sherlockshi.github.io/2016/10/26/15_Android/1565_测试/STF/Mac系统下STF的环境搭建和运行/</id>
     <published>2016-10-26T14:48:00.000Z</published>
-    <updated>2016-10-27T13:59:17.000Z</updated>
+    <updated>2016-10-29T03:20:57.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本文参考以下文章整理：<br><a href="https://testerhome.com/topics/3083" target="_blank" rel="external">MAC 下 STF 的环境搭建和运行</a></p>
@@ -98,6 +98,10 @@
 </ul>
 <h1 id="四、效果图"><a href="#四、效果图" class="headerlink" title="四、效果图"></a>四、效果图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_14.png" alt=""></p>
 <p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-27-Snip20161027_15.png" alt=""></p>
+<h1 id="五、其它系统"><a href="#五、其它系统" class="headerlink" title="五、其它系统"></a>五、其它系统</h1><h2 id="1-Linux类系统"><a href="#1-Linux类系统" class="headerlink" title="1. Linux类系统"></a>1. Linux类系统</h2><p>Linux类的操作系统，如Ubuntu，可参考<a href="https://testerhome.com/topics/2988" target="_blank" rel="external">WEB 端批量移动设备管理控制工具 STF 的环境搭建和运行</a>进行搭建。</p>
+<h2 id="2-Windows"><a href="#2-Windows" class="headerlink" title="2. Windows"></a>2. Windows</h2><p>Windows下直接安装据说相当麻烦，有很多坑，比较常见的做法是使用虚拟机（如docker）虚拟出一个Linux系统，然后参考上一步的搭建方法进行搭建。</p>
+<h1 id="六、使用"><a href="#六、使用" class="headerlink" title="六、使用"></a>六、使用</h1><h2 id="1-远程控制"><a href="#1-远程控制" class="headerlink" title="1. 远程控制"></a>1. 远程控制</h2><p>搭建好环境之后，这就是一台连接着N台Android手机的服务器了（这个服务器可能是放在你们公司某个神秘的地方，一般称为无线实验室），在上图的手机控制界面可以看到：<br><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-10-29-031903.jpg" alt=""></p>
+<p>这时候，在你自己的电脑上（客户端），通过命令行输入<code>adb connect 192.168.1.102:7401</code>，就可以将自己的电脑连接到远程服务器上的手机真机，就好像手机是连接在自己电脑上一样，你可以在Android Studio中Android Device Monitor上看到手机硬件，可以直接打断点debug。</p>
 <blockquote>
 <p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
 </blockquote>
