@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   
+  
+  <link rel="canonical" href="http://sherlockshi.github.io//2016/07/01/15_Android/1505_安全/Andrdoid代码混淆/">
+  
+  
   <title>Andrdoid代码混淆 | SherlockShi&#39;s Home | Don&#39;t be evil.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -20,7 +24,7 @@
 <meta property="og:description" content="本文主要参考5分钟搞定android混淆
 
 一、前言">
-<meta property="og:updated_time" content="2016-10-09T13:25:54.000Z">
+<meta property="og:updated_time" content="2016-10-31T13:39:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andrdoid代码混淆">
 <meta name="twitter:description" content="本文主要参考5分钟搞定android混淆
@@ -34,7 +38,7 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=undefined">
 </head>
 
 <body>
@@ -143,8 +147,17 @@
 
 </header>
 
+
 <div class="container body-wrap">
-    <article id="post-15_Android/1505_安全/Andrdoid代码混淆" 
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、前言"><span class="post-toc-text">一、前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、上模板"><span class="post-toc-text">二、上模板</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、分析"><span class="post-toc-text">三、分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-实体类、自定义控件"><span class="post-toc-text">1. 实体类、自定义控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-第三方包"><span class="post-toc-text">2. 第三方包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-与js互相调用的类"><span class="post-toc-text">3. 与js互相调用的类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-反射相关的类和方法"><span class="post-toc-text">4. 反射相关的类和方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、深入了解"><span class="post-toc-text">四、深入了解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、附：完整的混淆"><span class="post-toc-text">五、附：完整的混淆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、后言"><span class="post-toc-text">六、后言</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-15_Android/1505_安全/Andrdoid代码混淆" 
   class="post-article article-type-post" itemprop="blogPost">
 
     <div class="post-card">
@@ -155,6 +168,8 @@
 </time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/安全/">安全</a></li></ul>
+
 
 
         </div>
@@ -301,39 +316,43 @@
             
     
 <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="15_Android/1505_安全/Andrdoid代码混淆" data-title="Andrdoid代码混淆" data-url="http://sherlockshi.github.io/2016/07/01/15_Android/1505_安全/Andrdoid代码混淆/index.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"sherlockshi"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+	<div class="ds-thread" data-thread-key="15_Android/1505_安全/Andrdoid代码混淆" data-title="Andrdoid代码混淆" data-url="http://sherlockshi.github.io/2016/07/01/15_Android/1505_安全/Andrdoid代码混淆/"></div>
 </div>
-
+<script src="/js/embed.min.js?v=undefined"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'sherlockshi', theme: 'none'}
+</script>
 
 
 
 
 </article>
 
-<aside class="post-widget" id="post-widget">
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢大侠慷慨解囊～
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/51725532.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
 
-    
-    <nav class="post-toc-wrap" id="post-toc">
-        <h4>TOC</h4>
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、前言"><span class="post-toc-text">一、前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、上模板"><span class="post-toc-text">二、上模板</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、分析"><span class="post-toc-text">三、分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-实体类、自定义控件"><span class="post-toc-text">1. 实体类、自定义控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-第三方包"><span class="post-toc-text">2. 第三方包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-与js互相调用的类"><span class="post-toc-text">3. 与js互相调用的类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-反射相关的类和方法"><span class="post-toc-text">4. 反射相关的类和方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、深入了解"><span class="post-toc-text">四、深入了解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、附：完整的混淆"><span class="post-toc-text">五、附：完整的混淆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、后言"><span class="post-toc-text">六、后言</span></a></li></ol>
-    </nav>
-    
-</aside>
+        
+        <li>
+            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/44887159.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
 
 </div>
   </main>
@@ -345,7 +364,7 @@ var BLOG_SHARE = {
     title: "Andrdoid代码混淆",
     pic: "http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://sherlockshi.github.io/2016/07/01/15_Android/1505_安全/Andrdoid代码混淆/index.html"
+    url: "http://sherlockshi.github.io/2016/07/01/15_Android/1505_安全/Andrdoid代码混淆/"
 };
 </script>
 <div class="global-share" id="global-share">
@@ -385,42 +404,15 @@ var BLOG_SHARE = {
  </div>
 
 
-
-
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        感谢大侠慷慨解囊～
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/51725532.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/44887159.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
   <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-
-<script src="/js/main.js"></script>
+<script src="/js/main.min.js?v=undefined"></script>
 
 
 
 <div class="search-panel" id="search-panel">
     <ul class="search-result" id="search-result"></ul>
 </div>
-<script type="text/template" id="search-tpl">
+<template id="search-tpl">
 <li class="item">
     <a href="/{path}" class="waves-block waves-effect">
         <div class="title ellipsis" title="{title}">{title}</div>
@@ -432,9 +424,9 @@ var BLOG_SHARE = {
         </div>
     </a>
 </li>
-</script>
+</template>
 
-<script src="/js/search.js"></script>
+<script src="/js/search.min.js?v=undefined"></script>
 
 
 
