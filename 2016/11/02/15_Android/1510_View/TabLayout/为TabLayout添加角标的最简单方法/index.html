@@ -14,23 +14,48 @@
   
   
   <meta name="keywords" content="Android,TabLayout,角标">
-  <meta name="description" content="一、前言在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有PagerSlidingTabStrip、SmartTabLayout、FlycoTabLayout、ViewPagerIndicator等一系列第三方库来帮我们实现。">
+  <meta name="description" content="一、前言在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有以下一系列第三方库来帮我们实现:
+
+PagerSlidingTabStrip
+SmartTabLayout
+FlycoTabLayout
+ViewPagerIndicator
+…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为TabLayout添加角标的最简单方法">
 <meta property="og:url" content="http://sherlockshi.github.io/2016/11/02/15_Android/1510_View/TabLayout/为TabLayout添加角标的最简单方法/index.html">
 <meta property="og:site_name" content="SherlockShi's Home">
-<meta property="og:description" content="一、前言在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有PagerSlidingTabStrip、SmartTabLayout、FlycoTabLayout、ViewPagerIndicator等一系列第三方库来帮我们实现。">
+<meta property="og:description" content="一、前言在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有以下一系列第三方库来帮我们实现:
+
+PagerSlidingTabStrip
+SmartTabLayout
+FlycoTabLayout
+ViewPagerIndicator
+…">
 <meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-11-03-demo2.gif">
 <meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-11-03-Snip20161103_6.png">
-<meta property="og:updated_time" content="2016-11-03T13:14:02.000Z">
+<meta property="og:updated_time" content="2016-11-06T03:19:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为TabLayout添加角标的最简单方法">
-<meta name="twitter:description" content="一、前言在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有PagerSlidingTabStrip、SmartTabLayout、FlycoTabLayout、ViewPagerIndicator等一系列第三方库来帮我们实现。">
+<meta name="twitter:description" content="一、前言在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有以下一系列第三方库来帮我们实现:
+
+PagerSlidingTabStrip
+SmartTabLayout
+FlycoTabLayout
+ViewPagerIndicator
+…">
 <meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-11-03-demo2.gif">
   
     <link rel="alternative" href="/atom.xml" title="SherlockShi&#39;s Home" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;p&gt;在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有&lt;code&gt;PagerSlidingTabStrip&lt;/code&gt;、&lt;code&gt;SmartTabLayout&lt;/code&gt;、&lt;code&gt;FlycoTabLayout&lt;/code&gt;、&lt;code&gt;ViewPagerIndicator&lt;/code&gt;等一系列第三方库来帮我们实现。&lt;/p&gt;">
+  <meta name="summary" content="&lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;p&gt;在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有以下一系列第三方库来帮我们实现:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/astuetz/PagerSlidingTabStrip&quot;&gt;PagerSlidingTabStrip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ogaclejapan/SmartTabLayout&quot;&gt;SmartTabLayout&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/H07000223/FlycoTabLayout&quot;&gt;FlycoTabLayout&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/JakeWharton/ViewPagerIndicator&quot;&gt;ViewPagerIndicator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;">
   <link rel="shortcut icon" href="http://7xlpfl.com1.z0.glb.clouddn.com/16-10-1/61240869.jpg">
   <link rel="stylesheet" href="/css/style.css?v=undefined">
 </head>
@@ -166,7 +191,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有<code>PagerSlidingTabStrip</code>、<code>SmartTabLayout</code>、<code>FlycoTabLayout</code>、<code>ViewPagerIndicator</code>等一系列第三方库来帮我们实现。</p>
+            <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>在开发中，我们常常需要ViewPager结合Fragment一起使用，来实现多页签的切换效果。在以前，我们有以下一系列第三方库来帮我们实现:</p>
+<ul>
+<li><a href="https://github.com/astuetz/PagerSlidingTabStrip" target="_blank" rel="external">PagerSlidingTabStrip</a></li>
+<li><a href="https://github.com/ogaclejapan/SmartTabLayout" target="_blank" rel="external">SmartTabLayout</a></li>
+<li><a href="https://github.com/H07000223/FlycoTabLayout" target="_blank" rel="external">FlycoTabLayout</a></li>
+<li><a href="https://github.com/JakeWharton/ViewPagerIndicator" target="_blank" rel="external">ViewPagerIndicator</a></li>
+<li>…</li>
+</ul>
 <a id="more"></a>
 <p>而现在，我们可以使用<code>Design support library</code>库的<code>TabLayout</code>来实现了。</p>
 <h1 id="二、最终效果图"><a href="#二、最终效果图" class="headerlink" title="二、最终效果图"></a>二、最终效果图</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-11-03-demo2.gif" alt=""></p>
@@ -284,7 +316,14 @@
     </div>   
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/11/12/15_Android/1535_架构/Android MVP架构实践/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android MVP架构实践</h4>
+      </a>
+    </div>
   
 
   
