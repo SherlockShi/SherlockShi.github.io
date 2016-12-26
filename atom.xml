@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-12-26T01:55:34.000Z</updated>
+  <updated>2016-12-26T02:04:24.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://sherlockshi.github.io/2016/12/26/35_%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/3510_SVN/MacOS%E4%B8%8BSVN%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0.so%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/"/>
     <id>http://sherlockshi.github.io/2016/12/26/35_版本控制/3510_SVN/MacOS下SVN无法上传.so文件问题/</id>
     <published>2016-12-26T01:02:00.000Z</published>
-    <updated>2016-12-26T01:55:34.000Z</updated>
+    <updated>2016-12-26T02:04:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在使用Cornerstone上传文件时，发现<code>.so</code>文件无法上传，搜了一下，发现MacOS下的SVN忽略文件的全局配置是在这个文件：<code>~/.subversion/config</code>：</p>
 <a id="more"></a>
@@ -37,7 +37,7 @@
 <li>删除其中<code>.so</code>文件相关的内容</li>
 </ul>
 <p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-26-012604.jpg?imageView2/2/w/600/" alt=""></p>
-<p>以下，即可正常上传<code>.so</code>文件。</p>
+<p>以上，即可正常上传<code>.so</code>文件。</p>
 <blockquote>
 <p>如果你使用的是Android Studio或Xcode等集成开发环境，默认是使用系统全局配置，不需要另外修改。</p>
 </blockquote>

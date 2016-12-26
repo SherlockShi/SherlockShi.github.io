@@ -21,7 +21,7 @@
 <li>删除其中<code>.so</code>文件相关的内容</li>
 </ul>
 <p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-26-012604.jpg?imageView2/2/w/600/" alt=""></p>
-<p>以下，即可正常上传<code>.so</code>文件。</p>
+<p>以上，即可正常上传<code>.so</code>文件。</p>
 <blockquote>
 <p>如果你使用的是Android Studio或Xcode等集成开发环境，默认是使用系统全局配置，不需要另外修改。</p>
 </blockquote>
