@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title><![CDATA[MacOS下SVN无法上传.so文件问题]]></title>
+      <url>http://sherlockshi.github.io/2016/12/26/35_%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/3510_SVN/MacOS%E4%B8%8BSVN%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0.so%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在使用Cornerstone上传文件时，发现<code>.so</code>文件无法上传，搜了一下，发现MacOS下的SVN忽略文件的全局配置是在这个文件：<code>~/.subversion/config</code>：</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.subversion/config</span><br></pre></td></tr></table></figure>
+<h1 id="修改全局配置"><a href="#修改全局配置" class="headerlink" title="修改全局配置"></a>修改全局配置</h1><p>找到<code>[miscellany]</code>项中的<code>global-ignores</code>配置(可能为一行或两行)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo</span></span><br><span class="line"><span class="comment"># *.rej *~ #*# .#* .*.swp .DS_Store</span></span><br></pre></td></tr></table></figure>
+<p>去掉行首的注释，并将<code>.so</code>文件相关的内容删除（<code>*.so</code>和<code>*.so.[0-9]*</code>），最后的文件内容如下(如果需要配置其它类型文件，请自行修改)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">global-ignores = *.o *.lo *.la *.al .libs *.a *.pyc *.pyo *.rej *~ <span class="comment">#*# .#* .*.swp .DS_Store</span></span><br></pre></td></tr></table></figure>
+<h1 id="修改SVN工具配置"><a href="#修改SVN工具配置" class="headerlink" title="修改SVN工具配置"></a>修改SVN工具配置</h1><p>如果你像我一样，使用SVN工具来进行提交的话，需要再次查看相关工具的Subversion配置，此处以CornerStone为例：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-26-013917.jpg?imageView2/2/w/600/" alt=""></p>
+<p>如果其配置还是忽略<code>.so</code>文件，可参考如下配置：</p>
+<ul>
+<li>取消勾选<code>Use default global ignores</code></li>
+<li>删除其中<code>.so</code>文件相关的内容</li>
+</ul>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-26-012604.jpg?imageView2/2/w/600/" alt=""></p>
+<p>以下，即可正常上传<code>.so</code>文件。</p>
+<blockquote>
+<p>如果你使用的是Android Studio或Xcode等集成开发环境，默认是使用系统全局配置，不需要另外修改。</p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/zbjdsbj/article/details/50956574" target="_blank" rel="external">SVN：MAC SVN Android studio不能提交.so文件</a><br><a href="http://blog.hwangjr.com/2015/07/08/Android-Studio-With-SVN/" target="_blank" rel="external">Android Studio With SVN</a>  </p>
+<blockquote>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android复制TextView内容常用方法汇总]]></title>
       <url>http://sherlockshi.github.io/2016/12/19/15_Android/1590_Others/Android%E5%A4%8D%E5%88%B6TextView%E5%86%85%E5%AE%B9%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</url>
       <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>最近在项目中，需要提供TextView的复制功能，让用户可以自由复制App中某些界面的特定内容。</p>
