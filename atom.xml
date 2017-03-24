@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockshi.github.io/"/>
-  <updated>2016-12-26T02:04:24.000Z</updated>
+  <updated>2017-03-24T02:38:12.000Z</updated>
   <id>http://sherlockshi.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JRebel for Android 破解方法</title>
+    <link href="http://sherlockshi.github.io/2017/03/24/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/JRebelForAndroid%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95/"/>
+    <id>http://sherlockshi.github.io/2017/03/24/15_Android/1530_开发工具/AndroidStudio/JRebelForAndroid破解方法/</id>
+    <published>2017-03-24T02:12:00.000Z</published>
+    <updated>2017-03-24T02:38:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Android Studio 的龟速编译是大家有目共睹的，在长期的开发实践过程中，博主体验了 Instant Run、Freeline、JRebel for Android，以及一大堆加速编译的方法。</p>
+<p>最终发现，只有 JRebel for Android 才是目前 AS 上最好用、最方便的加速编译工具，没有之一。</p>
+<p>初次使用可参考博主之前的文章 <a href="http://sherlockshi.github.io/2016/12/03/15_Android/1530_%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/Android%20Studio%E5%8A%A0%E9%80%9F%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">Android Studio加速编译方法汇总</a>。</p>
+<p>而在试用 21 天之后，JRebel for Android 就过期了，只能付费使用。而对于像博主一样囊中羞涩的人来说，以下的破解方法会让你省下几十美刀的花费。</p>
+<h1 id="1-下载破解包"><a href="#1-下载破解包" class="headerlink" title="1. 下载破解包"></a>1. 下载破解包</h1><p>在下述网站评论中，找到博主 ilanyu 发的最新破解包：</p>
+<p><a href="http://blog.lanyus.com/archives/179.html#comments" target="_blank" rel="external">http://blog.lanyus.com/archives/179.html#comments</a></p>
+<p>如目前最新版为 2.1.14，下载地址为：</p>
+<p><a href="https://mega.nz/#!i9Q3iLiZ!6zr47HM8PDv86zeJO7jWLaFpB_6D32AI3oRzfhGJNfs" target="_blank" rel="external">https://mega.nz/#!i9Q3iLiZ!6zr47HM8PDv86zeJO7jWLaFpB_6D32AI3oRzfhGJNfs</a></p>
+<h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h1><p>下载下来的 zip 不要解压，打开 Android Studio 的插件设置，选择从磁盘安装，如下图：（安装后，记得重启 Android Studio）</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2017-03-24-015928.jpg" alt=""></p>
+<h1 id="3-导入-licence"><a href="#3-导入-licence" class="headerlink" title="3. 导入 licence"></a>3. 导入 licence</h1><p>运行项目时，如提示 JRebel 过期，则将第 1 步压缩包中的 <code>jrebel-android.lic</code> 文件解压出来，并按 Android Studio 提示导入此 lic 文件。</p>
+<p>尽情享受 JRebel 带来的极速体验吧～</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.jianshu.com/p/5dbe0a3495e6" target="_blank" rel="external">JRebel for Android</a></p>
+<blockquote>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Android Studio 的龟速编译是大家有目共睹的，在长期的开发实践过程中，博主体验了 Instant Run、Freeline、JRebel for Android，以及一大堆加速编译的方法。&lt;/p&gt;
+&lt;p&gt;最终发现，只有 JRebel for Android 才是
+    
+    </summary>
+    
+      <category term="Android Studio" scheme="http://sherlockshi.github.io/categories/Android-Studio/"/>
+    
+    
+      <category term="Android Studio" scheme="http://sherlockshi.github.io/tags/Android-Studio/"/>
+    
+      <category term="加速" scheme="http://sherlockshi.github.io/tags/%E5%8A%A0%E9%80%9F/"/>
+    
+      <category term="编译" scheme="http://sherlockshi.github.io/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>MacOS下SVN无法上传.so文件问题</title>
