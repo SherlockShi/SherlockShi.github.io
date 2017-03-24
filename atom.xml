@@ -59,6 +59,116 @@
   </entry>
   
   <entry>
+    <title>Android单元测试初探【译】</title>
+    <link href="http://sherlockshi.github.io/2017/01/21/15_Android/1565_%E6%B5%8B%E8%AF%95/SimpleUnitTestsForAndroid/"/>
+    <id>http://sherlockshi.github.io/2017/01/21/15_Android/1565_测试/SimpleUnitTestsForAndroid/</id>
+    <published>2017-01-21T02:11:00.000Z</published>
+    <updated>2017-03-24T02:55:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本文翻译自 <a href="https://stfalcon.com/en/blog/post/simple-unit-tests-for-android" target="_blank" rel="external">Simple unit tests for Android</a>，如能力允许，建议点击原文阅读。</p>
+</blockquote>
+<a id="more"></a>
+<p>如何测试 Android App 逻辑，是时候向大家分享这个主题了。长久以来，我都没意识到它是 Android App 开发中的一个重要组成部分。但是，学习永远不嫌晚，无论是你，亦或是我 :)</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先，让我们来了解一下单元测试是什么？以及为什么我们需要编写单元测试。</p>
+<p>以下是维基百科关于单元测试的定义：</p>
+<blockquote>
+<p><strong>Unit testing</strong> is a software testing method used for testing individual units of source code in order to determine whether they are fit for use.</p>
+<p>The idea is to write code for each non-trivial function or method. It allows you to relatively quickly check if the latest change in code causes regression, i. e. new errors appear in the part of the program that was already tested, and makes it easy to identify and eliminate such errors.</p>
+</blockquote>
+<p>译文：</p>
+<blockquote>
+<p>单元测试是一种软件测试方法，用于测试独立的源代码单元，来确定这些代码是否满足需求。<br>这种思想是为每个重要的功能或方法写一段测试代码。它使得你能相对快速地检查出最新的代码改动是否导致了回归（regression）。例如，新的错误出现在已经测试过的程序中，并且会使得发现和解决这些错误变得更加容易。</p>
+</blockquote>
+<p>简单地说，单元测试就是检验你的代码效率的一系列方法。但是它是怎么工作的呢？就让我们从头开始说起吧。如果没有错误发生的话，测试就认为是完成了的。而且对于各种各样的检验来说，我们使用类似于<code>assertXXX</code>“家族”这样的补充方法来进行测试。（详情请看下面的示例）</p>
+<p>Android 有 2 种单元测试方法：</p>
+<ul>
+<li>Local unit tests：这是只用 JVM 来执行的测试，主要是用来测试不与操作系统交互的业务逻辑。</li>
+<li>Instrumented unit tests：这是用于测试与 Android API 互联的逻辑。它们是在物理设备或者模拟器上执行的，所以会比<code>Local unit texts</code>花费更多时间。</li>
+</ul>
+<p>那么我们就有2种测试方法了，至于哪一种方法就基于我们要测试的逻辑目标。当然，如果可能的话，最好是写本地测试。</p>
+<p>此外，在创建测试时，请注意包目录结构，以下这样的结构是很实用的：</p>
+<ul>
+<li><code>app/src/main/java</code>：app 源代码</li>
+<li><code>app/src/test/java</code>：local tests 测试代码</li>
+<li><code>app/src/androidTest/java</code>：instrumented tests 测试代码</li>
+</ul>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>Android Studio 在创建项目的时候，会自动生成上述的目录结构，而如果因为某些原因，你没有使用 Android Studio 来构建项目，那么你就要记住上述的目录结构，并自己创建了。</p>
+<p>此外，在 AS 中配置 app module 的<code>build.gradle</code>文件：（ Android Studio 创建项目时已自动添加）</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">   ...</span><br><span class="line">   defaultConfig &#123;</span><br><span class="line">       ...</span><br><span class="line">       testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">   ...</span><br><span class="line">   testCompile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外还有个流行框架，它可以让我们写测试流程更加容易，那就是<code>Mockito</code>框架。它的特性包括创建模拟对象（译者注：后文直接称 mock 对象）、跟踪对象，并且也有进行结果验证的辅助工具。要使用它的话，只需要加上一行依赖：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testCompile <span class="string">'org.mockito:mockito-core:1.10.19'</span></span><br></pre></td></tr></table></figure>
+<h1 id="Local-tests-in-Android"><a href="#Local-tests-in-Android" class="headerlink" title="Local tests in Android"></a>Local tests in Android</h1><p>现在让我们来看 2 个非常简单的单元测试例子，它们用来验证 2 个对象是否一致（在我们的例子中是两个数值对象）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleUnitTest</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addition_correct</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       assertEquals(<span class="number">4</span>, <span class="number">2</span> + <span class="number">2</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addition_isNotCorrect</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       assertEquals(<span class="string">"Numbers isn't equals!"</span>, <span class="number">5</span>, <span class="number">2</span> + <span class="number">2</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 local test 包（即<code>app/src/test/java/packageName</code>包）下面新建一个类，然后放入我们的测试方法。为了让JUnit知道这些方法是测试方法，我们需要给他们添加<code>@Test</code>注解标记。如果第 1 个参数（期望值）和第 2 个参数（结果值）不一致的时候，<code>assertEquals()</code>方法会显示<code>AssertionError</code>错误。</p>
+<p>我们来运行测试方法（右击类名，在弹出的菜单中选择<code>Run ‘ExampleUnitTest’</code>），并查看输出结果：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-22-072541.jpg?imageView2/2/w/800/" alt=""></p>
+<p>从上图可以看到，第一个方法正确执行了，但是第二个方法由于<code>5 != (2 + 2)</code>所以会有报错信息。</p>
+<p>你也可以使用<code>expected</code>参数来配置一个预期的异常（ expected Exception ）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span>(expected = NullPointerException.class)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nullStringTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String str = <span class="keyword">null</span>;</span><br><span class="line">    assertTrue(str.isEmpty());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，因为我们预期的就是这个异常（ NullPointerException ），所以测试将被执行。</p>
+<p>你也可以为耗时操作指定<code>timeout</code>参数，并以毫秒为单位定义该值。如果方法没有在指定时间内执行完，将会被判定为失败。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span>(timeout = <span class="number">1000</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	… </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外还有一个非常有趣的<code>Matchers</code>机制。比如说，<code>assertThat(T actual, Matcher&lt;? super T&gt; matcher)</code>接收它们做为输入。它们由<code>org.hamcrest.CoreMatchers</code>类中的方法返回，属于重叠逻辑操作。下面我们来看几个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">assertThat(x, is(<span class="number">3</span>));</span><br><span class="line">assertThat(x, is(not(<span class="number">4</span>)));</span><br><span class="line">assertThat(list, hasItem(<span class="string">"3"</span>));</span><br></pre></td></tr></table></figure>
+<p>正如它们的名字所暗示的，<code>is()</code>可以描述为“等于”，<code>is(not())</code>就是“不等于”，而<code>hasItem()</code>就是检验某些元素是不是在 list 中。并且它们都可以用一个连续的句子读出来。在这里你可以找到一个完整的 <a href="http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/CoreMatchers.html" target="_blank" rel="external">matchers列表（list of matchers）</a>。</p>
+<p>目前为止，我们已经看到了一些简单的例子，可以用来编写简单的测试。但接下来，我还会带大家来看看 Mockito 库，它可以让我们的测试变得更优秀。</p>
+<p>正如前面介绍过的，Mockito 用于创建所谓的 mock 对象（mock objects）。这些对象的目的是代替那些没办法测试、或者不适合测试的复杂对象。有两个方法可以声明 mock 对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List mockedList = mock(List.class);</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mock</span></span><br><span class="line">List mockedList;</span><br></pre></td></tr></table></figure>
+<p>记住，要使用<code>@Mock</code>注解的话，你必须使用<code>@RunWith(MockitoJUnitRunner.class)</code>注解来标记你所定义的类，或者在<code>@Before</code>方法中调用<code>MockitoAnnotations.initMocks(this);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   MockitoAnnotations.initMocks(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建完 mock 对象后，你就可以见证奇迹了！比如说，要从字符串资源文件中重写<code>app name</code>的话，你就可以这样做：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">when(mockContext.getString(R.string.app_name))</span><br><span class="line">       .thenReturn(<span class="string">"Fake name"</span>);</span><br></pre></td></tr></table></figure>
+<p>现在，当我们调用<code>getString(R.string.app_name)</code>方法的时候，将会返回“Fake name”，即使它并没有被隐式地调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SomeClass obj = <span class="keyword">new</span> SomeClass(mockContext);</span><br><span class="line">String result = obj.getAppName();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>译者注：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SomeClass</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mContext = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAppName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mContext.getString(R.string.app_name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是如果我们要重写所有的字符串资源呢？不可能让我们给每一个字符串都做一次这样的操作吧！当然不会，肯定有别的办法，那就是<code>anyXXX()</code>, <code>anyInt()</code>, <code>anyString()</code>等等这些方法。现在，如果你把<code>R.string.app_name</code>替换为<code>anyInt()</code>（不要忘了，在Android里面所有的资源都是Integer类型的），那么所有的字符串都会被替换为我们定义的字符串。<br>这时候，我们就可以在测试的最后，使用<code>assertThat()</code>来检验结果是否正确：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertThat(result, is(<span class="string">"Fake name"</span>));</span><br></pre></td></tr></table></figure>
+<p>如果要移除 Exception 的话，我们可以使用<code>when(...).thenThrow(...);</code>。<br>还有一个<code>verify()</code>方法，如果在它之前没调用指定的方法，测试就会失败。我们来看下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mockedList.add(<span class="string">"Useless string"</span>);</span><br><span class="line">mockedList.clear();</span><br><span class="line"> </span><br><span class="line">verify(mockedList).add(<span class="string">"one"</span>);</span><br><span class="line">verify(mockedList).clear();</span><br></pre></td></tr></table></figure>
+<p>它的工作原理是这样的：我们传递 mock 的 list 给<code>verify(mockedList)</code>方法，然后指定我们关注的方法。在这个例子中，我们的指定方法是<code>添加string</code>和<code>清除list</code>。我相信，这是一个很重要的工具！ :)</p>
+<p>但是，当你使用 spy 对象的时候，这个方法（verify方法）的所有潜能将会展现出来。它们的主要区别在于，跟 mocks 不一样的是，它们并不直接被创建出来。你可能会问：“那到底关键点是什么呢？”关键在于，通过创建一个“spy”对象，你可以像观察一个假对象一样观察它：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List spyList = spy(<span class="keyword">new</span> LinkedList());</span><br><span class="line"></span><br><span class="line">spyList.add(<span class="string">"one"</span>);</span><br><span class="line">spyList.clear();</span><br><span class="line"></span><br><span class="line">verify(spyList).add(<span class="string">"one"</span>);</span><br><span class="line">verify(spyList).clear();</span><br></pre></td></tr></table></figure>
+<h1 id="Instrumented-tests-in-Android"><a href="#Instrumented-tests-in-Android" class="headerlink" title="Instrumented tests in Android"></a>Instrumented tests in Android</h1><p>使用这种类型的测试，我们可以获取到真正的 context，以及所有的 Android API 功能。除此之外，还有一个“上帝模式”，我们可以用来管理 activity 的生命周期。为了让测试被识别为 instrumented 测试，需要使用相应的注解来标记类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(AndroidJUnit4.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleInstrumentedTest</span> </span>&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而测试方法本身还是像 local tests 一样来标记，使用<code>@Test</code>注解。我们来看看，context 的包是否对应于我们的 app:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useAppContext</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">   Context appContext = InstrumentationRegistry.getTargetContext();</span><br><span class="line">   assertEquals(<span class="string">"com.stfalcon.demoapp"</span>, appContext.getPackageName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用下面的方法，你可以监听 Activity 的状态：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ActivityLifecycleMonitorRegistry.getInstance().addLifecycleCallback(<span class="keyword">new</span> ActivityLifecycleCallback() &#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityLifecycleChanged</span><span class="params">(Activity activity, Stage stage)</span> </span>&#123;</span><br><span class="line">       <span class="comment">//do some stuff</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>甚至可以管理它们的状态：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Instrumentation instrumentation = InstrumentationRegistry.getInstrumentation();</span><br><span class="line">instrumentation.callActivityOnCreate(activity, bundle);</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这些可能是我在熟悉这个主题时发现的最重要的东西。不要朝我扔石头 :) 但我觉得对于初学者来说，这些已经足够入门了。如果你想深入了解 JUnit 的功能，建议你阅读 <a href="http://junit.org/junit4/" target="_blank" rel="external">JUnit官方文档</a>，另外还有 <a href="https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests.html" target="_blank" rel="external">instrumented test</a> 的功能。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://developer.android.com/training/testing/start/index.html" target="_blank" rel="external">Getting Started with Testing</a><br><a href="https://github.com/junit-team/junit4/wiki" target="_blank" rel="external">JUnit4官方Wiki</a><br><a href="http://wiki.jikexueyuan.com/project/junit/" target="_blank" rel="external">JUnit 入门教程（极客学院Wiki）</a><br><a href="http://www.jianshu.com/p/b2717dc245da" target="_blank" rel="external">邹小创的Android 单元测试系列</a>  </p>
+<blockquote>
+<p>PS：欢迎关注<a href="http://sherlockshi.github.io/">SherlockShi博客</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文翻译自 &lt;a href=&quot;https://stfalcon.com/en/blog/post/simple-unit-tests-for-android&quot;&gt;Simple unit tests for Android&lt;/a&gt;，如能力允许，建议点击原文阅读。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="单元测试" scheme="http://sherlockshi.github.io/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="Android" scheme="http://sherlockshi.github.io/tags/Android/"/>
+    
+      <category term="单元测试" scheme="http://sherlockshi.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="unit test" scheme="http://sherlockshi.github.io/tags/unit-test/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MacOS下SVN无法上传.so文件问题</title>
     <link href="http://sherlockshi.github.io/2016/12/26/35_%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/3510_SVN/MacOS%E4%B8%8BSVN%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0.so%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/"/>
     <id>http://sherlockshi.github.io/2016/12/26/35_版本控制/3510_SVN/MacOS下SVN无法上传.so文件问题/</id>
