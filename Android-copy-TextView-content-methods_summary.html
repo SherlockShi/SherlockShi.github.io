@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-SherlockShi.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-SherlockShi.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-SherlockShi.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="TextView," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SherlockShi" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、前言最近在项目中，需要提供 TextView 的复制功能，让用户可以自由复制 App 中某些界面的特定内容。
+需求来源于用户有时需要复制编号，用于其它地方的搜索，比如下图中 TD 开头的这一长串编号。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 复制 TextView 内容常用方法汇总">
+<meta property="og:url" content="http://sherlockshi.github.io/Android-copy-TextView-content-methods_summary.html">
+<meta property="og:site_name" content="SherlockShi">
+<meta property="og:description" content="一、前言最近在项目中，需要提供 TextView 的复制功能，让用户可以自由复制 App 中某些界面的特定内容。
+需求来源于用户有时需要复制编号，用于其它地方的搜索，比如下图中 TD 开头的这一长串编号。">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-131832.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-UOAIROGQ7SO7PBCU.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-133532.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-141141.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-18-031427.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-18-7N2SSE154S007872.jpg">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo11.gif">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo12.gif">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo13.gif">
+<meta property="og:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo14.gif">
+<meta property="og:updated_time" content="2018-04-22T10:19:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 复制 TextView 内容常用方法汇总">
+<meta name="twitter:description" content="一、前言最近在项目中，需要提供 TextView 的复制功能，让用户可以自由复制 App 中某些界面的特定内容。
+需求来源于用户有时需要复制编号，用于其它地方的搜索，比如下图中 TD 开头的这一长串编号。">
+<meta name="twitter:image" content="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-131832.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://sherlockshi.github.io/Android-copy-TextView-content-methods_summary.html"/>
+
+
+
+
+
+  <title>Android 复制 TextView 内容常用方法汇总 | SherlockShi</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-85064715-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SherlockShi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherlockshi.github.io/Android-copy-TextView-content-methods_summary.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherlockShi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SherlockShi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 复制 TextView 内容常用方法汇总</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-19T21:03:00+08:00">
+                2016-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/Android-copy-TextView-content-methods_summary.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Android-copy-TextView-content-methods_summary.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/Android-copy-TextView-content-methods_summary.html" class="leancloud_visitors" data-flag-title="Android 复制 TextView 内容常用方法汇总">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>最近在项目中，需要提供 TextView 的复制功能，让用户可以自由复制 App 中某些界面的特定内容。</p>
+<p>需求来源于用户有时需要复制编号，用于其它地方的搜索，比如下图中 <code>TD</code> 开头的这一长串编号。</p>
+<a id="more"></a>
+<p>如果在搜索时，需要手输这一长串字符，先不说记住这一串数据需要怎样的记忆力，就说输入这一长串字符的时间，对于用户来说就是不可接受的。</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-131832.jpg" alt=""></p>
+<h1 id="二、需求分析"><a href="#二、需求分析" class="headerlink" title="二、需求分析"></a>二、需求分析</h1><p>这时候，我们很自然地就会想到，我们经常使用的复制功能，是类似这样的：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-UOAIROGQ7SO7PBCU.jpg" alt=""></p>
+<p>长按某一段文字后，在文字上方或标题栏处会出现 <code>全选</code>、<code>复制</code> 等功能按钮，点击后就能复制，然后在你需要输入的地方长按，就会出现 <code>粘贴</code> 按钮，点击后就能成功粘贴。</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-133532.jpg" alt=""></p>
+<h1 id="三、功能实现"><a href="#三、功能实现" class="headerlink" title="三、功能实现"></a>三、功能实现</h1><p>查看 <a href="https://developer.android.com/reference/android/widget/TextView.html" target="_blank" rel="external">TextView 的 API</a>，里面就有这么一段介绍：</p>
+<blockquote>
+<p>To allow users to copy some or all of the TextView’s value and paste it somewhere else, set the XML attribute <code>android:textIsSelectable</code> to “<code>true</code>“ or call <code>setTextIsSelectable(true)</code>. The textIsSelectable flag allows users to make selection gestures in the TextView, which in turn triggers the system’s built-in copy/paste controls.</p>
+</blockquote>
+<p>意思就是使用 <code>textIsSelectable</code> 属性就可以触发系统内置的复制/粘贴功能。</p>
+<p>那么最简单的方法就是直接在XML文件中，给 TextView 设置 <code>textIsSelectable</code> 属性为 <code>true</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:text</span>=<span class="string">"TD201612120166"</span></span><br><span class="line">    <span class="attr">android:textIsSelectable</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然，也可以使用 java 代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tv.setTextIsSelectable(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-12-141141.jpg" alt=""></p>
+<p>效果也确实立杆见影，一步完成。</p>
+<p>好嗨森，可以收工啦，赶紧把项目中另一个地方也改掉，就可以提交代码啦～</p>
+<h1 id="四、掉坑了"><a href="#四、掉坑了" class="headerlink" title="四、掉坑了"></a>四、掉坑了</h1><p>由于本项目为老项目，列表使用的是 ListView（SDK 使用的是 19），而另一个需要修改的地方，就是 ListView 列表里面的子项 TextView。</p>
+<p>当为其设置 <code>textIsSelectable</code> 属性后，长按这一长串数字编号，这时候数字是选中了，但是并没有弹出 <code>复制</code> 的选项啊，而且更重要的是，<strong>ListView 的 Item 点击事件没有了啊啊啊～～～</strong></p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-18-031427.jpg" alt=""></p>
+<blockquote>
+<p>注：在某些 SDK 版本上，长按 TextView 后，会在 ToolBar(ActionBar) 位置弹出<code>全选</code>、<code>复制</code> 等功能按钮（如下图），而当设置 <code>textIsSelectable</code> 属性后，该功能条会下滑出现，而在一瞬间又上滑消失，实际看到的效果就是 ToolBar 处会有内容闪现并瞬间消失，但是看不清具体内容。</p>
+</blockquote>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-18-7N2SSE154S007872.jpg" alt=""></p>
+<h1 id="五、解决"><a href="#五、解决" class="headerlink" title="五、解决"></a>五、解决</h1><p>网上搜索一番，果然也有不少解决方案，但有一些亲测无效，就不列出了，以下是亲测可用的解决方案。</p>
+<p>以下方法，基本都是使用系统的剪贴板管理器 <code>ClipboardManager</code> 进行内容的复制。</p>
+<h2 id="1-LongClick-事件-PopupWindow"><a href="#1-LongClick-事件-PopupWindow" class="headerlink" title="1. LongClick 事件 + PopupWindow"></a>1. LongClick 事件 + PopupWindow</h2><p>原理是在 TextView 的长按事件中，显示一个带操作按钮的 PopupWindow，点击其中的 <code>复制</code> 按钮后，复制 TextView 内容。</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo11.gif" alt=""></p>
+<p><strong>先初始化 PopupWindow，弹出窗口上会有复制按钮（也可以自定义其它需要的按钮）：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPopupWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    View popupView = getLayoutInflater().inflate(R.layout.layout_popup_window, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    mPopupWindow = <span class="keyword">new</span> PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, <span class="keyword">true</span>);</span><br><span class="line">    mPopupWindow.setTouchable(<span class="keyword">true</span>);</span><br><span class="line">    mPopupWindow.setOutsideTouchable(<span class="keyword">true</span>);</span><br><span class="line">    mPopupWindow.setBackgroundDrawable(<span class="keyword">new</span> BitmapDrawable(getResources(), (Bitmap) <span class="keyword">null</span>));</span><br><span class="line"></span><br><span class="line">    Button btnCopy = (Button) popupView.findViewById(R.id.btn_copy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>然后为 ListView 中的 TextView 设置长按事件，在 TextView 下方显示 PopupWindow：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mTextView.setOnLongClickListener(<span class="keyword">new</span> View.OnLongClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onLongClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 方法1：LongClick 事件 + PopupWindow</span></span><br><span class="line">        mPopupWindow.showAsDropDown(view);</span><br><span class="line">        mCopiedText = ((TextView) view).getText().toString();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>最后为弹出窗口中的复制按钮设置响应事件，利用 ClipboardManager 复制 TextView 内容：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">btnCopy.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        copyText(mCopiedText);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (mPopupWindow != <span class="keyword">null</span> &amp;&amp; mPopupWindow.isShowing()) &#123;</span><br><span class="line">            mPopupWindow.dismiss();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">copyText</span><span class="params">(String copiedText)</span> </span>&#123;</span><br><span class="line">    ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);</span><br><span class="line">    clipboardManager.setPrimaryClip(ClipData.newPlainText(<span class="keyword">null</span>, copiedText));</span><br><span class="line"></span><br><span class="line">    showToast(<span class="string">"Copy Text: "</span> + copiedText);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上就可以在你需要输入的地方长按，就会出现 <code>粘贴</code> 按钮，点击后就能成功粘贴刚才复制的内容了。</p>
+<blockquote>
+<p>但是这边会有个问题：无法自由选择文字内容，没有选中文字的效果</p>
+</blockquote>
+<h2 id="2-LongClick-事件-ContextMenu"><a href="#2-LongClick-事件-ContextMenu" class="headerlink" title="2. LongClick 事件 + ContextMenu"></a>2. LongClick 事件 + ContextMenu</h2><p>我们也可以使用 <a href="https://developer.android.com/guide/topics/ui/menus.html?hl=zh-cn#CAB" target="_blank" rel="external">ContextMenu</a> 来手动创建上下文菜单，实现跟原生复制功能一样的效果，在标题栏上方显示可操作的菜单，最终效果如下：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo12.gif" alt=""></p>
+<p><strong>首先，实现 <code>ActionMode.Callback</code> 接口。这里面会包含 ActionMode 的生命周期方法，在 <code>onCreateActionMode()</code> 中 <code>创建菜单</code> 项，如复制、全选等功能菜单，在 <code>onActionItemClicked()</code> 中处理菜单项的 <code>点击事件</code>。</strong>（重点代码用下三角 ▼▼▼ 标识了）</p>
+<blockquote>
+<p>这两个方法就类似标题栏右边的选项菜单 <code>OptionsMenu</code>，对应于 <code>onCreateOptionsMenu()</code> 和 <code>onOptionsItemSelected()</code> 这两个方法。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ActionMode.Callback mActionModeCallback = <span class="keyword">new</span> ActionMode.Callback() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called when the action mode is created; startActionMode() was called</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCreateActionMode</span><span class="params">(ActionMode mode, Menu menu)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Inflate a menu resource providing context menu items</span></span><br><span class="line">        MenuInflater inflater = mode.getMenuInflater();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ▼▼▼ 重点：创建上下文菜单</span></span><br><span class="line">        inflater.inflate(R.menu.context_menu, menu);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called each time the action mode is shown. Always called after onCreateActionMode, but</span></span><br><span class="line">    <span class="comment">// may be called multiple times if the mode is invalidated.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onPrepareActionMode</span><span class="params">(ActionMode mode, Menu menu)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// Return false if nothing is done</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called when the user exits the action mode</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroyActionMode</span><span class="params">(ActionMode mode)</span> </span>&#123;</span><br><span class="line">        mActionMode = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>然后，为 TextView 设置长按事件，显示上下文菜单：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mTextView.setOnLongClickListener(<span class="keyword">new</span> View.OnLongClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onLongClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 方案2：LongClick 事件 + ContextMenu</span></span><br><span class="line">        <span class="keyword">if</span> (mActionMode != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Start the CAB using the ActionMode.Callback defined above</span></span><br><span class="line">        mActionMode = startActionMode(mActionModeCallback);</span><br><span class="line">        view.setSelected(<span class="keyword">true</span>);</span><br><span class="line">        mCopiedText = ((TextView) view).getText().toString();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>最后，就是在第一步的 onActionItemClicked() 事件中，为 <code>复制</code> 按钮设置响应事件，利用 ClipboardManager 复制 TextView 内容：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ActionMode.Callback mActionModeCallback = <span class="keyword">new</span> ActionMode.Callback() &#123;</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onActionItemClicked</span><span class="params">(ActionMode mode, MenuItem item)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">	        <span class="comment">// ▼▼▼ 重点：设置菜单项的点击事件</span></span><br><span class="line">	        <span class="keyword">case</span> R.id.action_copy:</span><br><span class="line">	            copyText(mCopiedText);</span><br><span class="line"></span><br><span class="line">	            mode.finish(); <span class="comment">// Action picked, so close the CAB</span></span><br><span class="line">	            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	        <span class="keyword">default</span>:</span><br><span class="line">	            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这边同样会有上面的问题：无法自由选择文字内容，没有选中文字的效果</p>
+</blockquote>
+<h2 id="3-Click-事件-ClipboardManager"><a href="#3-Click-事件-ClipboardManager" class="headerlink" title="3. Click 事件 + ClipboardManager"></a>3. Click 事件 + ClipboardManager</h2><p>此方案跟第 1 种原理是一样的，只不过省略了 PopupWindow 部分，点击后直接自动复制 TextView 内容，代码比较简单：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mTextView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        copyText(((TextView) view).getText().toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo13.gif" alt=""></p>
+<blockquote>
+<p>问题：无法自由选择文字内容</p>
+</blockquote>
+<h2 id="4-RecyclerView-textIsSelectable"><a href="#4-RecyclerView-textIsSelectable" class="headerlink" title="4. RecyclerView + textIsSelectable"></a>4. RecyclerView + textIsSelectable</h2><p>其实最推荐的做法，还是将项目里的 ListView 替换成 <code>RecyclerView</code>，再给 TextView 设置 <code>textIsSelectable=true</code>属性即可：</p>
+<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-19-demo14.gif" alt=""></p>
+<blockquote>
+<p>这让我们再一次见证了 RecyclerView 的伟大啊～<br>本方案对项目后期维护及扩展更有好处，毕竟现在基本可以说，RecyclerView 已经完全取代了 ListView，比 ListView 性能更好，扩展性更强。</p>
+</blockquote>
+<h2 id="5-额外赠送：SelectableTextHelper"><a href="#5-额外赠送：SelectableTextHelper" class="headerlink" title="5. 额外赠送：SelectableTextHelper"></a>5. 额外赠送：SelectableTextHelper</h2><p>网上还有位大神自定义了可选择 TextView 内容的帮助类，使用上非常方便，只要对原来的 TextView 加上如下设置即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mSelectableTextHelper = <span class="keyword">new</span> SelectableTextHelper.Builder(mTextView)</span><br><span class="line">    .setSelectedColor(getResources().getColor(R.color.selected_blue))</span><br><span class="line">    .setCursorHandleSizeInDp(<span class="number">20</span>)</span><br><span class="line">    .setCursorHandleColor(getResources().getColor(R.color.cursor_handle_color))</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+<p>有兴趣的同学可以参考此文章了解更多：<a href="http://jaeger.itscoder.com/android/2016/11/21/selectable-text-helper.html" target="_blank" rel="external">自定义选择复制功能的实现</a></p>
+<blockquote>
+<p>亲测在文字选择时，左右两边选择文字范围的图标不好点中，应该是坐标处理有点问题；而且无法在 ListView 中使用；但不得不说，整体效果非常好，对代码的侵入非常少，在各个平台上的体验也是统一的。</p>
+</blockquote>
+<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>这几种方案来看的话：</p>
+<ul>
+<li>如果项目中需要复制的 TextView 没有嵌套在 ListView 中，那就可以直接大胆地使用 <code>textIsSelectable</code> 属性，一步搞定；</li>
+<li>如果使用到 ListView，能改成 RecyclerView 来实现的话，建议直接改成 RecyclerView，再加上 <code>textIsSelectable</code> 属性，也很好解决；（方案4）</li>
+<li>如果非要用 ListView 的话，看看是否能在满足项目需求的情况下，直接使用 TextView 的点击事件，配合 <code>ClipboardManager</code> 直接自动复制指定内容，但记得在复制完成后给用户显示必要的提示。（方案3）========&gt; 本项目就是使用这种方案简单粗暴地解决 ListView 中无法长按选择复制 TextView 内容的问题的。</li>
+<li>如果这几种方案还不能解决你的问题，可以在其余几种方案中看看是否有符合要求的。</li>
+</ul>
+<h1 id="七、疑问"><a href="#七、疑问" class="headerlink" title="七、疑问"></a>七、疑问</h1><p>虽然项目问题解决了，但是还有以下几个问题，在查看了相关源码、进行一系列测试后，还是未能解决，暂且记录下来，说不定以后什么时候能力达到了，就能解决了呢？或者哪位小伙伴知道原因，还请不吝赐教～</p>
+<ul>
+<li>为什么设置 <code>textIsSelectable</code> 为 <code>true</code> 后，ListView 的 ItemClick 事件不响应了，明明该有的 DOWN、MOVE、UP 事件还是有？ItemClick 的触发条件是什么？</li>
+<li>而这时候，为什么 TextView 不会弹出选中框，以及复制、全选等操作按钮？而在添加了 <code>android:selectAllOnFocus=&quot;true&quot;</code> 后，长按后显示红色选择框，但不显示复制按钮，再次点击红色选择框，就会出现复制按钮。</li>
+<li>TextView 长按后，在 LongClick 事件之后，就不再有 Touch 事件产生（如附录最后一项测试结果，以下附录只是记录而已）</li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="1-当-textIsSelectable-为-false-时"><a href="#1-当-textIsSelectable-为-false-时" class="headerlink" title="1. 当 textIsSelectable 为 false 时"></a>1. 当 <code>textIsSelectable</code> 为 <code>false</code> 时</h2><h3 id="1-1-未设置-TextView-的点击、长按事件："><a href="#1-1-未设置-TextView-的点击、长按事件：" class="headerlink" title="1.1 未设置 TextView 的点击、长按事件："></a>1.1 未设置 TextView 的点击、长按事件：</h3><p>点击 ListView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">ListView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<p>点击 TextView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">ListView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<p>长按 TextView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">ListView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-有设置-TextView-的点击、长按事件："><a href="#1-2-有设置-TextView-的点击、长按事件：" class="headerlink" title="1.2 有设置 TextView 的点击、长按事件："></a>1.2 有设置 TextView 的点击、长按事件：</h3><p>点击 ListView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">ListView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<p>点击 TextView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: ↑↑↑ACTION_UP↑↑↑</span><br><span class="line">TextView: ↓onClick↓</span><br></pre></td></tr></table></figure>
+<p>长按 TextView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: ↓↓onLongClick↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: ↑↑↑ACTION_UP↑↑↑</span><br><span class="line">TextView: ↓onClick↓</span><br></pre></td></tr></table></figure>
+<h2 id="2-当-textIsSelectable-为-true-时"><a href="#2-当-textIsSelectable-为-true-时" class="headerlink" title="2. 当 textIsSelectable 为 true 时"></a>2. 当 <code>textIsSelectable</code> 为 <code>true</code> 时</h2><h3 id="2-1-未设置-TextView-的点击、长按事件："><a href="#2-1-未设置-TextView-的点击、长按事件：" class="headerlink" title="2.1 未设置 TextView 的点击、长按事件："></a>2.1 未设置 TextView 的点击、长按事件：</h3><p>点击 ListView：(ItemClick 事件未响应)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">ListView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<p>点击 TextView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<p>长按 TextView：（显示出红色选中框后，不再有事件产生）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-有设置-TextView-的点击、长按事件："><a href="#2-2-有设置-TextView-的点击、长按事件：" class="headerlink" title="2.2 有设置 TextView 的点击、长按事件："></a>2.2 有设置 TextView 的点击、长按事件：</h3><p>点击 ListView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">ListView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">ListView: ↑↑↑ACTION_UP↑↑↑</span><br></pre></td></tr></table></figure>
+<p>点击 TextView：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: ↑↑↑ACTION_UP↑↑↑</span><br><span class="line">TextView: ↓onClick↓</span><br></pre></td></tr></table></figure>
+<p>长按 TextView：（onLongClick 事件产生后，又产生了一次 MOVE 事件，然后不再有事件产生）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TextView: ↓↓↓ACTION_DOWN↓↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br><span class="line">...</span><br><span class="line">TextView: ↓↓onLongClick↓↓</span><br><span class="line">TextView: →→→ACTION_MOVE→→→</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>PS：欢迎关注 <a href="http://sherlockshi.github.io/">SherlockShi 个人博客</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢你的支持，让我继续努力分享有用的技术和知识点!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2018-04-22-025018.jpg" alt="SherlockShi 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2018-04-22-025059.jpg" alt="SherlockShi 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    SherlockShi
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://sherlockshi.github.io/Android-copy-TextView-content-methods_summary.html" title="Android 复制 TextView 内容常用方法汇总">http://sherlockshi.github.io/Android-copy-TextView-content-methods_summary.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TextView/" rel="tag"># TextView</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/application-of-Charles-in-mobile-development.html" rel="next" title="抓包工具 Charles 在移动开发中的应用">
+                <i class="fa fa-chevron-left"></i> 抓包工具 Charles 在移动开发中的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/MacOS-SVN-cant-upload-so-file.html" rel="prev" title="MacOS 下 SVN 无法上传 .so 文件问题">
+                MacOS 下 SVN 无法上传 .so 文件问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="SherlockShi" />
+            
+              <p class="site-author-name" itemprop="name">SherlockShi</p>
+              <p class="site-description motion-element" itemprop="description">Don't be evil.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">121</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SherlockShi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:sherlock_shi@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、前言"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、需求分析"><span class="nav-text">二、需求分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、功能实现"><span class="nav-text">三、功能实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、掉坑了"><span class="nav-text">四、掉坑了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、解决"><span class="nav-text">五、解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-LongClick-事件-PopupWindow"><span class="nav-text">1. LongClick 事件 + PopupWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-LongClick-事件-ContextMenu"><span class="nav-text">2. LongClick 事件 + ContextMenu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Click-事件-ClipboardManager"><span class="nav-text">3. Click 事件 + ClipboardManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-RecyclerView-textIsSelectable"><span class="nav-text">4. RecyclerView + textIsSelectable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-额外赠送：SelectableTextHelper"><span class="nav-text">5. 额外赠送：SelectableTextHelper</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、总结"><span class="nav-text">六、总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、疑问"><span class="nav-text">七、疑问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-当-textIsSelectable-为-false-时"><span class="nav-text">1. 当 textIsSelectable 为 false 时</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-未设置-TextView-的点击、长按事件："><span class="nav-text">1.1 未设置 TextView 的点击、长按事件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-有设置-TextView-的点击、长按事件："><span class="nav-text">1.2 有设置 TextView 的点击、长按事件：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-当-textIsSelectable-为-true-时"><span class="nav-text">2. 当 textIsSelectable 为 true 时</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-未设置-TextView-的点击、长按事件："><span class="nav-text">2.1 未设置 TextView 的点击、长按事件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-有设置-TextView-的点击、长按事件："><span class="nav-text">2.2 有设置 TextView 的点击、长按事件：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SherlockShi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytzKbOTM';
+      var conf = '6af496d25380b5a384692687b1c13271';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("H2W8h4AbtEwoE7j8i0AA9ABU-gzGzoHsz", "44qGllcHkSbi5usA2bihFiN1");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
