@@ -580,10 +580,10 @@
     <link href="http://sherlockshi.github.io/application-of-Charles-in-mobile-development.html"/>
     <id>http://sherlockshi.github.io/application-of-Charles-in-mobile-development.html</id>
     <published>2016-12-06T09:51:00.000Z</published>
-    <updated>2018-04-22T10:42:25.000Z</updated>
+    <updated>2018-11-13T07:56:31.432Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>Charles 是一个 Web 代理服务器（HTTP 代理 / HTTP 监视器），是一个常用的网络封包截取工具，在做移动开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-074025.jpg" alt="Charles"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-163e1b4489d70475.jpg" alt="Charles"></p>
 <p>Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
 <a id="more"></a>
 <p>Charles 的主要功能包括：</p>
@@ -605,7 +605,7 @@
 <li>Mac 版可上 <a href="http://xclient.info/s/charles.html" target="_blank" rel="external">Xclient</a> 下载，里面的软件一般会有多个版本，更重要的是，都会有激活方法，实在是良心网站啊～</li>
 <li>至于 Windows 版的话，百度谷歌搜索一下，或者官网下载之后，网上搜下注册码，相信在天朝生活了几十年的各位小主儿混得比我还开。</li>
 </ul>
-<h1 id="三、Charles-主界面介绍"><a href="#三、Charles-主界面介绍" class="headerlink" title="三、Charles 主界面介绍"></a>三、Charles 主界面介绍</h1><p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-070425.jpg?imageView2/2/w/600/" alt="Charles 主界面介绍"></p>
+<h1 id="三、Charles-主界面介绍"><a href="#三、Charles-主界面介绍" class="headerlink" title="三、Charles 主界面介绍"></a>三、Charles 主界面介绍</h1><p><img src="https://upload-images.jianshu.io/upload_images/1805026-0359bf84b7f88149.jpg" alt="Charles 主界面介绍"></p>
 <h2 id="1-两种视图模式"><a href="#1-两种视图模式" class="headerlink" title="1. 两种视图模式"></a>1. 两种视图模式</h2><p>Charles 主要提供两种查看封包的视图，分别名为 <code>Structure</code> 和 <code>Sequence</code>。</p>
 <ul>
 <li>Structure： 视图将网络请求按访问的<code>域名分类</code>。</li>
@@ -616,21 +616,21 @@
 <ul>
 <li>概述：包含了 URL、请求状态、请求时间、请求数据大小、响应数据大小等信息</li>
 </ul>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-071939.jpg?imageView2/2/w/600/" alt="概述"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-23f7482a32e513d3.jpg" alt="概述"></p>
 <ul>
 <li>请求内容：包含了请求头信息（请求方式、URL、协议、User-Agent、Host 等信息）</li>
 </ul>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-071344.jpg?imageView2/2/w/600/" alt="请求内容"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-8ac87261885142c5.jpg" alt="请求内容"></p>
 <ul>
 <li>响应内容：包含了请求头、响应数据包内容等信息，而响应数据又可以按原格式、Json 格式、Json Text 格式进行显示，如果响应内容是图片，Charles 还可以显示出图片的预览，极大地方便了数据的阅读</li>
 </ul>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-071528.jpg?imageView2/2/w/600/" alt="响应内容"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-648ed83eebf3580d.jpg" alt="响应内容"></p>
 <h1 id="四、截取移动设备上的网络封包"><a href="#四、截取移动设备上的网络封包" class="headerlink" title="四、截取移动设备上的网络封包"></a>四、截取移动设备上的网络封包</h1><p>介绍完 Charles 的基础使用方法后，接下来就进入本文的正题，也就是怎么在移动开发中使用 Charles 来截取移动设备上的网络封包，进行数据分析。本文以 Android 设备为例进行讲解。</p>
 <p>首先我们需要保证电脑和移动设备使用的是 <code>同一个局域网</code>，然后我们需要将移动设备的网络代理设置为电脑的 IP 和端口号。</p>
 <h2 id="1-Charles-设置"><a href="#1-Charles-设置" class="headerlink" title="1. Charles 设置"></a>1. Charles 设置</h2><p>我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 <code>Proxy</code> -&gt; <code>Proxy Settings</code>，填入代理端口 <code>8888</code>（请记住此端口号，后面 Android 设备的设置中会用到），并且勾上 <code>Enable transparent HTTP proxying</code> 就完成了在 Charles 上的设置:</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-073417.jpg?imageView2/2/w/400/" alt="Charles 设置"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-3a3b5741d43fb70a.jpg" alt="Charles 设置"></p>
 <h2 id="2-手机设置"><a href="#2-手机设置" class="headerlink" title="2. 手机设置"></a>2. 手机设置</h2><p>首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的菜单栏的 <code>Help</code> -&gt; <code>Local IP Address</code>，即可在弹出的对话框中看到 IP 地址：</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-074132.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-d0f888c13cca3598.jpg" alt=""></p>
 <p>在手机的 <code>设置</code> -&gt; <code>WLAN</code> 中，可以看到当前连接的 wifi 名称：</p>
 <ul>
 <li>长按</li>
@@ -641,22 +641,22 @@
 <li><code>代理服务器端口</code>填写 <code>Charles 设置</code>中填入的商品号：<code>8888</code></li>
 <li>保存</li>
 </ul>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-082244.jpg" alt="Android 设置"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-a0d602b1d21d650b.jpg" alt="Android 设置"></p>
 <p>设置好之后，我们打开手机上的任意需要网络通讯的程序，就可以看到 Charles 弹出手机请求连接的确认菜单，点击 “Allow” 即可完成设置。</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-082616.jpg?imageView2/2/w/400/" alt="手机连接请求"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-0b7a1db545b1aeb1.jpg" alt="手机连接请求"></p>
 <p>之后，我们就可以在 Charles 上看到手机网络请求的所有数据了。</p>
-<h1 id="五、断点"><a href="#五、断点" class="headerlink" title="五、断点"></a>五、断点</h1><p>Breakpoints 功能类似我们在 Android Studio、Eclipse、Xcode 等开发环境中设置的断点一样，当指定的网络请求发生时，Charles 会截获该请求，这时候我们可以在 Charles 中临时修改网络请求的请求内容、响应内容。</p>
+<h1 id="五、Map-功能"><a href="#五、Map-功能" class="headerlink" title="五、Map 功能"></a>五、Map 功能</h1><h1 id="六、断点"><a href="#六、断点" class="headerlink" title="六、断点"></a>六、断点</h1><p>Breakpoints 功能类似我们在 Android Studio、Eclipse、Xcode 等开发环境中设置的断点一样，当指定的网络请求发生时，Charles 会截获该请求，这时候我们可以在 Charles 中临时修改网络请求的请求内容、响应内容。</p>
 <p>右击我们需要设置断点的请求，选择 <code>Breakpoints</code>：</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-085601.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-486bd9591d56a7f5.jpg" alt=""></p>
 <p>然后选择菜单栏 <code>Proxy</code> -&gt; <code>Breakpoint Settings...</code></p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-085332.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-6054c237a61c49b2.jpg" alt=""></p>
 <p>双击我们要设置断点的请求，进入编辑：</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-085425.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-9df11362ff44c16e.jpg" alt=""></p>
 <p>在这里，我们可以编辑断点的相关参数，常用的功能是根据需要为 <code>请求内容（Request）</code> 或 <code>响应内容（Response）</code>设置断点，即图上的两个复选框，默认为请求内容和响应内容都设置断点，即当发起这个网络请求、以及收到服务器返回的响应数据时，都会进入断点；当然，我们也可以只跟踪 Request 或 Response。</p>
 <p>当我们发起这个断点设置的网络请求时，会进入断点，我们就可以修改请求参数：</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-090113.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-4d61bba64352c200.jpg" alt=""></p>
 <p>当服务器返回数据后，也可以修改返回数据，这里我们常用来修改返回标识（如成功、失败）、修改返回数据（无数据、数据内容为指定值），再查看我们的客户端程序的处理是否正确。</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-090338.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-b1ac2e0a9e96191b.jpg" alt=""></p>
 <blockquote>
 <ul>
 <li>除了设置断点来修改请求数据，还可以使用 <a href="http://blog.devtang.com/2015/11/14/charles-introduction/#u4FEE_u6539_u7F51_u7EDC_u8BF7_u6C42_u5185_u5BB9" target="_blank" rel="external">网络请求的修改和重发功能</a> 来进行请求数据的修改和重发。（右键菜单里的 <code>Edit</code> 已改成 <code>Compose</code>，可能是 4.0 的时候改的，使用时请注意一下）  </li>
@@ -665,7 +665,7 @@
 </blockquote>
 <h1 id="六、慢速网络"><a href="#六、慢速网络" class="headerlink" title="六、慢速网络"></a>六、慢速网络</h1><p>在做移动开发的时候，我们常常需要模拟慢速网络或者高延迟的网络，以测试在移动网络下，应用的表现是否正常。Charles 对此需求提供了很好的支持。</p>
 <p>在菜单栏上选择 <code>Proxy</code> -&gt; <code>Throttle Setting</code>，在之后弹出的对话框中，我们可以勾选上 <code>Enable Throttling</code>，并且可以设置 <code>Throttle Preset</code> 的类型。</p>
-<p><img src="http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-091546.jpg" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1805026-861c487d895fd2aa.jpg" alt=""></p>
 <p>如果我们只想模拟指定网站的慢速网络，可以再勾选上图中的 <code>Only for selected hosts</code> 项，然后在对话框的下半部分设置中增加指定的 <code>hosts</code> 即可。</p>
 <h1 id="七、其它"><a href="#七、其它" class="headerlink" title="七、其它"></a>七、其它</h1><p>Charles 除了以上功能，还可以：</p>
 <ul>
@@ -686,7 +686,7 @@
     <summary type="html">
     
       &lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h1&gt;&lt;p&gt;Charles 是一个 Web 代理服务器（HTTP 代理 / HTTP 监视器），是一个常用的网络封包截取工具，在做移动开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xlpfl.com1.z0.glb.clouddn.com/sherlockshi/2016-12-06-074025.jpg&quot; alt=&quot;Charles&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1805026-163e1b4489d70475.jpg&quot; alt=&quot;Charles&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。&lt;/p&gt;
     
     </summary>
